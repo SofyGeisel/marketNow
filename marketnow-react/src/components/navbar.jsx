@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import DirectionsRunOutlinedIcon from '@mui/icons-material/DirectionsRunOutlined';
 
 const Container = styled.div`
   height: 60px;
@@ -29,15 +30,16 @@ const Language = styled.span`
 `;
 
 const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
+  border: 0.5px solid #fff7f7;
   display: flex;
   align-items: center;
   margin-left: 25px;
-  padding: 5px;
+  padding: 4px;
 `;
 
 const Input = styled.input`
   border: none;
+  font-size: 16px;
 `;
 
 const Center = styled.div`
@@ -74,14 +76,17 @@ const navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>MarketNow</Logo>
+          <Logo>
+            <DirectionsRunOutlinedIcon style={{color: "black", fontSize:36, transform:'rotate(15deg)'}} />
+            MarketNow
+            </Logo>
         </Center>
         <Right>
           <MenuItem>REGISTRARSE</MenuItem>
           <MenuItem>INICIAR SESION</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlinedIcon color="action" />
+              <ShoppingCartOutlinedIcon color="black" />
             </Badge>
           </MenuItem>
         </Right>
