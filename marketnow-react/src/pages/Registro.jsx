@@ -1,9 +1,14 @@
 import React from 'react'
+import Navbar from '../components/navbar'
+import Anuncios from '../components/Anuncios'
+import RegistroForm from '../components/RegistroForm'
 
 const Registro = () => {
   return (
     <div>
-      Registro
+      <Anuncios/>
+      <Navbar/>
+      <RegistroForm/>
     </div>
   )
 }
