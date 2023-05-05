@@ -1,20 +1,16 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 import Anuncios from '../components/Anuncios'
-import Slider from '../components/Slider'
-import Productos from '../components/Productos'
+import RegistroForm from '../components/RegistroForm'
 
-
-const Home = () => {
+const Registro = () => {
   return (
     <div>
       <Anuncios/>
       <Navbar/>
-      <Slider/>
-      <Productos/>
+      <RegistroForm/>
     </div>
   )
 }
 
-export default Home
-
+export default Registro

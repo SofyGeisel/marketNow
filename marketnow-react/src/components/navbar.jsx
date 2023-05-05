@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import DirectionsRunOutlinedIcon from '@mui/icons-material/DirectionsRunOutlined';
+import { Link } from "react-router-dom"
 
 const Container = styled.div`
   height: 60px;
@@ -58,11 +59,15 @@ const Right = styled.div`
   justify-content: flex-end;
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled(Link)`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  text-decoration: none;
+  color:black;
+
 `;
+
 
 const navbar = () => {
   return (
@@ -82,11 +87,11 @@ const navbar = () => {
             </Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTRARSE</MenuItem>
-          <MenuItem>INICIAR SESION</MenuItem>
-          <MenuItem>
+          <MenuItem to="/registro">REGISTRARSE</MenuItem>
+          <MenuItem to="/login">INICIAR SESION</MenuItem>
+          <MenuItem to="/carrito">
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlinedIcon color="black" />
+              <ShoppingCartOutlinedIcon to="/carrito"color="black" />
             </Badge>
           </MenuItem>
         </Right>
