@@ -1,9 +1,14 @@
 import React from 'react'
+import Navbar from '../components/navbar'
+import Anuncios from '../components/Anuncios'
+import Perfil from '../components/perfil'
 
 const Miperfil = () => {
   return (
     <div>
-      Mi perfil
+      <Navbar/>
+      <Anuncios/>
+      <Perfil/>
     </div>
   )
 }
