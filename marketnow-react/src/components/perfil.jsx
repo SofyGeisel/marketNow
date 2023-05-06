@@ -63,7 +63,7 @@ const Perfil = () => {
                                 </ListItem>
                             </List>
                             </Grid>
-                            <Grid item direction={"row"} justifyContent="flex-end" alignItems="flex-end" xs={12}>
+                            <Grid className="btnEditarPerfil" item direction={"row"} justifyContent="flex-end" alignItems="flex-end" xs={12}>
                                 <Button variant="contained" color="primary" sx={{ m: 2 }} >Editar</Button>
                             </Grid>
                         </Grid>

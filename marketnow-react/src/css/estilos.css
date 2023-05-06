@@ -12,3 +12,11 @@
     align-items: center;
     height: 100vh;
 }
+
+
+.btnEditarPerfil{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
