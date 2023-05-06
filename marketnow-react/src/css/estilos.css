@@ -5,3 +5,18 @@
     justify-content: center;
     height: 100vh;
 }
+
+.Container_Perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.btnEditarPerfil{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}

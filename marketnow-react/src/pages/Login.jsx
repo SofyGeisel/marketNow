@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 import Anuncios from '../components/Anuncios'
-import Login_form from '../components/Login_form'
+import LoginForm from '../components/Login_form'
 
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
     <div>
       <Anuncios/>
       <Navbar/>
-      <Login_form/>
+      <LoginForm/>
 
 
     </div>
