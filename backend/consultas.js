@@ -9,19 +9,19 @@ const pool = new Pool({
     allowExitOnIdle: true
 })
 
-const addUser = async (usuarioid, nombre, email, direccion, password, lastloggin) => {
+const addUser = async (nombre, mail, direccion, password) => {
 
-    const consulta = "INSERT INTO usuarios (usuarioid, nombre, email, direccion, password, lastloggin) VALUES ($1, $2, $3, $4, $5, $6)"
+    const consulta = "INSERT INTO usuarios (nombre, mail, direccion, password) VALUES ($1, $2, $3, $4)"
     const passwordEncriptada = bcrypt.hashSync(password)
-    const values = [email, passwordEncriptada, rol, lenguage]
+    const values = [nombre, mail, direccion, passwordEncriptada]
     const result = await pool.query( consulta, values)
     console.log("usuario registrado con exito")
 }
 
-const validarCredenciales = async ( email, password ) => {
+const validarCredenciales = async ( mail, password ) => {
     
-    const values = [email]
-    const consulta = "SELECT * FROM usuarios WHERE email = $1"
+    const values = [mail]
+    const consulta = "SELECT * FROM usuarios WHERE mail = $1"
     const { rows: [usuario], rowCount } = await pool.query(consulta, values)
     const { password: passwordEncriptada } = usuario
     const passwordEsCorrecta = bcrypt.compareSync(password, passwordEncriptada)
@@ -29,10 +29,10 @@ const validarCredenciales = async ( email, password ) => {
     throw { code: 401, message: "Email o contraseña incorrecta" }
 }
 
-const extraeUsuario = async ( email ) => {
+const extraeUsuario = async ( mail ) => {
 
-    const value = [email]
-    const consulta = "SELECT email, rol, lenguage FROM usuarios WHERE email = $1"
+    const value = [mail]
+    const consulta = "SELECT usuarioid, nombre, mail, direccion, password FROM usuarios WHERE mail = $1"
     const { rows: usuario } = await pool.query(consulta, value)
     return usuario
 
