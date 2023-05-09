@@ -12,11 +12,11 @@ app.use(express.json())
 app.use(cors())
 
 
-app.post("/usuarios",verificarCredenciales, async (req, res) => {
+app.post("/usuarios", async (req, res) => {
 
     try{
-        const { usuarioid = 1, nombre, email, direccion, password, lastloggin } =req.body
-        await addUser(usuarioid, nombre, email, direccion, password, lastloggin)
+        const { nombre, mail, direccion, password } =req.body
+        await addUser(nombre, mail, direccion, password)
         res.send("Usuario ha sido creado con exito")
     } catch(err){
         console.log(err)
@@ -27,9 +27,9 @@ app.post("/usuarios",verificarCredenciales, async (req, res) => {
 
 app.post("/login", async (req, res) => {
     try {
-        const { email, password } = req.body
-        await validarCredenciales(email, password)
-        const token = jwt.sign({ email }, secretKey)
+        const { mail, password } = req.body
+        await validarCredenciales(mail, password)
+        const token = jwt.sign({ mail }, secretKey)
         res.send(token)
 
     } catch (error) {
