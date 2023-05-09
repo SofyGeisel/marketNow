@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(cors())
 
 
-app.post("/usuarios", async (req, res) => {
+app.post("/usuarios", verificarCredenciales, async (req, res) => {
 
     try{
         const { nombre, mail, direccion, password } =req.body

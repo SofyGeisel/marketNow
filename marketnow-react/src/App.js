@@ -1,4 +1,6 @@
 import React from "react";
+import Context from './context'
+import { useState } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Home from "./pages/Home";
@@ -17,31 +19,35 @@ import Detallecompra from "./pages/Detallecompra";
 
 
 function App() {
+  
+  const [usuario, setUsuario] = useState(null)
+
   return(
     <div className="App">
-  <BrowserRouter>
-      
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/registro" element={<Registro/>} />
-      <Route path="/login" element={<Login/>} />
-      <Route path="/tienda" element={<Tienda/>} />
-      <Route path="/detalleproducto" element={<Detalleproducto/>} />
-      <Route path="/miperfil" element={<Miperfil/>} />
-      <Route path="/editarperfil" element={<Editarperfil/>} />
-      <Route path="/agregarproducto" element={<Agregarproducto/>} />
-      <Route path="/formulario" element={<Formulario/>} />
-      <Route path="/misfavoritos" element={<Misfavoritos/>} />
-      <Route path="/carrito" element={<Carrito/>} />
-      <Route path="/detallecompra" element={<Detallecompra/>} />
 
-      
-      
-      <Route path="*" element={<Notfound/>} />
-      
-    
-    </Routes>
-  </BrowserRouter> 
+      <Context.Provider value={{ usuario, setUsuario }} >
+        <BrowserRouter>
+            
+          <Routes>
+
+            <Route path="/" element={<Home />} />
+            <Route path="/registro" element={<Registro/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/tienda" element={<Tienda/>} />
+            <Route path="/detalleproducto" element={<Detalleproducto/>} />
+            <Route path="/miperfil" element={<Miperfil/>} />
+            <Route path="/editarperfil" element={<Editarperfil/>} />
+            <Route path="/agregarproducto" element={<Agregarproducto/>} />
+            <Route path="/formulario" element={<Formulario/>} />
+            <Route path="/misfavoritos" element={<Misfavoritos/>} />
+            <Route path="/carrito" element={<Carrito/>} />
+            <Route path="/detallecompra" element={<Detallecompra/>} />
+            <Route path="*" element={<Notfound/>} />
+              
+          </Routes>
+        </BrowserRouter>
+
+      </Context.Provider>
     
   </div>  
 );
