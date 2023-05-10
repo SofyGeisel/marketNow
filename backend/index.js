@@ -15,8 +15,8 @@ app.use(cors())
 app.post("/usuarios", verificarCredenciales, async (req, res) => {
 
     try{
-        const { nombre, mail, direccion, password } =req.body
-        await addUser(nombre, mail, direccion, password)
+        const { nombre, email, direccion, password } =req.body
+        await addUser(nombre, email, direccion, password)
         res.send("Usuario ha sido creado con exito")
     } catch(err){
         console.log(err)
@@ -27,9 +27,9 @@ app.post("/usuarios", verificarCredenciales, async (req, res) => {
 
 app.post("/login", async (req, res) => {
     try {
-        const { mail, password } = req.body
-        await validarCredenciales(mail, password)
-        const token = jwt.sign({ mail }, secretKey)
+        const { email, password } = req.body
+        await validarCredenciales(email, password)
+        const token = jwt.sign({ email }, secretKey)
         res.send(token)
 
     } catch (error) {

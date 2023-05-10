@@ -3,12 +3,43 @@ import Box from '@mui/material/Box';
 import { Typography, FormControl, Button, Grid, TextField, Link, InputAdornment   } from "@mui/material";
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-
+import { useState, useContext } from "react";
+import Context from "../context";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import '../css/estilos.css'
 
 
 const Login_form = () => {
    
+    const { setUsuario } = useContext(Context);
+    const navigate = useNavigate();
+    const [usuario, setUsuarioLocal] = useState({});
+  
+    const handleSetUsuario = ({ target: { value, name } }) => {
+      const field = {};
+      field[name] = value;
+      setUsuarioLocal({ ...usuario, ...field });
+    };
+  
+    const iniciarSesion = async () => {
+  
+      const urlServer = "http://localhost:3000";
+      const endpoint = "/login";
+      const { email, password } = usuario;
+      try {
+        if (!email || !password) return alert("Email y password obligatorias");
+        const { data: token } = await axios.post(urlServer + endpoint, usuario);
+        alert("Usuario identificado con éxito 😀");
+        localStorage.setItem("token", token);
+        setUsuario()
+        navigate("/home");
+      } catch ({ response: { data: message } }) {
+        alert(message + " 🙁");
+        console.log(message);
+      }
+    };
+
     return (
        
         <div className="Container_Login">
@@ -25,7 +56,7 @@ const Login_form = () => {
                 <Grid container spacing={1} rowSpacing={2} marginBottom={4}>
                     <Grid item xs={12}>
                         <FormControl fullWidth>
-                            <TextField fullWidth id="email" type="email" label="Email" 
+                            <TextField fullWidth id="email" type="email" label="Email" value={usuario.email} onChange={handleSetUsuario}
                             InputProps={{
                                 startAdornment: (
                                   <InputAdornment position="end">
@@ -38,7 +69,7 @@ const Login_form = () => {
                     </Grid>
                     <Grid item xs={12}>
                         <FormControl fullWidth >
-                            <TextField fullWidth id="pwd" type="password" label="Password" variant="outlined" 
+                            <TextField fullWidth id="password" type="password" label="Password" variant="outlined" value={usuario.password} onChange={handleSetUsuario}
                             InputProps={{
                                 startAdornment: (
                                   <InputAdornment position="end">
@@ -50,7 +81,7 @@ const Login_form = () => {
                         </FormControl>
                     </Grid>
                     <Grid item xs={12}>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="primary" onClick={iniciarSesion}>
                         Iniciar Sesión
                     </Button> 
                     </Grid>  
