@@ -1,8 +1,9 @@
 import React from "react";
-import Context from './context'
 import { useState } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import ContextUser from './context'
 
+//Componentes y Vistas
 import Home from "./pages/Home";
 import Registro from "./pages/Registro";
 import Login from "./pages/Login";
@@ -26,7 +27,7 @@ function App() {
   return(
     <div className="App">
 
-      <Context.Provider value={{ usuario, setUsuario }} >
+      <ContextUser.Provider value={{ usuario, setUsuario }} >
         <BrowserRouter>
             
           <Routes>
@@ -49,7 +50,7 @@ function App() {
           </Routes>
         </BrowserRouter>
 
-      </Context.Provider>
+      </ContextUser.Provider>
     
   </div>  
 );

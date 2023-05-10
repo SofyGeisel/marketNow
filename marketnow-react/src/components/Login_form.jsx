@@ -4,7 +4,7 @@ import { Typography, FormControl, Button, Grid, TextField, Link, InputAdornment 
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useState, useContext } from "react";
-import Context from "../context";
+import ContextUser from "../context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../css/estilos.css'
@@ -12,31 +12,39 @@ import '../css/estilos.css'
 
 const Login_form = () => {
    
-    const { setUsuario } = useContext(Context);
+    const { setUsuario } = useContext(ContextUser);
     const navigate = useNavigate();
-    const [usuario, setUsuarioLocal] = useState({});
+    const [email, setEmailLocal] = useState("");
+    const [password, setPasswordLocal] = useState("");
   
-    const handleSetUsuario = ({ target: { value, name } }) => {
-      const field = {};
-      field[name] = value;
-      setUsuarioLocal({ ...usuario, ...field });
-    };
+
   
     const iniciarSesion = async () => {
-  
-      const urlServer = "http://localhost:3000";
-      const endpoint = "/login";
-      const { email, password } = usuario;
+
+      const usuarioprevio = {
+        'email': email,
+        'password': password 
+      };
+    
       try {
-        if (!email || !password) return alert("Email y password obligatorias");
-        const { data: token } = await axios.post(urlServer + endpoint, usuario);
-        alert("Usuario identificado con éxito 😀");
-        localStorage.setItem("token", token);
-        setUsuario()
-        navigate("/home");
-      } catch ({ response: { data: message } }) {
-        alert(message + " 🙁");
-        console.log(message);
+
+        const response = await fetch("http://localhost:3000/login", {
+            method: "POST", // or 'PUT'
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(usuarioprevio),
+        });
+
+        const result = await response.json();
+        console.log("Success:", result);
+        if (result.ok) {
+            console.log("Success:", result);
+          }
+        
+
+      } catch (error) {
+        console.error("Error:", error);
       }
     };
 
@@ -56,7 +64,7 @@ const Login_form = () => {
                 <Grid container spacing={1} rowSpacing={2} marginBottom={4}>
                     <Grid item xs={12}>
                         <FormControl fullWidth>
-                            <TextField fullWidth id="email" type="email" label="Email" value={usuario.email} onChange={handleSetUsuario}
+                            <TextField fullWidth id="email" type="email" label="Email" value={email} onChange={({ target }) => setEmailLocal(target.value)}
                             InputProps={{
                                 startAdornment: (
                                   <InputAdornment position="end">
@@ -69,7 +77,7 @@ const Login_form = () => {
                     </Grid>
                     <Grid item xs={12}>
                         <FormControl fullWidth >
-                            <TextField fullWidth id="password" type="password" label="Password" variant="outlined" value={usuario.password} onChange={handleSetUsuario}
+                            <TextField fullWidth id="password" type="password" label="Password" variant="outlined" value={password} onChange={({ target }) => setPasswordLocal(target.value)}
                             InputProps={{
                                 startAdornment: (
                                   <InputAdornment position="end">
