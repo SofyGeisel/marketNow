@@ -9,27 +9,23 @@ import { Link } from "react-router-dom"
 const Container = styled.div`
   height: 60px;
 `;
-
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
-
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-item: center;
 `;
-
 const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
 `;
-
 const SearchContainer = styled.div`
   border: 0.5px solid #fff7f7;
   display: flex;
@@ -37,28 +33,23 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 4px;
 `;
-
 const Input = styled.input`
   border: none;
   font-size: 16px;
 `;
-
 const Center = styled.div`
   flex: 1;
   text-align: center;
 `;
-
 const Logo = styled.h1`
   font-weight: bold;
 `;
-
 const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 `;
-
 const MenuItem = styled(Link)`
   font-size: 14px;
   cursor: pointer;
@@ -67,7 +58,6 @@ const MenuItem = styled(Link)`
   color:black;
 
 `;
-
 
 const navbar = () => {
   return (
