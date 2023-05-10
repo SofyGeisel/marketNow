@@ -1,0 +1,30 @@
+.Container_Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.Container_Perfil{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.btnEditarPerfil{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.contPaginas{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+

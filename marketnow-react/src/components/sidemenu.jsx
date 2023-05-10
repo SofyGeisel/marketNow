@@ -1,0 +1,153 @@
+import * as React from 'react';
+import Context from '../context';
+import { useContext } from 'react';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import MenuIcon from '@mui/icons-material/Menu';
+import { IconButton } from '@mui/material';
+import Drawer from '@mui/material/Drawer';
+
+const drawerWidth = 240;
+
+const SideMenu = (props) => {
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const { user } = useContext(Context);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
+  const drawer = (
+    
+      <Box sx={{ width: '100%', maxWidth: 360, minWidth: 200, height: '100vh',  bgcolor: 'background.paper', marginLeft: 0}}>
+      <Box p={5}>
+        <p>Bienvenido Usuario </p>
+      </Box>
+      <Divider/>
+    <List component="nav" aria-label="main mailbox folders">
+      <ListItemButton
+        selected={selectedIndex === 0}
+        onClick={(event) => handleListItemClick(event, 1)}
+        href='/miperfil'
+      >
+        <ListItemIcon>
+          <AccountCircleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Mi Perfil" />
+      </ListItemButton>
+      <ListItemButton
+        selected={selectedIndex === 0}
+        onClick={(event) => handleListItemClick(event, 1)}
+        href='/compras'
+      >
+        <ListItemIcon>
+          <ShoppingBasketIcon />
+        </ListItemIcon>
+        <ListItemText primary="Mis Compras" />
+      </ListItemButton>
+
+      <ListItemButton
+        selected={selectedIndex === 0}
+        onClick={(event) => handleListItemClick(event, 1)}
+        href='/misfavoritos'
+      >
+        <ListItemIcon>
+          <FavoriteIcon />
+        </ListItemIcon>
+        <ListItemText primary="Mis Favoritos" />
+      </ListItemButton>
+
+      <ListItemButton
+        selected={selectedIndex === 0}
+        onClick={(event) => handleListItemClick(event, 1)}
+        href='/agregarproducto'
+      >
+        <ListItemIcon>
+          <AddCircleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Agregar Producto" />
+      </ListItemButton>
+    </List>
+    
+  </Box>
+    
+  );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
+   return(
+    <Box sx={{ display: 'flex' }}>
+      <Box
+        position="fixed"
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
+      >
+
+        <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, backgroundColor:'#1976d2', margin:'10px', color:'white', display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+        </IconButton>
+      </Box> 
+        
+      <Box
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: 'none', sm: 'block' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, marginTop:'90px'},
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+      
+    </Box>
+    
+    )
+}
+
+export default SideMenu;
