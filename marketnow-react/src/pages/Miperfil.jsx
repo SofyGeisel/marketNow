@@ -7,23 +7,21 @@ import Grid from '@mui/material/Grid';
 
 import { Container } from '@mui/material'
 
+
 const Miperfil = () => {
   return (
     <div className='contPaginas'>
       <Navbar/>
       <Anuncios/>
 
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          <SideMenu/>
-        </Grid>
+      <Container maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0}}>
+        <SideMenu/>
+        <Perfil/>
+      </Container>
+          
 
-        <Grid xs={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <Perfil/>
-        </Grid>
         
-        
-      </Grid>
+
       
       
     </div>

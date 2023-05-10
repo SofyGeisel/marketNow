@@ -1,4 +1,6 @@
 import React from "react";
+import Context from '../context';
+import { useContext } from 'react';
 import { Box, Grid, Avatar, ListItem, ListItemAvatar, ListItemText, Divider, List, Typography, Button } from "@mui/material";
 import BadgeIcon from '@mui/icons-material/Badge';
 import HomeIcon from '@mui/icons-material/Home';
@@ -8,17 +10,17 @@ import '../css/estilos.css'
 
 
 const Perfil = () => {
+    const { user } = useContext(Context)
     return (
         <div className="Container_Perfil">
-                <Box flex
-                    sx={{
+                <Box sx={{
                         bgcolor: 'background.paper',
                         boxShadow: 1,
                         borderRadius: 2,
                         p: 4,
                         m:10,
-                        minWidth: 300,
-                        width: '75%'
+                        minWidth: 200,
+                        width: '75%',
                         }}
                         >
                         <Typography marginBottom={2} variant="h5">Mi Perfil</Typography>
@@ -41,7 +43,7 @@ const Perfil = () => {
                                         <BadgeIcon />
                                     </Avatar>
                                     </ListItemAvatar>
-                                    <ListItemText primary="Nombre" secondary="Usuario Prueba" />
+                                    <ListItemText primary="Nombre" secondary={user} />
                                 </ListItem>
                                 <Divider variant="inset" component="li" />
                                 <ListItem>
