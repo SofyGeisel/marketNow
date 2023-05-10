@@ -19,7 +19,7 @@ const Login_form = () => {
   
 
   
-    const iniciarSesion = async () => {
+    /**const iniciarSesion = async () => {
 
       const usuarioprevio = {
         'email': email,
@@ -36,8 +36,9 @@ const Login_form = () => {
             body: JSON.stringify(usuarioprevio),
         });
 
-        const result = await response.json();
+        const result = await response.json()
         console.log("Success:", result);
+
         if (result.ok) {
             console.log("Success:", result);
           }
@@ -47,6 +48,32 @@ const Login_form = () => {
         console.error("Error:", error);
       }
     };
+    **/
+    const iniciarSesion = async () => {
+
+        const usuarioprevio = {
+            'email': email,
+            'password': password 
+          };
+
+        const usuario = JSON.stringify(usuarioprevio)
+
+        const urlServer = "http://localhost:3000";
+        const endpoint = "/login";
+
+        try {
+          if (!email || !password) return alert("Email y password obligatorias");
+          const { data: token } = await axios.post(urlServer + endpoint, usuario);
+          console.log(token);
+          alert("Usuario identificado con éxito 😀");
+          localStorage.setItem("token", token);
+          setUsuario()
+          navigate("/");
+        } catch ({ response: { data: message } }) {
+          alert(message + " 🙁");
+          console.log(message);
+        }
+      };
 
     return (
        
