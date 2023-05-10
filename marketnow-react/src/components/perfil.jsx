@@ -19,7 +19,7 @@ const Perfil = () => {
                         borderRadius: 2,
                         p: 4,
                         m:10,
-                        minWidth: 200,
+                        minWidth: 350,
                         width: '75%',
                         }}
                         >

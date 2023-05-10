@@ -8,9 +8,10 @@
 
 .Container_Perfil{
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
 }
 
 
