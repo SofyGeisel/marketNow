@@ -16,6 +16,7 @@ import Editarperfil from "./pages/Editarperfil";
 import Formulario from "./pages/Formulario";
 import Misfavoritos from "./pages/Misfavoritos";
 import Detallecompra from "./pages/Detallecompra";
+import MisCompras from "./pages/Mis compras";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/misfavoritos" element={<Misfavoritos/>} />
             <Route path="/carrito" element={<Carrito/>} />
             <Route path="/detallecompra" element={<Detallecompra/>} />
+            <Route path="/compras" element={<MisCompras/>} />
             <Route path="*" element={<Notfound/>} />
               
           </Routes>

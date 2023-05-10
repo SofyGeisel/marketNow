@@ -8,9 +8,9 @@
 
 .Container_Perfil{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    height: 100vh;
 }
 
 
@@ -19,5 +19,11 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+.contPaginas{
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
