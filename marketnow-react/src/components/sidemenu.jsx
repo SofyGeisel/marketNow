@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Context from '../context';
-import { useContext } from 'react';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -27,17 +26,47 @@ const SideMenu = (props) => {
     setMobileOpen(!mobileOpen);
   };
 
-  const { user } = useContext(Context);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
 
+  const [usuario, setUsuario] = useState({});
+
+  const obtenerUsuario = async () => {
+
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await fetch("http://localhost:3000/usuarios", {
+        method: "GET", // or 'PUT'
+        headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token,
+        },
+      });
+
+      let result = await response.json();
+      setUsuario(result)
+      console.log(result)
+    } catch ({ response: { data: message } }) {
+      alert(message + " 🙁");
+      console.log(message);
+    }
+  };
+
+  useEffect(() => {
+    obtenerUsuario();
+  },[]);
+
   const drawer = (
     
       <Box sx={{ width: '100%', maxWidth: 360, minWidth: 200, height: '100vh',  bgcolor: 'background.paper', marginLeft: 0}}>
-      <Box p={5}>
+      <Box p={5}>   
         <p>Bienvenido Usuario </p>
+        {usuario.map(user =>
+        <strong>{user.nombre}</strong>
+        )}
       </Box>
       <Divider/>
     <List component="nav" aria-label="main mailbox folders">

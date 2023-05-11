@@ -32,7 +32,7 @@ const validarCredenciales = async ( email, password ) => {
 const extraeUsuario = async ( email ) => {
 
     const value = [email]
-    const consulta = "SELECT usuarioid, nombre, email, direccion, password FROM usuarios WHERE email = $1"
+    const consulta = "SELECT usuarioid, nombre, email, direccion FROM usuarios WHERE email = $1"
     const { rows: usuario } = await pool.query(consulta, value)
     return usuario
 

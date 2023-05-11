@@ -22,12 +22,11 @@ import MisCompras from "./pages/Mis compras";
 
 function App() {
   
-  const [usuario, setUsuario] = useState(null)
 
   return(
     <div className="App">
 
-      <ContextUser.Provider value={{ usuario, setUsuario }} >
+      <ContextUser.Provider>
         <BrowserRouter>
             
           <Routes>
