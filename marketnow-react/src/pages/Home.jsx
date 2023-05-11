@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/navbar'
 import Anuncios from '../components/Anuncios'
 import Slider from '../components/Slider'
-import Productos from '../components/Productos'
+import Footer from '../components/Footer'
 
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
       <Anuncios/>
       <Navbar/>
       <Slider/>
-      <Productos/>
+      <Footer/>
     </div>
   )
 }

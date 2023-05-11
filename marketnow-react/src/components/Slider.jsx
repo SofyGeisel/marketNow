@@ -6,12 +6,11 @@ import { sliderItems } from "../data";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   position: relative;
   overflow: hidden;
 `;
-
 const Arrow = styled.div`
   width: 50px;
   height: 50px;
@@ -29,42 +28,37 @@ const Arrow = styled.div`
   opacity: 0.5;
   z-index: 2;
 `;
-
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
   transition: all 1.5s ease;
   transform: translateX(${props=>props.slideIndex * -100}vw);
 `;
-
 const Slide = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: center;
 `;
-
 const ImgContainer = styled.div`
   height: 100%;
   flex: 1;
   padding-right:6rem;
   padding-left:0;
 `;
-
 const Image = styled.img`
   object-fit: cover;
-  width:33rem;
+  width:30rem;
   padding: 4rem;
 `;
-
 const InfoContainer = styled.div`
   flex: 1;
   padding:2rem;
   padding-left:12rem;
+  display: flex;
 `;
-
 const Title = styled.h1`
-  font-size: 4.5rem;
+  font-size: 70px;
   font-family: urbanist, sans-serif;
   font-weight: 400;
 `;

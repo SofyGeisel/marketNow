@@ -3,8 +3,6 @@ import Navbar from '../components/navbar'
 import Anuncios from '../components/Anuncios'
 import Perfil from '../components/perfil'
 import SideMenu from '../components/sidemenu'
-import Grid from '@mui/material/Grid';
-
 import { Container } from '@mui/material'
 
 

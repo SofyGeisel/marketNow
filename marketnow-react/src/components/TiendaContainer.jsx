@@ -4,9 +4,9 @@ import { Pagination } from '@mui/material';
 
 const Container = styled.div`
   height: 50px;
-  margin-left: 35px;
+  margin-left: 23rem;
   margin-right: 35px;
-  margin-top: 50px;
+  margin-top: 15px;
   
 `;
 
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 const Left = styled.div`
-  flex: 1;
+  flex: 0.75;
 `;
 const Titulo = styled.h1`
     font-size: 40px;
@@ -25,7 +25,7 @@ const Titulo = styled.h1`
 const Center = styled.div`
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   `;
 
   const Right = styled.div`

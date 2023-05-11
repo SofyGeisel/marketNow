@@ -2,11 +2,14 @@ import styled from "styled-components";
 import { listaDeProductos } from "../data";
 import Producto from "./Producto";
 
+
 const Container = styled.div`
-  padding: 20px;
+  
   display: flex;
+  height: 80vh;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: left;
+  margin-left: 22rem;
 `;
 
 

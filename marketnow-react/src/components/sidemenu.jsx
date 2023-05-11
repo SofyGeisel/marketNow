@@ -31,7 +31,7 @@ const SideMenu = (props) => {
     setSelectedIndex(index);
   };
 
-  const [usuario, setUsuario] = useState({});
+  const [usuario, setUsuario] = useState([]);
 
   const obtenerUsuario = async () => {
 
@@ -47,7 +47,7 @@ const SideMenu = (props) => {
       });
 
       let result = await response.json();
-      setUsuario(result)
+      setUsuario(result);
       console.log(result)
     } catch ({ response: { data: message } }) {
       alert(message + " 🙁");

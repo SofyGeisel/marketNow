@@ -8,6 +8,7 @@ import { Link } from "react-router-dom"
 
 const Container = styled.div`
   height: 60px;
+   
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -41,8 +42,12 @@ const Center = styled.div`
   flex: 1;
   text-align: center;
 `;
-const Logo = styled.h1`
+const Logo = styled(Link)`
   font-weight: bold;
+  font-size: 35px;
+  text-decoration: none;
+  color:black;
+
 `;
 const Right = styled.div`
   flex: 1;
@@ -56,7 +61,6 @@ const MenuItem = styled(Link)`
   margin-left: 25px;
   text-decoration: none;
   color:black;
-
 `;
 
 const navbar = () => {
@@ -71,7 +75,7 @@ const navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>
+          <Logo to="/">
             <DirectionsRunOutlinedIcon style={{color: "black", fontSize:36, transform:'rotate(15deg)'}} />
             MarketNow
             </Logo>

@@ -3,6 +3,7 @@ import React from 'react'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { Link } from "react-router-dom"
 
 const Info = styled.div`
   width: 100%;
@@ -25,7 +26,8 @@ const Info = styled.div`
 const Container = styled.div`
   flex:1;
   margin: 15px;
-  min-width: 24%;
+  min-width: 15rem;
+  max-width: 180px;
   height: 300px;
   background-color:white;
   display:flex;
@@ -41,8 +43,8 @@ const Container = styled.div`
 
   `;
 const FondoImagen = styled.div`
-  width: 180px;
-  height: 180px;
+  width: 11rem;
+  height: 11rem ;
   background-color: black;
   position: absolute;
   border-top-right-radius: 30%;
@@ -77,7 +79,7 @@ const Descripcion = styled.h4`
 `;
 
 
-const Icon = styled.div`
+const Icon = styled(Link)`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -105,13 +107,13 @@ const Producto = ({item}) => {
           <Descripcion>{item.descripcion}</Descripcion> 
         </TituloyDescripcion>
         <Info>
-          <Icon>
-          <ShoppingCartOutlinedIcon color="white" />
+          <Icon to="/carrito">
+          <ShoppingCartOutlinedIcon color="white"  />
           </Icon>
-          <Icon>
+          <Icon to="/detalleproducto">
           <SearchIcon/>
           </Icon>
-          <Icon>
+          <Icon to="/misfavoritos">
           <FavoriteBorderOutlinedIcon color="white"/>
           </Icon>
         </Info>

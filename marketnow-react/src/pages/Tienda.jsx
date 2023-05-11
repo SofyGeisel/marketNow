@@ -4,7 +4,7 @@ import Anuncios from '../components/Anuncios'
 import Productos from '../components/Productos'
 import TiendaContainer from '../components/TiendaContainer'
 import SideMenu from '../components/sidemenu'
-
+import Footer from '../components/Footer'
 import { Container } from '@mui/material'
 
 const Tienda = () => {
@@ -17,7 +17,7 @@ const Tienda = () => {
       </Container>
         <TiendaContainer/>
         <Productos/>
-
+        <Footer/>
     </div>
   )
 }
