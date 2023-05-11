@@ -3,77 +3,50 @@ import Box from '@mui/material/Box';
 import { Typography, FormControl, Button, Grid, TextField, Link, InputAdornment   } from "@mui/material";
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useState, useContext } from "react";
-import ContextUser from "../context";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import '../css/estilos.css'
 
 
 const Login_form = () => {
    
-    const { setUsuario } = useContext(ContextUser);
     const navigate = useNavigate();
     const [email, setEmailLocal] = useState("");
     const [password, setPasswordLocal] = useState("");
   
 
-  
-    /**const iniciarSesion = async () => {
-
-      const usuarioprevio = {
-        'email': email,
-        'password': password 
-      };
-    
-      try {
-
-        const response = await fetch("http://localhost:3000/login", {
-            method: "POST", // or 'PUT'
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(usuarioprevio),
-        });
-
-        const result = await response.json()
-        console.log("Success:", result);
-
-        if (result.ok) {
-            console.log("Success:", result);
-          }
-        
-
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-    **/
     const iniciarSesion = async () => {
 
         const usuarioprevio = {
             'email': email,
             'password': password 
-          };
-
-        const usuario = JSON.stringify(usuarioprevio)
-
-        const urlServer = "http://localhost:3000";
-        const endpoint = "/login";
-
+        };
+        
         try {
-          if (!email || !password) return alert("Email y password obligatorias");
-          const { data: token } = await axios.post(urlServer + endpoint, usuario);
-          console.log(token);
-          alert("Usuario identificado con éxito 😀");
-          localStorage.setItem("token", token);
-          setUsuario()
-          navigate("/");
-        } catch ({ response: { data: message } }) {
-          alert(message + " 🙁");
-          console.log(message);
-        }
-      };
+
+            const response = await fetch("http://localhost:3000/login", {
+                method: "POST", // or 'PUT'
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify(usuarioprevio),
+            });
+
+            const result = await response
+            const token = await response.text()
+
+            if (result.ok) {
+                
+                alert("Usuario identificado con éxito 😀");
+                localStorage.setItem("token", token);
+                navigate("/tienda");
+            }
+            
+            } catch (error) {
+                console.error("Error:", error);
+            }
+    };
+  
 
     return (
        
