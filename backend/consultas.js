@@ -26,7 +26,7 @@ const validarCredenciales = async ( email, password ) => {
     const { password: passwordEncriptada } = usuario
     const passwordEsCorrecta = bcrypt.compareSync(password, passwordEncriptada)
     if (!passwordEsCorrecta || !rowCount)
-    throw { code: 401, message: "Eemail o contraseña incorrecta" }
+    throw { code: 401, message: "Email o contraseña incorrecta" }
 }
 
 const extraeUsuario = async ( email ) => {
