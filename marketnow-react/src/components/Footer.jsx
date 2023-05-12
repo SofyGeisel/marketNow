@@ -14,7 +14,7 @@ const Container = styled.div`
   display: flex;
   background-color: black;
   color: white;
-
+  
 `;
 const Left = styled.div`
   flex: 1;

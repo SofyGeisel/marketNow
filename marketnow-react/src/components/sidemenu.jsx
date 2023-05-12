@@ -166,7 +166,7 @@ const SideMenu = (props) => {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, marginTop:'90px'},
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, marginTop:'120px', marginBottom: '56px', zIndex: 1,},
           }}
           open
         >
