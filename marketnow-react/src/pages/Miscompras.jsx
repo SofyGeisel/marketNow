@@ -21,7 +21,7 @@ const FooterContainer = styled.div`
 `;
 
 
-const Agregarproducto = () => {
+const MisCompras = () => {
   return (
     <div>
       <Anuncios/>
@@ -37,4 +37,4 @@ const Agregarproducto = () => {
   )
 }
 
-export default Agregarproducto
+export default MisCompras

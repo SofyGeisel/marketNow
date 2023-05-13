@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Navbar from '../components/navbar'
 import Anuncios from '../components/Anuncios'
 import Productos from '../components/Productos'
@@ -6,6 +7,13 @@ import TiendaContainer from '../components/TiendaContainer'
 import SideMenu from '../components/sidemenu'
 import Footer from '../components/Footer'
 import { Container } from '@mui/material'
+
+
+const FooterContainer = styled.div`
+  position: relative; 
+  z-index: 1; 
+`;
+
 
 const Tienda = () => {
   return (
@@ -17,7 +25,9 @@ const Tienda = () => {
       </Container>
         <TiendaContainer/>
         <Productos/>
+        <FooterContainer>
         <Footer/>
+        </FooterContainer>
     </div>
   )
 }
