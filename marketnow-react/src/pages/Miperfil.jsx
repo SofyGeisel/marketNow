@@ -16,10 +16,7 @@ const Miperfil = () => {
         <SideMenu/>
         <Perfil/>
       </Container>
-          
-
         
-
       
       
     </div>

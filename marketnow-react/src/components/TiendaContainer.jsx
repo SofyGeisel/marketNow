@@ -6,7 +6,7 @@ const Container = styled.div`
   height: 50px;
   margin-left: 23rem;
   margin-right: 35px;
-  margin-top: 15px;
+  margin-top: 45px;
   
 `;
 

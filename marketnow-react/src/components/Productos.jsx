@@ -6,10 +6,11 @@ import Producto from "./Producto";
 const Container = styled.div`
   
   display: flex;
-  height: 80vh;
+  height: 120vh;
   flex-wrap: wrap;
   justify-content: left;
   margin-left: 22rem;
+  margin-top: 30px;
 `;
 
 

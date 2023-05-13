@@ -14,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 const SideMenu = (props) => {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -61,8 +61,8 @@ const SideMenu = (props) => {
 
   const drawer = (
     
-      <Box sx={{ width: '100%', maxWidth: 360, minWidth: 200, height: '100vh',  bgcolor: 'background.paper', marginLeft: 0}}>
-      <Box p={5}>   
+      <Box sx={{ width: '100%', maxWidth: 360, minWidth: 200, height: '100vh',  bgcolor: 'background.paper', marginLeft: 0,}}>
+      <Box p={5} style={{ color: 'black' }}>  
         <p>Bienvenido Usuario </p>
         {usuario.map(user =>
         <strong>{user.nombre}</strong>
@@ -76,9 +76,13 @@ const SideMenu = (props) => {
         href='/miperfil'
       >
         <ListItemIcon>
-          <AccountCircleIcon />
+          <AccountCircleIcon style={{ color: 'black' }}/>
         </ListItemIcon>
-        <ListItemText primary="Mi Perfil" />
+        <ListItemText primary="Mi Perfil" primaryTypographyProps={{
+    style: {
+      color: 'black', 
+    },
+  }} />
       </ListItemButton>
       <ListItemButton
         selected={selectedIndex === 0}
@@ -86,9 +90,13 @@ const SideMenu = (props) => {
         href='/compras'
       >
         <ListItemIcon>
-          <ShoppingBasketIcon />
+          <ShoppingBasketIcon style={{ color: 'black' }} />
         </ListItemIcon>
-        <ListItemText primary="Mis Compras" />
+        <ListItemText primary="Mis Compras" primaryTypographyProps={{
+    style: {
+      color: 'black', 
+    },
+  }}/>
       </ListItemButton>
 
       <ListItemButton
@@ -97,9 +105,13 @@ const SideMenu = (props) => {
         href='/misfavoritos'
       >
         <ListItemIcon>
-          <FavoriteIcon />
+          <FavoriteIcon style={{ color: 'black' }}/>
         </ListItemIcon>
-        <ListItemText primary="Mis Favoritos" />
+        <ListItemText primary="Mis Favoritos" primaryTypographyProps={{
+    style: {
+      color: 'black', 
+    },
+  }} />
       </ListItemButton>
 
       <ListItemButton
@@ -108,9 +120,13 @@ const SideMenu = (props) => {
         href='/agregarproducto'
       >
         <ListItemIcon>
-          <AddCircleIcon />
+          <AddCircleIcon style={{ color: 'black' }}/>
         </ListItemIcon>
-        <ListItemText primary="Agregar Producto" />
+        <ListItemText primary="Agregar Producto" primaryTypographyProps={{
+    style: {
+      color: 'black', 
+    },
+  }} />
       </ListItemButton>
     </List>
     
@@ -121,12 +137,13 @@ const SideMenu = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
    return(
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', }}>
       <Box
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          
         }}
       >
 
@@ -166,7 +183,7 @@ const SideMenu = (props) => {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, marginTop:'120px', marginBottom: '56px', zIndex: 1,},
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, marginTop:'140px', marginBottom: '100px', zIndex: 1, borderTopRightRadius: 40,},
           }}
           open
         >

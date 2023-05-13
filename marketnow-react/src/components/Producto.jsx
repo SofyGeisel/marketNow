@@ -54,7 +54,7 @@ const FondoImagen = styled.div`
 `;
 const Image = styled.img`
   height:60%;
-  z-index: 2;
+  z-index: 1;
 `;
 const TituloyDescripcion = styled.div`
   position: absolute;

@@ -16,7 +16,7 @@ import Editarperfil from "./pages/Editarperfil";
 import Formulario from "./pages/Formulario";
 import Misfavoritos from "./pages/Misfavoritos";
 import Detallecompra from "./pages/Detallecompra";
-import MisCompras from "./pages/Mis compras";
+import MisCompras from "./pages/Miscompras";
 
 
 function App() {
