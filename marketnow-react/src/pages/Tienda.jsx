@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/navbar'
 import Anuncios from '../components/Anuncios'
@@ -14,8 +13,9 @@ const FooterContainer = styled.div`
   z-index: 1; 
 `;
 
-
 const Tienda = () => {
+
+
   return (
     <div>
       <Anuncios/>

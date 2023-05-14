@@ -1,6 +1,6 @@
 import React from "react";
-import Context from "../context";
-import { useContext } from "react";
+import ContextUser from "../contextUsuario";
+import { useEffect, useContext } from "react";
 import {
   Box,
   Grid,
@@ -20,7 +20,10 @@ import EmailIcon from "@mui/icons-material/Email";
 import "../css/estilos.css";
 
 const Perfil = () => {
-  const { user } = useContext(Context);
+
+  const { usuario } = useContext(ContextUser);
+
+
   return (
     <div className="Container_Perfil">
       <Box
@@ -37,7 +40,8 @@ const Perfil = () => {
         <Typography marginBottom={2} variant="h5">
           Mi Perfil
         </Typography>
-        <Grid container spacing={3}>
+        {usuario.map((user) => (
+        <Grid key={user.usuarioid} container spacing={3}>
           <Grid item xs={1} m={4}>
             <Avatar src="/broken-image.jpg" sx={{ width: 90, height: 90 }} />
           </Grid>
@@ -55,7 +59,7 @@ const Perfil = () => {
                     <BadgeIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Nombre" secondary={user} />
+                <ListItemText primary="Nombre" secondary={user.nombre} />
               </ListItem>
               <Divider variant="inset" component="li" />
               <ListItem>
@@ -66,7 +70,7 @@ const Perfil = () => {
                 </ListItemAvatar>
                 <ListItemText
                   primary="Dirección"
-                  secondary="Dirección de prueba"
+                  secondary={user.direccion}
                 />
               </ListItem>
               <Divider variant="inset" component="li" />
@@ -76,10 +80,10 @@ const Perfil = () => {
                     <EmailIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Email" secondary="usuario@email.com" />
+                <ListItemText primary="Email" secondary={user.email} />
               </ListItem>
             </List>
-          </Grid>
+          </Grid>    
           <Grid
             className="btnEditarPerfil"
             item
@@ -93,6 +97,7 @@ const Perfil = () => {
             </Button>
           </Grid>
         </Grid>
+        ))}
       </Box>
     </div>
   );

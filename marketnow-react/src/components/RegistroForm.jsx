@@ -9,11 +9,53 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 import '../css/estilos.css'
 
 const RegistroForm = () => {
+
+    const navigate = useNavigate();
+    const [nuevoNombre, setNuevoNombre] = useState("");
+    const [nuevoApellido, setNuevoApellido] = useState("");
+    const [nuevoEmail, setNuevoEmail] = useState("");
+    const [nuevaDireccion, setNuevaDireccion] = useState("");
+    const [nuevoPassword, setNuevoPassword] = useState("");
+  
+
+    const registroUsuario = async () => {
+
+        const nombreCompleto = nuevoNombre+" "+nuevoApellido;
+
+        const usuarioNuevo = {
+            'nombre': nombreCompleto,
+            'email': nuevoEmail,
+            'direccion': nuevaDireccion,
+            'password': nuevoPassword 
+        };
+
+        
+        try {
+
+            const response = await fetch("http://localhost:3000/usuarios", {
+                method: "POST", // or 'PUT'
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify(usuarioNuevo),
+                
+            });
+
+                alert("Usuario registrado con éxito 😀");
+                navigate("/login");
+            
+            } catch (error) {
+                console.error("Error:", error);
+            }
+    };
+
     return(
         <div className="Container_Login">
             <Container component="main" maxWidth="xs">
@@ -47,6 +89,7 @@ const RegistroForm = () => {
                         id="nombre"
                         label="Nombre"
                         autoFocus
+                        value={nuevoNombre} onChange={({ target }) => setNuevoNombre(target.value)}
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -57,6 +100,7 @@ const RegistroForm = () => {
                         label="Apellido"
                         name="apellido"
                         autoComplete="family-name"
+                        value={nuevoApellido} onChange={({ target }) => setNuevoApellido(target.value)}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -67,6 +111,18 @@ const RegistroForm = () => {
                         label="Email"
                         name="email"
                         autoComplete="email"
+                        value={nuevoEmail} onChange={({ target }) => setNuevoEmail(target.value)}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                        required
+                        fullWidth
+                        id="direccion"
+                        label="Dirección"
+                        name="direccion"
+                        autoComplete="direccion"
+                        value={nuevaDireccion} onChange={({ target }) => setNuevaDireccion(target.value)}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -78,6 +134,7 @@ const RegistroForm = () => {
                         type="password"
                         id="password"
                         autoComplete="new-password"
+                        value={nuevoPassword} onChange={({ target }) => setNuevoPassword(target.value)}
                         />
                     </Grid>
                     
@@ -87,6 +144,7 @@ const RegistroForm = () => {
                     fullWidth
                     variant="contained"
                     sx={{ mt: 3, mb: 2 }}
+                    onClick={registroUsuario}
                     >
                     Registrar Usuario
                     </Button>

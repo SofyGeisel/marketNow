@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import ContextUser from './context'
+import { useState, useEffect } from 'react';
+import ContextUser from './contextUsuario'
+import ContextCarrito from "./contextCarrito";
+import ContextProductos from "./contextProductos";
 
 //Componentes y Vistas
 import Home from "./pages/Home";
@@ -21,11 +24,21 @@ import MisCompras from "./pages/Miscompras";
 
 function App() {
   
+  const [usuario, setUsuario] = useState([])
+  const usuarioCompartido = {usuario, setUsuario}
+
+  const [carrito, setCarrito] = useState([])
+  const carritoCompartido = {carrito, setCarrito}
+
+  const [productos, setProductos] = useState([])
+  const productosCompartido = {productos, setProductos}
 
   return(
     <div className="App">
 
-      <ContextUser.Provider>
+      <ContextUser.Provider value={usuarioCompartido}>
+      <ContextCarrito.Provider value={carritoCompartido}>
+      <ContextProductos.Provider value={productosCompartido}>
         <BrowserRouter>
             
           <Routes>
@@ -48,7 +61,11 @@ function App() {
           </Routes>
         </BrowserRouter>
 
+      </ContextProductos.Provider>
+      </ContextCarrito.Provider>
       </ContextUser.Provider>
+      
+      
     
   </div>  
 );

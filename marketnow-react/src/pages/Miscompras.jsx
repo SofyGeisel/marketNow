@@ -4,6 +4,8 @@ import Anuncios from '../components/Anuncios'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
+import ContextUser from '../contextUsuario'
+import { useContext } from 'react'
 
 const Container = styled.div`
   
@@ -22,6 +24,9 @@ const FooterContainer = styled.div`
 
 
 const MisCompras = () => {
+
+
+
   return (
     <div>
       <Anuncios/>
