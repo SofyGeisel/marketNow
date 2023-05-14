@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
-const { addUser, validarCredenciales } = require('./consultas')
+const { addUser, validarCredenciales, leerProductos } = require('./consultas')
 const { verificarCredenciales, verificarToken } = require('./middelware')
 const { secretKey } = require("./secretkey")
 
@@ -45,4 +45,14 @@ app.get("/usuarios",verificarToken, async (req, res) => {
         console.log(error)
         res.status(error.code || 500).send(error)
     }   
+})
+
+app.get("/productos", async (req, res) => {
+ try {
+    const productos = await leerProductos()
+    res.json(productos)
+ } catch (error) {
+    console.log(error)
+    res.status(error.code || 500).send(error)
+ }
 })

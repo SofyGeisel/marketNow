@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -13,6 +13,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
+import ContextUser from '../contextUsuario';
 
 const drawerWidth = 280;
 
@@ -31,12 +32,12 @@ const SideMenu = (props) => {
     setSelectedIndex(index);
   };
 
-  const [usuario, setUsuario] = useState([]);
+  const {usuario, setUsuario} = useContext(ContextUser);
 
   const obtenerUsuario = async () => {
 
     const token = localStorage.getItem("token");
-
+  
     try {
       const response = await fetch("http://localhost:3000/usuarios", {
         method: "GET", // or 'PUT'
@@ -45,7 +46,7 @@ const SideMenu = (props) => {
         "Authorization": "Bearer " + token,
         },
       });
-
+  
       let result = await response.json();
       setUsuario(result);
       console.log(result)
@@ -54,7 +55,7 @@ const SideMenu = (props) => {
       console.log(message);
     }
   };
-
+  
   useEffect(() => {
     obtenerUsuario();
   },[]);
@@ -63,9 +64,9 @@ const SideMenu = (props) => {
     
       <Box sx={{ width: '100%', maxWidth: 360, minWidth: 200, height: '100vh',  bgcolor: 'background.paper', marginLeft: 0,}}>
       <Box p={5} style={{ color: 'black' }}>  
-        <p>Bienvenido Usuario </p>
+        <p>Bienvenid@ </p>
         {usuario.map(user =>
-        <strong>{user.nombre}</strong>
+        <strong key={user.usuarioid}>{user.nombre}</strong>
         )}
       </Box>
       <Divider/>

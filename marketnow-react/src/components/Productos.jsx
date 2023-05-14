@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { listaDeProductos } from "../data";
+//import { listaDeProductos } from "../data";
 import Producto from "./Producto";
+import { useState, useEffect } from "react";
+
 
 
 const Container = styled.div`
@@ -15,9 +17,30 @@ const Container = styled.div`
 
 
 const Productos = () => {
+
+  const [productos, setProductos] = useState([]);
+
+  const traerProductos = async () => {
+
+    const response = await fetch("http://localhost:3000/productos", {
+      method: "GET", // or 'PUT'
+      headers: {
+      "Content-Type": "application/json",
+      },
+
+    });
+
+    const resultado = await response.json();
+    setProductos(resultado)
+  }
+
+  useEffect(() => {
+    traerProductos();
+  },[]);
+
   return (
     <Container>
-      {listaDeProductos.map((item) => (
+      {productos.map((item) => (
         <Producto item={item} key={item.id}/>
       ))}
     </Container>

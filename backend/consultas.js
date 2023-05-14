@@ -38,4 +38,13 @@ const extraeUsuario = async ( email ) => {
 
 }
 
-module.exports = { addUser, validarCredenciales, extraeUsuario}
+const leerProductos = async () => {
+
+    const result = "SELECT * FROM productos"
+    const { rows } = await pool.query(result)
+
+    return rows
+
+}
+
+module.exports = { addUser, validarCredenciales, extraeUsuario, leerProductos}
