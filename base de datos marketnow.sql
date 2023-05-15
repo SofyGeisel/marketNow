@@ -3,9 +3,9 @@ CREATE DATABASE marketnow;
 CREATE TABLE usuarios(
 usuarioid serial primary key,
 nombre varchar(30),
-mail varchar(30),
+email varchar(30),
 direccion varchar(50),
-password varchar(30)
+password varchar(120)
 );
 
 CREATE TABLE compras(
