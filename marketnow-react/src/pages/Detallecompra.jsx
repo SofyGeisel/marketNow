@@ -4,6 +4,10 @@ import Anuncios from '../components/Anuncios'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
+import ContextUser from '../contextUsuario'
+import { useContext } from 'react'
+import DetalleCompraComponent from '../components/DetalleCompraComponent'
+import { listaDeProductos } from "../data";
 
 const Container = styled.div`
   
@@ -14,20 +18,22 @@ const Container = styled.div`
   width:100%;
   position: relative;
 `;
-
 const FooterContainer = styled.div`
   position: relative; 
   z-index: 2; 
 `;
 
-
 const Detallecompra = () => {
+
+const item = listaDeProductos[0];
+
   return (
     <div>
       <Anuncios/>
       <Navbar/>
       <Container>
-      <SideMenu/> 
+      <SideMenu/>
+      <DetalleCompraComponent item={item} /> 
       </Container>
       <FooterContainer>
       <Footer/> 
