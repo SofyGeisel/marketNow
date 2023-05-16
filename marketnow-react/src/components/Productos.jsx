@@ -1,5 +1,4 @@
 import styled from "styled-components";
-//import { listaDeProductos } from "../data";
 import Producto from "./Producto";
 import { useState, useEffect } from "react";
 
