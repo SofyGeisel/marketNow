@@ -11,7 +11,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
 }
 
 
@@ -27,3 +27,19 @@
     margin: 0;
     padding: 0;
 }
+
+.fotoCarrito{
+    width: 10%;
+    background-color: #ccc;
+    min-width: 50px;
+}
+
+.detalleCarrito{
+    width: 80%;
+    margin-left: 1rem;
+}
+
+.detalleCarrito span{
+    font-weight: bold;
+}
+
