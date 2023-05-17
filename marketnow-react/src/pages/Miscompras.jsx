@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
 import ContextUser from '../contextUsuario'
 import { useContext } from 'react'
+import MisComprasComponent from '../components/MisComprasComponent'
 
 const Container = styled.div`
   
@@ -16,12 +17,10 @@ const Container = styled.div`
   width:100%;
   position: relative;
 `;
-
 const FooterContainer = styled.div`
   position: relative; 
   z-index: 2; 
 `;
-
 
 const MisCompras = () => {
 
@@ -32,7 +31,8 @@ const MisCompras = () => {
       <Anuncios/>
       <Navbar/>
       <Container>
-      <SideMenu/> 
+      <SideMenu/>
+      <MisComprasComponent/> 
       </Container>
       <FooterContainer>
       <Footer/> 
