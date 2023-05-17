@@ -5,6 +5,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { Link } from "react-router-dom"
 
+import { useContext } from 'react';
+import ContextCarrito from '../contextCarrito';
+
+
+
 const Info = styled.div`
   width: 100%;
   height: 100%;
@@ -96,7 +101,9 @@ const Icon = styled(Link)`
 
 
   `;
-const Producto = ({item}) => {
+const Producto = ({ item }) => {
+
+
   return (
       <Container>
         <FondoImagen>
@@ -107,7 +114,7 @@ const Producto = ({item}) => {
           <Descripcion>{item.descripcion}</Descripcion> 
         </TituloyDescripcion>
         <Info>
-          <Icon to="/carrito">
+          <Icon>
           <ShoppingCartOutlinedIcon color="white"  />
           </Icon>
           <Icon to="/detalleproducto">
