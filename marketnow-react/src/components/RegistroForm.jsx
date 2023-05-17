@@ -11,9 +11,49 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-
 import '../css/estilos.css'
+import styled from "styled-components";
+
+const TopContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const CustomButton = styled(Button)`
+    && {
+        background-color: #77D0CF;
+        color: black;
+        border-radius: 20px;
+        text-transform: capitalize;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 15px;
+        &:hover {
+            background-color: black;  
+            color: white;
+        }
+    }
+`;
+const CustomTextField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: '#A0AAB4',
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: '#B2BAC2',
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: '#E0E3E7',
+        },
+        '&:hover fieldset': {
+          borderColor: '#B2BAC2',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: '#6F7E8C',
+        },
+      },
+    });
+
 
 const RegistroForm = () => {
 
@@ -64,25 +104,27 @@ const RegistroForm = () => {
                 sx={{
                     bgcolor: 'background.paper',
                     p: 5,
-                    borderRadius: 2,
                     boxShadow: 1,
-                    marginTop: 8,
+                    marginTop: 2,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    borderTopRightRadius: 40,
+                    borderBottomLeftRadius: 40,
                 }}
                 >
-                
+                <TopContainer>
                 <Typography component="h1" variant="h5">
-                    Crea tu cuenta en MarketNow
+                    Crea tu cuenta en <strong>MarketNow</strong>
                 </Typography>
-                <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                    <LockOutlinedIcon />
+                <Avatar sx={{ m: 1, bgcolor: 'black' }}>
+                    <LockOutlinedIcon  />
                 </Avatar>
-                <Box component="form" noValidate sx={{ mt: 3 }}>
-                    <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
+                </TopContainer>
+                <Box component="form" noValidate sx={{ mt: 3 }} >
+                    <Grid container spacing={1.5}  >
+                    <Grid item xs={12} sm={6} >
+                        <CustomTextField
                         autoComplete="given-name"
                         name="nombre"
                         required
@@ -91,10 +133,11 @@ const RegistroForm = () => {
                         label="Nombre"
                         autoFocus
                         value={nuevoNombre} onChange={({ target }) => setNuevoNombre(target.value)}
+                        size="small"
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                        <TextField
+                        <CustomTextField
                         required
                         fullWidth
                         id="apellido"
@@ -102,10 +145,11 @@ const RegistroForm = () => {
                         name="apellido"
                         autoComplete="family-name"
                         value={nuevoApellido} onChange={({ target }) => setNuevoApellido(target.value)}
+                        size="small"
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField
+                        <CustomTextField
                         required
                         fullWidth
                         id="email"
@@ -113,10 +157,11 @@ const RegistroForm = () => {
                         name="email"
                         autoComplete="email"
                         value={nuevoEmail} onChange={({ target }) => setNuevoEmail(target.value)}
+                        size="small"
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField
+                        <CustomTextField
                         required
                         fullWidth
                         id="direccion"
@@ -124,10 +169,11 @@ const RegistroForm = () => {
                         name="direccion"
                         autoComplete="direccion"
                         value={nuevaDireccion} onChange={({ target }) => setNuevaDireccion(target.value)}
+                        size="small"
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField
+                        <CustomTextField
                         required
                         fullWidth
                         name="password"
@@ -136,11 +182,12 @@ const RegistroForm = () => {
                         id="password"
                         autoComplete="new-password"
                         value={nuevoPassword} onChange={({ target }) => setNuevoPassword(target.value)}
+                        size="small"
                         />
                     </Grid>
                     
                     </Grid>
-                    <Button
+                    <CustomButton
                     type="submit"
                     fullWidth
                     variant="contained"
@@ -148,11 +195,11 @@ const RegistroForm = () => {
                     onClick={registroUsuario}
                     >
                     Registrar Usuario
-                    </Button>
-                    <Grid container justifyContent="flex-end">
+                    </CustomButton>
+                    <Grid container justifyContent="center">
                     <Grid item>
-                        <Link href="/login" variant="body2">
-                       ¿Ya tienes una cuenta? Ingresa acá
+                        <Link href="/loginregistro" color="inherit" >
+                       ¿Ya tienes una cuenta?   Ingresa acá
                         </Link>
                     </Grid>
                     </Grid>

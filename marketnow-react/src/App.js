@@ -9,6 +9,7 @@ import ContextProductos from "./contextProductos";
 import Home from "./pages/Home";
 import Registro from "./pages/Registro";
 import Login from "./pages/Login";
+import LoginRegistro from "./pages/LoginRegistro"
 import Carrito from "./pages/Carrito";
 import Notfound from "./pages/Notfound";
 import Tienda from "./pages/Tienda";
@@ -48,6 +49,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/registro" element={<Registro/>} />
             <Route path="/login" element={<Login/>} />
+            <Route path="/loginregistro" element={<LoginRegistro/>} />
             <Route path="/tienda" element={<Tienda/>} />
             <Route path="/detalleproducto" element={<Detalleproducto/>} />
             <Route path="/miperfil" element={<Miperfil/>} />
