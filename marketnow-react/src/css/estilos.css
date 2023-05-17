@@ -28,3 +28,24 @@
     padding: 0;
 }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+.fotoCarrito{
+    width: 10%;
+    background-color: #ccc;
+    min-width: 50px;
+}
+
+.detalleCarrito{
+    width: 80%;
+    margin-left: 1rem;
+}
+
+.detalleCarrito span{
+    font-weight: bold;
+}
+
+=======
+>>>>>>> devSG
+>>>>>>> Stashed changes
