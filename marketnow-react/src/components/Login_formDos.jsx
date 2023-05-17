@@ -100,8 +100,11 @@ const Login_form = () => {
           borderBottomLeftRadius: 40,
         }}
       >
-        <Typography marginBottom={3} variant="h5">
-          Inicia sesión con tu cuenta en <strong>MarketNow</strong>
+        <Typography marginBottom={1} variant="h5" >
+          ¡Bienvenid@ a <strong>MarketNow</strong>!
+        </Typography>
+        <Typography marginBottom={3} variant="h6" >
+          Inicia sesión con tu cuenta
         </Typography>
         <Grid container display="flex" justifyContent="center" spacing={1} rowSpacing={3} marginBottom={3}>
           <Grid item xs={12}>

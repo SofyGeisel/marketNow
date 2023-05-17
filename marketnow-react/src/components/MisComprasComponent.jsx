@@ -17,16 +17,13 @@ const Container = styled.div`
   margin-top: 90px;
   
 `;
-
 const Left = styled.div`
   margin-bottom: 30px;
 `;
-
 const Titulo = styled.h1`
     font-size: 40px;
     font-weight: normal;
   `;
-
 const Card = styled.div`
     display: flex;
     justify-content: space-between;
@@ -41,9 +38,7 @@ const Card = styled.div`
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
 `;
-
 const MenuItem = styled.h4`
-
     `;
 const MenuContainer = styled.div`
     display:flex;
