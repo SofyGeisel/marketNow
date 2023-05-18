@@ -20,6 +20,15 @@ const addUser = async (nombre, email, direccion, password) => {
     console.log("usuario registrado con exito")
 }
 
+//REGISTRO DE NUEVOS PRODUCTOS
+const addProducto = async (nombre, descripcion, precio, imagen) => {
+
+    const consulta = "INSERT INTO productos (nombre, descripcion, precio, imagen) VALUES ($1, $2, $3, $4)"
+    const values = [nombre, descripcion, precio, imagen]
+    const result = await pool.query( consulta, values)
+    console.log("Producto registrado con exito")
+}
+
 //VALIDA CREDENCIALES DE USUARIO
 const validarCredenciales = async ( email, password ) => {
     
@@ -72,4 +81,4 @@ const modificarUsuario = async (nombre, direccion, password, id) => {
     }
 }
 
-module.exports = { addUser, validarCredenciales, extraeUsuario, leerProductos, modificarUsuario }
+module.exports = { addUser, addProducto, validarCredenciales, extraeUsuario, leerProductos, modificarUsuario }

@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
-const { addUser, validarCredenciales, leerProductos, modificarUsuario } = require('./consultas')
+const { addUser, addProducto, validarCredenciales, leerProductos, modificarUsuario } = require('./consultas')
 const { verificarCredenciales, verificarToken } = require('./middelware')
 const { secretKey } = require("./secretkey")
 
@@ -13,6 +13,8 @@ app.use(express.json())
 app.use(cors())
 // función middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 //--------------METODOS POST----------------
 
 //REGISTRO DE NUEVOS USUARIOS
@@ -41,6 +43,20 @@ app.post("/login", async (req, res) => {
         console.log(error)
         res.status(error.code || 500).send(error)
     }
+})
+
+//AGREGA PRODUCTO
+app.post("/producto", async (req, res) => {
+
+    try{
+        const { nombre, descripcion, precio, imagen } =req.body
+        await addProducto(nombre, descripcion, precio, imagen)
+        res.send("Producto ha sido creado con exito")
+    } catch(err){
+        console.log(err)
+        res.status(500).send(err)
+    }
+
 })
 
 //--------------METODOS PUT----------------
