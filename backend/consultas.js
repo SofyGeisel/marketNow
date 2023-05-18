@@ -53,10 +53,23 @@ const leerProductos = async () => {
 
 //ACTUALIZA INFORMACION DE USUARIO
 const modificarUsuario = async (nombre, direccion, password, id) => {
-    const consulta = "UPDATE posts SET nombre = $1, direccion = $2, password = $3 WHERE id = $4"
-    const values = [nombre, direccion, password, id]
+
+    if (!password) {
+
+    const consulta = "UPDATE posts SET nombre = $1, direccion = $2 WHERE id = $3"
+    const values = [nombre, direccion, id]
     const result = await pool.query(consulta, values)
     console.log(("El usuario ha sido modificado con éxito"))
+
+    } else {
+
+    const consulta = "UPDATE posts SET nombre = $1, direccion = $2, password = $3 WHERE id = $4"
+    const passwordEncriptada = bcrypt.hashSync(password)
+    const values = [nombre, direccion, passwordEncriptada, id]
+    const result = await pool.query(consulta, values)
+    console.log(("El usuario ha sido modificado con éxito"))
+
+    }
 }
 
 module.exports = { addUser, validarCredenciales, extraeUsuario, leerProductos, modificarUsuario }
