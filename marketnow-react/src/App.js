@@ -34,6 +34,8 @@ function App() {
   const [productos, setProductos] = useState([])
   const productosCompartido = {productos, setProductos}
 
+
+
   return(
     <div className="App">
 
