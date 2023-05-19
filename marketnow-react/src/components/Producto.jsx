@@ -103,6 +103,7 @@ const Icon = styled(Link)`
   `;
 const Producto = ({ item }) => {
 
+const { carrito, setCarrito } = useContext(ContextCarrito)
 
   return (
       <Container>
@@ -114,7 +115,7 @@ const Producto = ({ item }) => {
           <Descripcion>{item.descripcion}</Descripcion> 
         </TituloyDescripcion>
         <Info>
-          <Icon>
+          <Icon onClick={() => carrito.push(item)}>
           <ShoppingCartOutlinedIcon color="white"  />
           </Icon>
           <Icon to="/detalleproducto">

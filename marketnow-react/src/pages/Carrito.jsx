@@ -5,6 +5,8 @@ import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
 import { Container, Box, Typography } from '@mui/material'
+import ContextCarrito from '../contextCarrito'
+import { useContext } from 'react'
 import ItemCarro from '../components/item_carro'
 
 
@@ -15,6 +17,10 @@ const FooterContainer = styled.div`
 
 
 const Carrito = () => {
+
+  const { carrito, setCarrito } = useContext(ContextCarrito);
+  
+
   return (
     <div>
       <Anuncios/>
@@ -33,7 +39,11 @@ const Carrito = () => {
               width: "75%",
             }}>
               <Typography variant='h5' mb={3} fontWeight={"bold"}>Carro de compras</Typography>
-              <ItemCarro/>
+              {carrito.map((item) => {
+                return(
+                    <ItemCarro item={item}/>
+                )
+            })}
           </Box>
         </div>
         

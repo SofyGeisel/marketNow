@@ -30,27 +30,13 @@
 
 .fotoCarrito{
     width: 10%;
-    background-color: #ccc;
     min-width: 50px;
 }
 
-.detalleCarrito{
-    width: 80%;
-    margin-left: 1rem;
-}
-
-.detalleCarrito span{
-    font-weight: bold;
-}
-
-
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-.fotoCarrito{
+.fotoCarrito img{
     width: 10%;
-    background-color: #ccc;
     min-width: 50px;
+    object-fit: contain;
 }
 
 .detalleCarrito{
@@ -61,7 +47,3 @@
 .detalleCarrito span{
     font-weight: bold;
 }
-
-=======
->>>>>>> devSG
->>>>>>> Stashed changes
