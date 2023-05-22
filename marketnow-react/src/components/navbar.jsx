@@ -6,6 +6,8 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import DirectionsRunOutlinedIcon from '@mui/icons-material/DirectionsRunOutlined';
 import { Link } from "react-router-dom"
 
+import ContextCarrito from "../contextCarrito";
+import { useContext } from "react";
 
 const Container = styled.div`
   height: 60px;
@@ -67,6 +69,8 @@ const MenuItem = styled(Link)`
 
 
 const Navbar = () => {
+
+  const { carrito } = useContext(ContextCarrito)
 
   return (
     <Container>

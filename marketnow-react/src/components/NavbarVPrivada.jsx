@@ -68,9 +68,9 @@ const MenuItem = styled(Link)`
 
 
 
-const Navbar = () => {
+const NavbarVPrivada = () => {
 
- /*  const {items} = useContext(ContextCarrito) */
+  const { carrito } = useContext(ContextCarrito)
 
   return (
     <Container>
@@ -91,7 +91,7 @@ const Navbar = () => {
         <Right>
           <MenuItem to="/registro">CERRAR SESIÓN</MenuItem>
           <MenuItem to="/carrito">
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={carrito.length}  color="primary">
               <ShoppingCartOutlinedIcon to="/carrito"color="black" />
             </Badge>
           </MenuItem>
@@ -101,4 +101,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarVPrivada;
