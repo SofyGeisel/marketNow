@@ -45,14 +45,13 @@ const Detalle = () => {
         
 
         <Grid key={prod.productoid} container spacing={3}>
-          <Grid item xs={1} m={4}>
-            <Avatar src={prod.imagen} sx={{ width: 120, height: 120, borderRadius: 0 }} />
+          <Grid item xs={3} m={3}>
+            <Avatar src={prod.imagen} sx={{ width: '100%', height: '100%', borderRadius: 0, overflow: "clip", minWidth: 200, maxWidth: 240 }} />
           </Grid>
-          <Grid item xs={11} sm={10}>
+          <Grid item xs={7} m={4}>
             <List
               sx={{
                 width: "100%",
-                maxWidth: 360,
                 bgcolor: "background.paper",
               }}
             >
@@ -61,14 +60,14 @@ const Detalle = () => {
               <ListItem>
                 
                 <ListItemText
-                  primary="Dirección"
+                  primary="Descripción del producto"
                   secondary={prod.descripcion}
                 />
               </ListItem>
               <Divider variant="inset" component="li" />
               <ListItem>
                 
-                <ListItemText primary="Email" secondary={prod.precio} />
+                <ListItemText primary="Precio" secondary=  {'$' + prod.precio} />
               </ListItem>
             </List>
           </Grid>    
