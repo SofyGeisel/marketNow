@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Navbar from '../components/navbar'
+import NavbarVPrivada from '../components/NavbarVPrivada'
 import Anuncios from '../components/Anuncios'
 import Productos from '../components/Productos'
 import TiendaContainer from '../components/TiendaContainer'
@@ -19,7 +19,7 @@ const Tienda = () => {
   return (
     <div>
       <Anuncios/>
-      <Navbar/> 
+      <NavbarVPrivada/> 
       <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0}}>
         <SideMenu/>
       </Container>

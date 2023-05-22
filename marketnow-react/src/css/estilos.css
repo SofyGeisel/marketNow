@@ -11,7 +11,8 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    height: 90vh;
+    height: 80vh;
+    margin-top: 88px;
 }
 
 
@@ -20,6 +21,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    padding-top: 10px;
 }
 
 .contPaginas{
@@ -33,6 +35,16 @@
     min-width: 50px;
 }
 
+.detalleCarrito{
+    width: 80%;
+    margin-left: 1rem;
+}
+
+.detalleCarrito span{
+    font-weight: bold;
+}
+
+.fotoCarrito{
 .fotoCarrito img{
     width: 10%;
     min-width: 50px;

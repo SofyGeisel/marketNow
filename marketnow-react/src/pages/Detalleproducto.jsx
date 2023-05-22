@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Anuncios from '../components/Anuncios'
-import Navbar from '../components/navbar'
+import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
 import ContextProductos from '../contextProductos'
@@ -29,7 +29,7 @@ const Detalleproducto = () => {
   return (
     <div>
       <Anuncios/>
-      <Navbar/>
+      <NavbarVPrivada/>
       <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0}}>
       <SideMenu/> 
       <Detalle />
