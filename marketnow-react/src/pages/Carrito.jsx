@@ -19,9 +19,11 @@ const FooterContainer = styled.div`
 
 const Carrito = () => {
 
-  const { carrito } = useContext(ContextCarrito);
+  const { carrito, total } = useContext(ContextCarrito);
   const navigate = useNavigate();
   const volver = () => navigate(`/tienda`)
+
+  
   
 
   return (
@@ -40,16 +42,19 @@ const Carrito = () => {
               m: 10,
               minWidth: 350,
               width: "75%",
+              marginLeft: "5%",
+              marginTop: 8
             }}>
               <Typography variant='h5' mb={3} fontWeight={"bold"}>Carro de compras</Typography>
               {carrito.map((item) => {
                 return(
-                    <ItemCarro item={item}/>
+                    <ItemCarro item={item} key={item.productoid + Math.random()}/>
                 )
             })}
             <Button variant="contained" color="primary" sx={{ m: 2 }} onClick={volver}>
               Seguir comprando
             </Button>
+            <Typography variant='h6' mb={3} fontWeight={"bold"}>Total: $ { total }</Typography>
           </Box>
         </div>
         
