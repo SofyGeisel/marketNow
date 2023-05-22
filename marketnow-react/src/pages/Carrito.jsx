@@ -4,10 +4,11 @@ import Anuncios from '../components/Anuncios'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
-import { Container, Box, Typography } from '@mui/material'
+import { Container, Box, Typography, Button } from '@mui/material'
 import ContextCarrito from '../contextCarrito'
 import { useContext } from 'react'
 import ItemCarro from '../components/item_carro'
+import { useNavigate } from "react-router-dom";
 
 
 const FooterContainer = styled.div`
@@ -18,7 +19,9 @@ const FooterContainer = styled.div`
 
 const Carrito = () => {
 
-  const { carrito, setCarrito } = useContext(ContextCarrito);
+  const { carrito } = useContext(ContextCarrito);
+  const navigate = useNavigate();
+  const volver = () => navigate(`/tienda`)
   
 
   return (
@@ -44,6 +47,9 @@ const Carrito = () => {
                     <ItemCarro item={item}/>
                 )
             })}
+            <Button variant="contained" color="primary" sx={{ m: 2 }} onClick={volver}>
+              Seguir comprando
+            </Button>
           </Box>
         </div>
         
