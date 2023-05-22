@@ -14,6 +14,33 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import ContextUser from '../contextUsuario';
+import { Button } from '@mui/material';
+import styled from 'styled-components';
+
+const CustomButton = styled(Button)`
+    && {
+        background-color: #77D0CF;
+        color: black;
+        border-radius: 20px;
+        text-transform: capitalize;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 14px;
+        &:hover {
+            background-color: black;  
+            color: white;
+        }
+    }
+`;
+const ButtonContainer = styled.div`
+    height: 140px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
+    
+`;
 
 const drawerWidth = 280;
 
@@ -130,7 +157,9 @@ const SideMenu = (props) => {
   }} />
       </ListItemButton>
     </List>
-    
+    <ButtonContainer>
+    <CustomButton variant="contained" size="small" color="primary">Cerrar sesión</CustomButton>
+    </ButtonContainer>
   </Box>
     
   );
@@ -157,6 +186,7 @@ const SideMenu = (props) => {
           >
             <MenuIcon />
         </IconButton>
+        
       </Box> 
         
       <Box
@@ -190,7 +220,10 @@ const SideMenu = (props) => {
         >
           {drawer}
         </Drawer>
+        
       </Box>
+      
+            
       
     </Box>
     

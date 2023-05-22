@@ -114,7 +114,7 @@ const Producto = ({ item }) => {
           <Descripcion>{item.descripcion}</Descripcion> 
         </TituloyDescripcion>
         <Info>
-          <Icon>
+          <Icon to="/carrito">
           <ShoppingCartOutlinedIcon color="white"  />
           </Icon>
           <Icon to="/detalleproducto">

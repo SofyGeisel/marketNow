@@ -14,11 +14,11 @@ const Container = styled.div`
   align-content: flex-start;
   justify-content: flex-start;
   margin-left: 25rem;
-  margin-top: 90px;
+  margin-top: 88px;
   
 `;
 const Left = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 `;
 const Titulo = styled.h1`
     font-size: 40px;
