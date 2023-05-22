@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Producto from "./Producto";
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
+import ContextProductos from "../contextProductos";
 
 
 
@@ -17,7 +18,9 @@ const Container = styled.div`
 
 const Productos = () => {
 
-  const [productos, setProductos] = useState([]);
+  const {productos, setProductos} = useContext(ContextProductos);
+
+  /* const [productos, setProductos] = useState([]); */
 
   const traerProductos = async () => {
 
@@ -35,12 +38,13 @@ const Productos = () => {
 
   useEffect(() => {
     traerProductos();
-  },[]);
+  });
+
 
   return (
     <Container>
       {productos.map((item) => (
-        <Producto item={item} key={item.id}/>
+        <Producto item={item} key={item.productoid}/>
       ))}
     </Container>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ContextUser from './contextUsuario'
 import ContextCarrito from "./contextCarrito";
 import ContextProductos from "./contextProductos";
@@ -32,7 +32,8 @@ function App() {
   /* const carritoCompartido = {carrito, setCarrito} */
 
   const [productos, setProductos] = useState([])
-  const productosCompartido = {productos, setProductos}
+  const [prodId, setProdId] = useState("")
+  /* const productosCompartido = {productos, setProductos} */
 
 
 
@@ -41,7 +42,7 @@ function App() {
 
       <ContextUser.Provider value={usuarioCompartido}>
       <ContextCarrito.Provider value={{carrito, setCarrito}}>
-      <ContextProductos.Provider value={productosCompartido}>
+      <ContextProductos.Provider value={{productos, setProductos, prodId, setProdId}}>
         <BrowserRouter>
             
           <Routes>
@@ -51,7 +52,7 @@ function App() {
             <Route path="/login" element={<Login/>} />
             <Route path="/loginregistro" element={<LoginRegistro/>} />
             <Route path="/tienda" element={<Tienda/>} />
-            <Route path="/detalleproducto" element={<Detalleproducto/>} />
+            <Route path="/detalleproducto/:productoId" element={<Detalleproducto/>} />
             <Route path="/miperfil" element={<Miperfil/>} />
             <Route path="/editarperfil" element={<Editarperfil/>} />
             <Route path="/agregarproducto" element={<Agregarproducto/>} />
