@@ -103,7 +103,7 @@ const Icon = styled(Link)`
   `;
 const Producto = ({ item }) => {
 
-const { carrito } = useContext(ContextCarrito)
+const { carrito, total, setTotal } = useContext(ContextCarrito)
 const { prodId, setProdId } = useContext(ContextProductos)
 
 const verProducto = `/detalleproducto/${prodId}`
@@ -119,7 +119,11 @@ const verProducto = `/detalleproducto/${prodId}`
           <Descripcion>{item.descripcion}</Descripcion> 
         </TituloyDescripcion>
         <Info>
-          <Icon onClick={() => carrito.push(item)}>
+          <Icon onClick={() => {
+            carrito.push(item)
+            setTotal(parseInt(total + item.precio))
+            console.log(total)
+            }}>
           <ShoppingCartOutlinedIcon color="white"  />
           </Icon>
           <Icon onMouseEnter={() => {
