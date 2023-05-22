@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 
 import { useContext } from 'react';
 import ContextCarrito from '../contextCarrito';
+import ContextProductos from '../contextProductos';
 
 
 
@@ -83,7 +84,6 @@ const Descripcion = styled.h4`
   text-align: left;
 `;
 
-
 const Icon = styled(Link)`
   width: 40px;
   height: 40px;
@@ -103,7 +103,11 @@ const Icon = styled(Link)`
   `;
 const Producto = ({ item }) => {
 
-const { carrito, setCarrito } = useContext(ContextCarrito)
+const { carrito } = useContext(ContextCarrito)
+const { prodId, setProdId } = useContext(ContextProductos)
+
+const verProducto = `/detalleproducto/${prodId}`
+
 
   return (
       <Container>
@@ -118,7 +122,10 @@ const { carrito, setCarrito } = useContext(ContextCarrito)
           <Icon onClick={() => carrito.push(item)}>
           <ShoppingCartOutlinedIcon color="white"  />
           </Icon>
-          <Icon to="/detalleproducto">
+          <Icon onMouseEnter={() => {
+            setProdId(item.productoid)
+            console.log(item.productoid)}} 
+            to={verProducto}>
           <SearchIcon/>
           </Icon>
           <Icon to="/misfavoritos">

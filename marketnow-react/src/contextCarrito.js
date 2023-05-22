@@ -2,4 +2,4 @@ import { createContext } from "react"
 
 const ContextCarrito = createContext();
 
-export default ContextCarrito
+export default ContextCarrito;
