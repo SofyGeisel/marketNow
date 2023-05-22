@@ -5,7 +5,8 @@ import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
 import ContextProductos from '../contextProductos'
-import Detalle from '../components/detalle'
+import Detalle from '../components/Detalle'
+
 
 const Container = styled.div`
   
@@ -15,7 +16,6 @@ const Container = styled.div`
   width:100%;
   position: relative;
 `;
-
 const FooterContainer = styled.div`
   position: relative; 
   z-index: 2; 

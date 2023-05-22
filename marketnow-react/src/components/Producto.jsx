@@ -9,8 +9,6 @@ import { useContext } from 'react';
 import ContextCarrito from '../contextCarrito';
 import ContextProductos from '../contextProductos';
 
-
-
 const Info = styled.div`
   width: 100%;
   height: 100%;
@@ -83,7 +81,6 @@ const Descripcion = styled.h4`
   font-weight: initial;
   text-align: left;
 `;
-
 const Icon = styled(Link)`
   width: 40px;
   height: 40px;
