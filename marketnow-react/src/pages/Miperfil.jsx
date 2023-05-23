@@ -6,6 +6,8 @@ import Perfil from '../components/perfil'
 import SideMenu from '../components/sidemenu'
 import Footer from '../components/Footer'
 import { Container } from '@mui/material'
+import ContextCarrito from '../contextCarrito'
+import { useContext } from 'react'
 
 
 
@@ -18,7 +20,9 @@ const Miperfil = () => {
   return (
     <div className='contPaginas'>
       <Anuncios/>
+
       <NavbarVPrivada/>
+
       <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0}}>
         <SideMenu/>
         <Perfil/>
