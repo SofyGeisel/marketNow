@@ -9,9 +9,14 @@ const ItemCarro = ({ item }) => {
 
     const { carrito, setCarrito, total, setTotal } = useContext(ContextCarrito);
 
-    const precioTotal = parseInt(total)
-    const precioFormato = precioTotal.toLocaleString('es-MX')
+    const precioProducto = parseInt(item.precio)
+    const precioFormato = precioProducto.toLocaleString('eng', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+    })
 
+    
 
     return(
         <>
@@ -22,7 +27,7 @@ const ItemCarro = ({ item }) => {
                 <div className="detalleCarrito">
                     <p><span>{item.nombre}</span> </p>
                     <p><span>Id: </span>{item.productoid}</p>
-                    <p><span>Valor:</span>${item.precio}</p>
+                    <p><span>Valor: </span>{precioFormato}</p>
                 </div>
                 <Button variant="contained" sx={{alignSelf:"center"}} onClick={() => {
                     const indice = carrito.findIndex((e) => item === e)

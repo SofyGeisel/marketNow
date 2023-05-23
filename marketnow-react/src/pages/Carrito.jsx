@@ -23,6 +23,13 @@ const Carrito = () => {
   const navigate = useNavigate();
   const volver = () => navigate(`/tienda`)
 
+  const precioTotal = parseInt(total)
+    const totalFormato = precioTotal.toLocaleString('eng', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+    })
+
 
   return (
     <div>
@@ -52,7 +59,7 @@ const Carrito = () => {
             <Button variant="contained" color="primary" sx={{ m: 2 }} onClick={volver}>
               Seguir comprando
             </Button>
-            <Typography variant='h6' mb={3} fontWeight={"bold"}>Total: $ { total }</Typography>
+            <Typography variant='h6' mb={3} fontWeight={"bold"}>Total: { totalFormato }</Typography>
           </Box>
         </div>
         

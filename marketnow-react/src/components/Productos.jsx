@@ -8,11 +8,12 @@ import ContextProductos from "../contextProductos";
 const Container = styled.div`
   
   display: flex;
-  height: 120vh;
+  height: 100%;
   flex-wrap: wrap;
   justify-content: left;
   margin-left: 22rem;
   margin-top: 30px;
+  padding-bottom: 80px;
 `;
 
 

@@ -14,10 +14,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import ContextUser from '../contextUsuario';
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 280;
 
 const SideMenu = (props) => {
+  /* Constantes para la navegación del menú */
+  const navigate = useNavigate();
+  const perfil = () => navigate(`/miperfil`)
+  const misCompras = () => navigate(`/compras`)
+  const misFavoritos = () => navigate(`/misfavoritos`)
+  const agregarProducto = () => navigate(`/agregarproducto`)
+
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const { window } = props;
@@ -73,8 +81,9 @@ const SideMenu = (props) => {
     <List component="nav" aria-label="main mailbox folders">
       <ListItemButton
         selected={selectedIndex === 0}
-        onClick={(event) => handleListItemClick(event, 1)}
-        href='/miperfil'
+        onClick={(event) => {
+          handleListItemClick(event, 1)
+          perfil()}}
       >
         <ListItemIcon>
           <AccountCircleIcon style={{ color: 'black' }}/>
@@ -87,8 +96,9 @@ const SideMenu = (props) => {
       </ListItemButton>
       <ListItemButton
         selected={selectedIndex === 0}
-        onClick={(event) => handleListItemClick(event, 1)}
-        href='/compras'
+        onClick={(event) => {
+          handleListItemClick(event, 1)
+          misCompras()}}
       >
         <ListItemIcon>
           <ShoppingBasketIcon style={{ color: 'black' }} />
@@ -102,8 +112,9 @@ const SideMenu = (props) => {
 
       <ListItemButton
         selected={selectedIndex === 0}
-        onClick={(event) => handleListItemClick(event, 1)}
-        href='/misfavoritos'
+        onClick={(event) => {
+          handleListItemClick(event, 1)
+          misFavoritos()}}
       >
         <ListItemIcon>
           <FavoriteIcon style={{ color: 'black' }}/>
@@ -117,8 +128,9 @@ const SideMenu = (props) => {
 
       <ListItemButton
         selected={selectedIndex === 0}
-        onClick={(event) => handleListItemClick(event, 1)}
-        href='/agregarproducto'
+        onClick={(event) => {
+          handleListItemClick(event, 1)
+          agregarProducto()}}
       >
         <ListItemIcon>
           <AddCircleIcon style={{ color: 'black' }}/>
