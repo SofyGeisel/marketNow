@@ -89,6 +89,7 @@ const NavbarVPrivada = () => {
             </Logo>
         </Center>
         <Right>
+          <MenuItem to="/tienda">TIENDA</MenuItem>
           <MenuItem to="/registro">CERRAR SESIÓN</MenuItem>
           <MenuItem to="/carrito">
             <Badge badgeContent={carrito.length}  color="primary">
