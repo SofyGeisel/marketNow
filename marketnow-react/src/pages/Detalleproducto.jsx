@@ -5,7 +5,7 @@ import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
 import ContextProductos from '../contextProductos'
-import Detalle from '../components/Detalle'
+import Detalle from '../components/detalle'
 
 
 const Container = styled.div`

@@ -73,7 +73,7 @@ const Perfil = () => {
           p: 5,
           minWidth: 350,
           width: "70%",
-          height: "280px",
+          height: "auto",
           borderTopRightRadius: 40,
           borderBottomLeftRadius: 40,
         }}
@@ -89,8 +89,6 @@ const Perfil = () => {
               sx={{
                 width: "100%",
                 maxWidth: 360,
-                bgcolor: "background.paper",
-                paddingLeft: 10,
                 paddingTop: 0 ,
               }}
             >
