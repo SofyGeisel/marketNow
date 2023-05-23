@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { Button } from "@mui/material";
 import { Pagination } from '@mui/material';
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import ContextCarrito from '../contextCarrito';
+import ContextProductos from '../contextProductos';
 
 const Container = styled.div`
   display: flex;
@@ -92,8 +95,15 @@ const Image = styled.img`
   z-index: 1;
 `;
 
+
 const MisComprasComponent = () => {
-  return (
+
+const { carrito } = useContext(ContextCarrito)
+const { prodId, setProdId } = useContext(ContextProductos)
+
+const verProducto = `/detalleproducto/${prodId}`
+
+return (
     <Container>
       <Left>
         <Titulo>DETALLE COMPRA</Titulo>
@@ -111,7 +121,7 @@ const MisComprasComponent = () => {
           </MenuContainer>
         </MenuContainerLeft>
         <ButtonContainer>
-          <StyledLink to="/detallecompra">
+          <StyledLink to={verProducto}>
             <CustomButton variant="contained" size="small" color="primary">
               Ver producto
             </CustomButton>
@@ -130,7 +140,7 @@ const MisComprasComponent = () => {
           </MenuContainer>
         </MenuContainerLeft>
         <ButtonContainer>
-          <StyledLink to="/detallecompra">
+          <StyledLink to="/detalleproducto">
             <CustomButton variant="contained" size="small" color="primary">
               Ver producto
             </CustomButton>

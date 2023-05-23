@@ -11,7 +11,7 @@ const Container = styled.div`
   height: 120vh;
   flex-wrap: wrap;
   justify-content: left;
-  margin-left: 22rem;
+  margin-left: 23rem;
   margin-top: 30px;
 `;
 

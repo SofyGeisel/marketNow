@@ -29,7 +29,7 @@ const Container = styled.div`
   align-content: flex-start;
   justify-content: flex-start;
   margin-left: 8rem;
-  margin-top: 88px;
+  margin-top: 85px;
   
 `;
 const Left = styled.div`
@@ -40,7 +40,7 @@ const Titulo = styled.h1`
     font-size: 40px;
     font-weight: normal;
   `;
-  const CustomButton = styled(Button)`
+const CustomButton = styled(Button)`
   && {
       background-color: #77D0CF;
       color: black;
@@ -134,7 +134,7 @@ const Perfil = () => {
             xs={12}
             
           >
-            <CustomButton variant="contained" color="primary" sx={{ m: 2 }}>
+            <CustomButton variant="contained" color="primary" sx={{ m: 0, marginRight: 4 }}>
               Editar
             </CustomButton>
           </Grid>
