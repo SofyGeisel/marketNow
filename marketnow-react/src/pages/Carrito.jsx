@@ -41,8 +41,6 @@ const Carrito = () => {
   const navigate = useNavigate();
   const volver = () => navigate(`/tienda`)
 
-  
-  
 
   return (
     <div>

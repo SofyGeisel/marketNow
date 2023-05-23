@@ -29,6 +29,7 @@ function App() {
   const usuarioCompartido = {usuario, setUsuario}
 
   const [carrito, setCarrito] = useState([])
+  const [total, setTotal] = useState("")
   /* const carritoCompartido = {carrito, setCarrito} */
 
   const [productos, setProductos] = useState([])
@@ -41,7 +42,7 @@ function App() {
     <div className="App">
 
       <ContextUser.Provider value={usuarioCompartido}>
-      <ContextCarrito.Provider value={{carrito, setCarrito}}>
+      <ContextCarrito.Provider value={{carrito, setCarrito, total, setTotal}}>
       <ContextProductos.Provider value={{productos, setProductos, prodId, setProdId}}>
         <BrowserRouter>
             
