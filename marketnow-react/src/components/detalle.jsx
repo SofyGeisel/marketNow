@@ -55,11 +55,10 @@ const Detalle = () => {
             borderBottomLeftRadius: 40,
             p: 6,
             paddingTop: 4,
-            m: 12,
-            marginTop: 15,
-            minWidth: 350,
+            m: 4,
+            marginTop: 10,
+            minWidth: 250,
             width: "60rem",
-            height: "18rem",
           }}
         >
           <Typography marginBottom={4} variant="h4">
@@ -77,6 +76,7 @@ const Detalle = () => {
                 borderBottomLeftRadius: 20,
                 backgroundColor: "black",
                 marginBottom: 0,
+                minWidth: 200,
               }}
             >
               <Avatar
