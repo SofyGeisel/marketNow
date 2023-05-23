@@ -1,6 +1,7 @@
 import React from "react";
 import ContextUser from "../contextUsuario";
 import { useEffect, useContext } from "react";
+import styled from 'styled-components';
 import {
   Box,
   Grid,
@@ -17,7 +18,43 @@ import BadgeIcon from "@mui/icons-material/Badge";
 import HomeIcon from "@mui/icons-material/Home";
 import EmailIcon from "@mui/icons-material/Email";
 
-import "../css/estilos.css";
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  flex-wrap: wrap;
+  justify-content: left;
+  width:100%;
+  position: relative;
+  align-content: flex-start;
+  justify-content: flex-start;
+  margin-left: 8rem;
+  margin-top: 85px;
+  
+`;
+const Left = styled.div`
+  
+  margin-bottom: 32px;
+`;
+const Titulo = styled.h1`
+    font-size: 40px;
+    font-weight: normal;
+  `;
+const CustomButton = styled(Button)`
+  && {
+      background-color: #77D0CF;
+      color: black;
+      border-radius: 20px;
+      text-transform: capitalize;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-size: 14px;
+      &:hover {
+          background-color: black;  
+          color: white;
+      }
+  }
+`;
 
 const Perfil = () => {
 
@@ -25,25 +62,27 @@ const Perfil = () => {
 
 
   return (
-    <div className="Container_Perfil">
+    <Container>
+      <Left>
+        <Titulo>MI PERFIL</Titulo>
+        </Left>
       <Box
         sx={{
           bgcolor: "background.paper",
           boxShadow: 1,
-          borderRadius: 2,
-          p: 4,
-          m: 10,
+          p: 5,
           minWidth: 350,
-          width: "75%",
+          width: "70%",
+          height: "280px",
+          borderTopRightRadius: 40,
+          borderBottomLeftRadius: 40,
         }}
       >
-        <Typography marginBottom={2} variant="h5">
-          Mi Perfil
-        </Typography>
+        
         {usuario.map((user) => (
         <Grid key={user.usuarioid} container spacing={3}>
-          <Grid item xs={1} m={4}>
-            <Avatar src="/broken-image.jpg" sx={{ width: 90, height: 90 }} />
+          <Grid item xs={1} m={2} marginRight={3} marginLeft={4} display={"flex"} alignItems={"center"}>
+            <Avatar src="/broken-image.jpg" sx={{ width: 90, height: 90 }} style={{backgroundColor:"black"}} />
           </Grid>
           <Grid item xs={11} sm={10}>
             <List
@@ -51,11 +90,13 @@ const Perfil = () => {
                 width: "100%",
                 maxWidth: 360,
                 bgcolor: "background.paper",
+                paddingLeft: 10,
+                paddingTop: 0 ,
               }}
             >
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar>
+                  <Avatar style={{backgroundColor:"black"}}>
                     <BadgeIcon />
                   </Avatar>
                 </ListItemAvatar>
@@ -64,7 +105,7 @@ const Perfil = () => {
               <Divider variant="inset" component="li" />
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar>
+                  <Avatar style={{backgroundColor:"black"}}>
                     <HomeIcon />
                   </Avatar>
                 </ListItemAvatar>
@@ -76,7 +117,7 @@ const Perfil = () => {
               <Divider variant="inset" component="li" />
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar>
+                  <Avatar style={{backgroundColor:"black"}}>
                     <EmailIcon />
                   </Avatar>
                 </ListItemAvatar>
@@ -91,15 +132,16 @@ const Perfil = () => {
             justifyContent="flex-end"
             alignItems="flex-end"
             xs={12}
+            
           >
-            <Button variant="contained" color="primary" sx={{ m: 2 }}>
+            <CustomButton variant="contained" color="primary" sx={{ m: 0, marginRight: 4 }}>
               Editar
-            </Button>
+            </CustomButton>
           </Grid>
         </Grid>
         ))}
       </Box>
-    </div>
+    </Container>
   );
 };
 

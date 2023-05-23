@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Anuncios from '../components/Anuncios'
-import Navbar from '../components/navbar'
+import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
 import ContextProductos from '../contextProductos'
-import Detalle from '../components/detalle'
+import Detalle from '../components/Detalle'
+
 
 const Container = styled.div`
   
@@ -15,7 +16,6 @@ const Container = styled.div`
   width:100%;
   position: relative;
 `;
-
 const FooterContainer = styled.div`
   position: relative; 
   z-index: 2; 
@@ -29,7 +29,7 @@ const Detalleproducto = () => {
   return (
     <div>
       <Anuncios/>
-      <Navbar/>
+      <NavbarVPrivada/>
       <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0}}>
       <SideMenu/> 
       <Detalle />

@@ -4,12 +4,11 @@ import { Pagination } from '@mui/material';
 
 const Container = styled.div`
   height: 50px;
-  margin-left: 23rem;
+  margin-left: 24rem;
   margin-right: 35px;
-  margin-top: 55px;
+  margin-top: 85px;
   
 `;
-
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -27,7 +26,6 @@ const Center = styled.div`
   display: flex;
   justify-content: left;
   `;
-
   const Right = styled.div`
   flex: 1;
   display: flex;

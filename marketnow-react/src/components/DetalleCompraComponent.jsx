@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { Button } from "@mui/material";
 import { Pagination } from '@mui/material';
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import ContextCarrito from '../contextCarrito';
+import ContextProductos from '../contextProductos';
 
 const Container = styled.div`
   display: flex;
@@ -17,20 +20,16 @@ const Container = styled.div`
   margin-left: 25rem;
   margin-top: 90px;
 `;
-
 const Left = styled.div`
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-
 const Titulo = styled.h1`
   font-size: 40px;
   font-weight: normal;
 `;
-
-
 const Card = styled.div`
   display: flex;
   justify-content: space-between;
@@ -46,7 +45,6 @@ const Card = styled.div`
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
 `;
-
 const ImageContainer = styled.div`
   height: 90px;
   width: 90px;
@@ -58,7 +56,6 @@ const ImageContainer = styled.div`
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
 `;
-
 const MenuItem = styled.h4``;
 const MenuContainerLeft = styled.div`
   width: 30%;
@@ -98,8 +95,15 @@ const Image = styled.img`
   z-index: 1;
 `;
 
+
 const MisComprasComponent = () => {
-  return (
+
+const { carrito } = useContext(ContextCarrito)
+const { prodId, setProdId } = useContext(ContextProductos)
+
+const verProducto = `/detalleproducto/${prodId}`
+
+return (
     <Container>
       <Left>
         <Titulo>DETALLE COMPRA</Titulo>
@@ -117,7 +121,7 @@ const MisComprasComponent = () => {
           </MenuContainer>
         </MenuContainerLeft>
         <ButtonContainer>
-          <StyledLink to="/detallecompra">
+          <StyledLink to={verProducto}>
             <CustomButton variant="contained" size="small" color="primary">
               Ver producto
             </CustomButton>
@@ -136,7 +140,7 @@ const MisComprasComponent = () => {
           </MenuContainer>
         </MenuContainerLeft>
         <ButtonContainer>
-          <StyledLink to="/detallecompra">
+          <StyledLink to="/detalleproducto">
             <CustomButton variant="contained" size="small" color="primary">
               Ver producto
             </CustomButton>

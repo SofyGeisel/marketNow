@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Anuncios from '../components/Anuncios'
-import Navbar from '../components/navbar'
+import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
 import ContextUser from '../contextUsuario'
@@ -30,7 +30,7 @@ const item = listaDeProductos[0];
   return (
     <div>
       <Anuncios/>
-      <Navbar/>
+      <NavbarVPrivada/>
       <Container>
       <SideMenu/>
       <DetalleCompraComponent item={item} /> 
