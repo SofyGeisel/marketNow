@@ -31,9 +31,10 @@ const Info = styled.div`
 const Container = styled.div`
   flex:1;
   margin: 15px;
+  margin-bottom: 60px;
   min-width: 15rem;
   max-width: 180px;
-  height: 300px;
+  height: 340px;
   background-color:white;
   display:flex;
   align-items: flex-start;
@@ -48,8 +49,8 @@ const Container = styled.div`
 
   `;
 const FondoImagen = styled.div`
-  width: 11rem;
-  height: 11rem ;
+  width: 200px;
+  height: 200px ;
   background-color: black;
   position: absolute;
   border-top-right-radius: 30%;

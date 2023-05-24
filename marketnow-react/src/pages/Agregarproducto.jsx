@@ -16,7 +16,6 @@ const Container = styled.div`
   width: 100%;
   position: relative;
   margin-top: 88px;
-  margin-left: 6rem;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
@@ -24,6 +23,7 @@ const Container = styled.div`
 `;
 const Left = styled.div`
   margin-bottom: 32px;
+  margin-left: 130px;
   display: flex;
 `;
 const Titulo = styled.h1`
@@ -36,16 +36,17 @@ const ContainerAddProducto = styled.div`
   justify-content: center;
   align-items: center;
   width: 60%;
-  height: 65%;
+  height: 70%;
   background-color: white;
   border-top-right-radius: 40px;
   border-bottom-left-radius: 40px;
+  margin-left: 130px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 const ContainerTop = styled.div`
   display: flex;
   align-items: stretch;
 `;
-
 const ContainerImage = styled.div`
   display: flex;
   width: 250px;
@@ -58,7 +59,6 @@ const ContainerImage = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
 const PreClick = styled.div`
   display: flex;
   flex-direction: column;
@@ -91,7 +91,6 @@ const CustomTextField = styled(TextField)({
     },
   },
 });
-
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -114,12 +113,10 @@ const CustomButton = styled(Button)`
     }
   }
 `;
-
 const FooterContainer = styled.div`
   position: relative;
   z-index: 2;
 `;
-
 const Agregarproducto = () => {
   return (
     <div>
@@ -148,19 +145,29 @@ const Agregarproducto = () => {
                 label="Nombre del producto"
                 autoFocus
                 size="small"
-                sx={{ marginBottom: 4 }}
+                sx={{ marginBottom: 2 }}
+              />
+              <CustomTextField
+                name="Precio"
+                required
+                fullWidth
+                id="precio"
+                label="Precio"
+                autoFocus
+                size="small"
+                sx={{ marginBottom: 2 }}
               />
               <CustomTextField
                 name="Descripción del producto"
                 required
                 fullWidth
                 multiline
-                maxRows={4}
+                maxRows={3}
                 id="descripcionproducto"
                 label="Descripción del producto"
                 autoFocus
                 size="small"
-                sx={{ marginBottom: 4 }}
+                sx={{ marginBottom: 3 }}
               />
               <ButtonContainer>
                 <CustomButton variant="contained" size="small" color="primary">

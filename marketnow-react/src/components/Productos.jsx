@@ -10,23 +10,25 @@ import "../css/estilos.css"
 const Container = styled.div`
   
   display: flex;
-  flex-direction: column;
-  gap:10;
-  width: 100%;
+  height: 130vh;
   flex-wrap: wrap;
-  justify-content: start;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 50px;
+  margin-top: 88px;
   padding-bottom: 80px;
   
 `;
-
+const TopContainer = styled.div`
+  display: flex;
+  width: 39%;
+  align-items: center;
+  margin-left: 95px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+`;
 const Titulo = styled.h1`
     font-size: 40px;
     font-weight: normal;
-    width: 100%;
-    text-align: center;
+    
+   
   `;
 
 
@@ -59,10 +61,12 @@ const Productos = () => {
 
   return (
     <Container>
+      <TopContainer>
       <Titulo>
         TIENDA
       </Titulo>
       <Pagination count={3} variant="outlined" />
+      </TopContainer>
       <div className="contenedor_prodTienda">
         {productos.map((item) => (
           <Producto item={item} key={item.productoid}/>
