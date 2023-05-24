@@ -2,19 +2,30 @@ import styled from "styled-components";
 import Producto from "./Producto";
 import { useEffect, useContext } from "react";
 import ContextProductos from "../contextProductos";
+import { Pagination } from "@mui/material";
+import "../css/estilos.css"
 
 
 
 const Container = styled.div`
   
   display: flex;
-  height: 100%;
+  height: 100vh;
   flex-wrap: wrap;
-  justify-content: left;
-  margin-left: 23rem;
-  margin-top: 30px;
+  justify-content: center;
+  /* margin-left: 23rem; */
+  margin-top: 50px;
   padding-bottom: 80px;
+  
 `;
+
+const Titulo = styled.h1`
+    font-size: 40px;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+  `;
+
 
 
 const Productos = () => {
@@ -44,9 +55,16 @@ const Productos = () => {
 
   return (
     <Container>
-      {productos.map((item) => (
-        <Producto item={item} key={item.productoid}/>
-      ))}
+      <Titulo>
+        TIENDA
+      </Titulo>
+      <Pagination count={3} variant="outlined" />
+      <div className="contenedor_prodTienda">
+        {productos.map((item) => (
+          <Producto item={item} key={item.productoid}/>
+        ))}
+      </div>
+      
     </Container>
   );
 };

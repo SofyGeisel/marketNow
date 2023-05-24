@@ -81,7 +81,7 @@ const Carrito = () => {
             }}
           >
             <Typography variant="h5" ml={2} mb={3}  fontSize={30}>
-              CARRITO
+              CARRO DE COMPRAS
             </Typography>
             {carrito.map((item) => {
               return <ItemCarro item={item} key={item.productoid + Math.random()} />;
@@ -101,11 +101,13 @@ const Carrito = () => {
               color="primary"
               sx={{ m: 2 }}
               onClick={volver}
+              disabled= { precioTotal == 0 ? true : false }
+              
             >
               Finalizar compra
             </CustomButton>
             </ButtonContainer>
-            <Typography variant='h6' mb={3} fontWeight={"bold"}>Total: $ { totalFormato }</Typography>
+            <Typography variant='h6' mb={3} fontWeight={"bold"}>Total: { precioTotal == 0 ? `$ 0` : totalFormato }</Typography>
 
           </Box>
         </div>
