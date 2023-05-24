@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import DirectionsRunOutlinedIcon from '@mui/icons-material/DirectionsRunOutlined';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import ContextCarrito from "../contextCarrito";
 import { useContext } from "react";
@@ -72,6 +72,9 @@ const Navbar = () => {
 
   const { carrito } = useContext(ContextCarrito)
 
+  const navigate = useNavigate();
+  const carro = () => navigate(`/carrito`)
+
   return (
     <Container>
       <Wrapper>
@@ -91,7 +94,7 @@ const Navbar = () => {
         <Right>
           <MenuItem to="/registro">REGISTRARSE</MenuItem>
           <MenuItem to="/login">INICIAR SESION</MenuItem>
-          <MenuItem to="/carrito">
+          <MenuItem to="/carrito" onClick={carro}>
             <Badge badgeContent={carrito.length} color="primary">
               <ShoppingCartOutlinedIcon to="/carrito"color="black" />
             </Badge>

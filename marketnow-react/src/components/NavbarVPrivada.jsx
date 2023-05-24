@@ -73,6 +73,10 @@ const NavbarVPrivada = () => {
   const navigate = useNavigate();
   const { carrito } = useContext(ContextCarrito)
 
+  const verCarrito = () => {
+    navigate('/carrito')
+  }
+
   const cerrarSesion = async () => {
     navigate("/login");
     localStorage.removeItem('token');
@@ -102,7 +106,7 @@ const NavbarVPrivada = () => {
         <Right>
           <MenuItem onClick={irTienda}>TIENDA</MenuItem>
           <MenuItem onClick={cerrarSesion}>CERRAR SESIÓN</MenuItem>
-          <MenuItem to="/carrito">
+          <MenuItem to="/carrito" onClick={verCarrito}>
             <Badge badgeContent={carrito.length}  color="primary">
               <ShoppingCartOutlinedIcon to="/carrito"color="black" />
             </Badge>

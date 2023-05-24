@@ -10,10 +10,13 @@ import "../css/estilos.css"
 const Container = styled.div`
   
   display: flex;
-  height: 100vh;
+  flex-direction: column;
+  gap:10;
+  width: 100%;
   flex-wrap: wrap;
-  justify-content: center;
-  /* margin-left: 23rem; */
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
   margin-top: 50px;
   padding-bottom: 80px;
   
