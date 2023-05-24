@@ -111,7 +111,7 @@ const verProducto = `/detalleproducto/${prodId}`
   const agregarFavoritos = async (productid) => {
 
     const datos = {
-      usuarioid: usuario.usuarioid,
+      usuarioid: usuario[0].usuarioid,
       productoid: productid,
     };
     
