@@ -13,12 +13,12 @@ const Container = styled.div`
   position: relative;
   align-content: flex-start;
   justify-content: flex-start;
-  margin-left: 25rem;
   margin-top: 88px;
   
 `;
 const Left = styled.div`
   margin-bottom: 32px;
+  margin-left: 380px;
 `;
 const Titulo = styled.h1`
     font-size: 40px;
@@ -37,6 +37,7 @@ const Card = styled.div`
     padding-bottom: 25px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    margin-left: 380px;
 `;
 const MenuItem = styled.h4`
     `;
@@ -69,7 +70,6 @@ const CustomButton = styled(Button)`
         }
     }
 `;
-
 
 const MisComprasComponent = () => {
   return (

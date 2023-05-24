@@ -83,6 +83,10 @@ const NavbarVPrivada = () => {
 
   }
 
+  const verCarrito = () => {
+    navigate('/carrito')
+  }
+
   return (
     <Container>
       <Wrapper>
@@ -104,7 +108,7 @@ const NavbarVPrivada = () => {
           <MenuItem onClick={cerrarSesion}>CERRAR SESIÓN</MenuItem>
           <MenuItem to="/carrito">
             <Badge badgeContent={carrito.length}  color="primary">
-              <ShoppingCartOutlinedIcon to="/carrito"color="black" />
+              <ShoppingCartOutlinedIcon onClick={verCarrito} color="black" />
             </Badge>
           </MenuItem>
         </Right>
