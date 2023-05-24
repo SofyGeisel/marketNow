@@ -10,6 +10,12 @@ import { useContext } from "react";
 import ItemCarro from "../components/item_carro";
 import { useNavigate } from "react-router-dom";
 
+const BottomContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+`;
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -86,6 +92,8 @@ const Carrito = () => {
             {carrito.map((item) => {
               return <ItemCarro item={item} key={item.productoid + Math.random()} />;
             })}
+            <BottomContainer>
+            <Typography variant='h6'  fontWeight={"bold"}>Total: $ { total }</Typography>
             <ButtonContainer>
             <CustomButton
               variant="contained"
