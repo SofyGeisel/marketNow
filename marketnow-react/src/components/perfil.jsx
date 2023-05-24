@@ -1,7 +1,7 @@
 import React from "react";
 import ContextUser from "../contextUsuario";
 import { useEffect, useContext } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   Box,
   Grid,
@@ -24,119 +24,129 @@ const Container = styled.div`
   height: 70vh;
   flex-wrap: wrap;
   justify-content: left;
-  width:100%;
+  width: 100%;
   position: relative;
   align-content: flex-start;
   justify-content: flex-start;
-  margin-left: 8rem;
   margin-top: 85px;
-  
 `;
 const Left = styled.div`
-  
+  margin-left: 100px;
   margin-bottom: 32px;
 `;
 const Titulo = styled.h1`
-    font-size: 40px;
-    font-weight: normal;
-  `;
+  font-size: 40px;
+  font-weight: normal;
+`;
 const CustomButton = styled(Button)`
   && {
-      background-color: #77D0CF;
-      color: black;
-      border-radius: 20px;
-      text-transform: capitalize;
-      padding-left: 30px;
-      padding-right: 30px;
-      font-size: 14px;
-      &:hover {
-          background-color: black;  
-          color: white;
-      }
+    background-color: #77d0cf;
+    color: black;
+    border-radius: 20px;
+    text-transform: capitalize;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 14px;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 `;
 
 const Perfil = () => {
-
   const { usuario } = useContext(ContextUser);
-
 
   return (
     <Container>
       <Left>
         <Titulo>MI PERFIL</Titulo>
-        </Left>
+      </Left>
       <Box
         sx={{
           bgcolor: "background.paper",
           boxShadow: 1,
-          p: 5,
+          p: 4,
           minWidth: 350,
-          width: "70%",
+          width: "60%",
           height: "auto",
           borderTopRightRadius: 40,
           borderBottomLeftRadius: 40,
+          marginLeft: 12,
         }}
       >
-        
         {usuario.map((user) => (
-        <Grid key={user.usuarioid} container spacing={3}>
-          <Grid item xs={1} m={2} marginRight={3} marginLeft={4} display={"flex"} alignItems={"center"}>
-            <Avatar src="/broken-image.jpg" sx={{ width: 90, height: 90 }} style={{backgroundColor:"black"}} />
-          </Grid>
-          <Grid item xs={11} sm={10}>
-            <List
+          <Grid key={user.usuarioid} container spacing={3}>
+            <Grid
+              item
+              xs={2}
+              m={3}
               sx={{
-                width: "100%",
-                maxWidth: 360,
-                paddingTop: 0 ,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar style={{backgroundColor:"black"}}>
-                    <BadgeIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary="Nombre" secondary={user.nombre} />
-              </ListItem>
-              <Divider variant="inset" component="li" />
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar style={{backgroundColor:"black"}}>
-                    <HomeIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText
-                  primary="Dirección"
-                  secondary={user.direccion}
-                />
-              </ListItem>
-              <Divider variant="inset" component="li" />
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar style={{backgroundColor:"black"}}>
-                    <EmailIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary="Email" secondary={user.email} />
-              </ListItem>
-            </List>
-          </Grid>    
-          <Grid
-            className="btnEditarPerfil"
-            item
-            direction={"row"}
-            justifyContent="flex-end"
-            alignItems="flex-end"
-            xs={12}
-            
-          >
-            <CustomButton variant="contained" color="primary" sx={{ m: 0, marginRight: 4 }}>
-              Editar
-            </CustomButton>
+              <Avatar
+                src="/broken-image.jpg"
+                sx={{ width: 90, height: 90 }}
+                style={{ backgroundColor: "black" }}
+              />
+            </Grid>
+            <Grid item xs={2} sm={4}>
+              <List
+                sx={{
+                  maxWidth: 200,
+                  paddingTop: 0,
+                  paddingLeft: 6,
+                }}
+              >
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar style={{ backgroundColor: "black" }}>
+                      <BadgeIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Nombre" secondary={user.nombre} />
+                </ListItem>
+                <Divider variant="inset" component="li" />
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar style={{ backgroundColor: "black" }}>
+                      <HomeIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Dirección"
+                    secondary={user.direccion}
+                  />
+                </ListItem>
+                <Divider variant="inset" component="li" />
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar style={{ backgroundColor: "black" }}>
+                      <EmailIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Email" secondary={user.email} />
+                </ListItem>
+              </List>
+            </Grid>
+            <Grid
+              className="btnEditarPerfil"
+              item
+              
+              
+            >
+              <CustomButton
+                variant="contained"
+                color="primary"
+                sx={{ m: 0, marginRight: 4 }}
+              >
+                Editar
+              </CustomButton>
+            </Grid>
           </Grid>
-        </Grid>
         ))}
       </Box>
     </Container>
