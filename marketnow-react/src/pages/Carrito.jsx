@@ -92,7 +92,6 @@ const Carrito = () => {
             {carrito.map((item) => {
               return <ItemCarro item={item} key={item.productoid + Math.random()} />;
             })}
-            <BottomContainer>
             <Typography variant='h6'  fontWeight={"bold"}>Total: $ { total }</Typography>
             <ButtonContainer>
             <CustomButton

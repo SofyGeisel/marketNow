@@ -72,6 +72,11 @@ const SideMenu = (props) => {
 
   const {usuario, setUsuario} = useContext(ContextUser);
 
+  const cerrarSesion = async () => {
+    navigate("/login");
+    localStorage.removeItem('token');
+  }
+  
   const obtenerUsuario = async () => {
 
     const token = localStorage.getItem("token");
@@ -173,7 +178,7 @@ const SideMenu = (props) => {
       </ListItemButton>
     </List>
     <ButtonContainer>
-    <CustomButton variant="contained" size="small" color="primary">Cerrar sesión</CustomButton>
+    <CustomButton variant="contained" size="small" color="primary" onClick={cerrarSesion}>Cerrar sesión</CustomButton>
     </ButtonContainer>
   </Box>
     

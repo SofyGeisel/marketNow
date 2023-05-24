@@ -6,7 +6,6 @@ import SideMenu from '../components/sidemenu'
 import Footer from '../components/Footer'
 import { Container } from '@mui/material'
 
-
 const FooterContainer = styled.div`
   position: relative; 
   z-index: 1; 
@@ -14,7 +13,6 @@ const FooterContainer = styled.div`
 
 
 const Tienda = () => {
-
 
   return (
     <div>
