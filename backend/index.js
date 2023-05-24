@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
-const { addUser, addProducto, validarCredenciales, leerProductos, modificarUsuario } = require('./consultas')
+const { addUser, addProducto, addFavorito, validarCredenciales, leerProductos, modificarUsuario } = require('./consultas')
 const { verificarCredenciales, verificarToken } = require('./middelware')
 const { secretKey } = require("./secretkey")
 
@@ -58,6 +58,18 @@ app.post("/producto", async (req, res) => {
     }
 
 })
+
+//AGREGA PRODUCTO FAVORITO A USUARIO
+app.post("/favoritos", async (req, res) => {
+    try{
+        const { productoid, usuarioid} = req.body
+        await addFavorito(usuarioid, productoid)
+        res.send("Favorito agregado con éxito")
+    } catch (error) {
+        res.status(500).send(error)
+    }
+  })
+
 
 //--------------METODOS PUT----------------
 

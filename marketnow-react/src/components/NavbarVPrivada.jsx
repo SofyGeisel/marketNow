@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import DirectionsRunOutlinedIcon from '@mui/icons-material/DirectionsRunOutlined';
-import { Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 import ContextCarrito from "../contextCarrito";
 import { useContext } from "react";
@@ -58,7 +58,7 @@ const Right = styled.div`
   align-items: center;
   justify-content: flex-end;
 `;
-const MenuItem = styled(Link)`
+const MenuItem = styled.h3`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
@@ -70,7 +70,18 @@ const MenuItem = styled(Link)`
 
 const NavbarVPrivada = () => {
 
+  const navigate = useNavigate();
   const { carrito } = useContext(ContextCarrito)
+
+  const cerrarSesion = async () => {
+    navigate("/login");
+    localStorage.removeItem('token');
+  }
+
+  const irTienda = async () => {
+    navigate("/tienda");
+
+  }
 
   return (
     <Container>
@@ -89,8 +100,8 @@ const NavbarVPrivada = () => {
             </Logo>
         </Center>
         <Right>
-          <MenuItem to="/tienda">TIENDA</MenuItem>
-          <MenuItem to="/registro">CERRAR SESIÓN</MenuItem>
+          <MenuItem onClick={irTienda}>TIENDA</MenuItem>
+          <MenuItem onClick={cerrarSesion}>CERRAR SESIÓN</MenuItem>
           <MenuItem to="/carrito">
             <Badge badgeContent={carrito.length}  color="primary">
               <ShoppingCartOutlinedIcon to="/carrito"color="black" />

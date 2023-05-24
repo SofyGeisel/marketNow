@@ -32,6 +32,7 @@ const Productos = () => {
 
   const {productos, setProductos} = useContext(ContextProductos);
 
+
   /* const [productos, setProductos] = useState([]); */
 
   const traerProductos = async () => {

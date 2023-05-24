@@ -8,6 +8,7 @@ import { Link } from "react-router-dom"
 import { useContext } from 'react';
 import ContextCarrito from '../contextCarrito';
 import ContextProductos from '../contextProductos';
+import ContextUser from '../contextUsuario';
 
 const Info = styled.div`
   width: 100%;
@@ -102,8 +103,37 @@ const Producto = ({ item }) => {
 
 const { carrito, total, setTotal } = useContext(ContextCarrito)
 const { prodId, setProdId } = useContext(ContextProductos)
+const {usuario, setUsuario} = useContext(ContextUser)
 
 const verProducto = `/detalleproducto/${prodId}`
+
+
+  const agregarFavoritos = async (productid) => {
+
+    const datos = {
+      usuarioid: usuario.usuarioid,
+      productoid: productid,
+    };
+    
+    console.log(datos);
+    try {
+      const response = await fetch("http://localhost:3000/favoritos", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datos),
+      });
+
+      const result = await response;
+
+      if (result.ok) {
+        alert("Producto correctamente agregado a favoritos 😀");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
 
   return (
@@ -129,7 +159,9 @@ const verProducto = `/detalleproducto/${prodId}`
             to={verProducto}>
           <SearchIcon/>
           </Icon>
-          <Icon to="/misfavoritos">
+          <Icon onClick={() => {
+            agregarFavoritos(item.productoid)
+            }}>
           <FavoriteBorderOutlinedIcon color="white"/>
           </Icon>
         </Info>

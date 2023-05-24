@@ -26,7 +26,7 @@ import MisCompras from "./pages/Miscompras";
 function App() {
   
   const [usuario, setUsuario] = useState([])
-  const usuarioCompartido = {usuario, setUsuario}
+  /* const usuarioCompartido = {usuario, setUsuario}*/
 
   const [carrito, setCarrito] = useState([])
   const [total, setTotal] = useState("")
@@ -41,7 +41,7 @@ function App() {
   return(
     <div className="App">
 
-      <ContextUser.Provider value={usuarioCompartido}>
+      <ContextUser.Provider value={{usuario, setUsuario}}>
       <ContextCarrito.Provider value={{carrito, setCarrito, total, setTotal}}>
       <ContextProductos.Provider value={{productos, setProductos, prodId, setProdId}}>
         <BrowserRouter>

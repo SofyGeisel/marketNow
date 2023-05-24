@@ -70,10 +70,10 @@ const RegistroForm = () => {
         const nombreCompleto = nuevoNombre+" "+nuevoApellido;
 
         const usuarioNuevo = {
-            'nombre': nombreCompleto,
-            'email': nuevoEmail,
-            'direccion': nuevaDireccion,
-            'password': nuevoPassword 
+            nombre: nombreCompleto,
+            email: nuevoEmail,
+            direccion: nuevaDireccion,
+            password: nuevoPassword,
         };
 
         
@@ -84,13 +84,17 @@ const RegistroForm = () => {
                 headers: {
                 "Content-Type": "application/json",
                 },
-                body: JSON.stringify(usuarioNuevo),
-                
+                body: JSON.stringify(usuarioNuevo),         
             });
-
-                alert("Usuario registrado con éxito 😀");
-                navigate("/login");
             
+            const result = await response;
+            console.log(result);
+            
+            if (result.ok) {
+            alert("Usuario registrado con éxito 😀");
+            navigate("/login");
+            }
+
             } catch (error) {
                 console.error("Error:", error);
             }
@@ -188,7 +192,6 @@ const RegistroForm = () => {
                     
                     </Grid>
                     <CustomButton
-                    type="submit"
                     fullWidth
                     variant="contained"
                     sx={{ mt: 3, mb: 2 }}

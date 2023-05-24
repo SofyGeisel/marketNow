@@ -29,6 +29,15 @@ const addProducto = async (nombre, descripcion, precio, imagen) => {
     console.log("Producto registrado con exito")
 }
 
+//AGREGAR UN NUEVO FAVORITO
+const addFavorito = async (usuarioid, productoid) => {
+
+    const consulta = "INSERT INTO favoritos (usuarioid, productoid) VALUES ($1, $2)"
+    const values = [usuarioid, productoid]
+    const result = await pool.query( consulta, values)
+    console.log("Favorito agregado con exito")
+}
+
 //VALIDA CREDENCIALES DE USUARIO
 const validarCredenciales = async ( email, password ) => {
     
@@ -81,4 +90,4 @@ const modificarUsuario = async (nombre, direccion, password, id) => {
     }
 }
 
-module.exports = { addUser, addProducto, validarCredenciales, extraeUsuario, leerProductos, modificarUsuario }
+module.exports = { addUser, addProducto, addFavorito, validarCredenciales, extraeUsuario, leerProductos, modificarUsuario }
