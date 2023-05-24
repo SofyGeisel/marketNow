@@ -102,6 +102,7 @@ const Carrito = () => {
                 <ItemCarro item={item} key={item.productoid + Math.random()} />
               );
             })}
+
             <BottomContainer>
             <Typography variant="h6" fontWeight={"bold"}>
               Total: {precioTotal == 0 ? `$ 0` : totalFormato}
