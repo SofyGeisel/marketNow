@@ -4,7 +4,10 @@ import { Pagination } from '@mui/material';
 
 const Container = styled.div`
   height: 50px;
-  margin-left: 24rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+ /*  margin-left: 24rem; */
   margin-right: 35px;
   margin-top: 85px;
   

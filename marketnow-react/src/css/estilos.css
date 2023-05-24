@@ -60,3 +60,11 @@
     font-weight: bold;
 }
 
+
+.contenedor_prodTienda {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* margin-top: 50px; */
+  padding-bottom: 80px;
+}

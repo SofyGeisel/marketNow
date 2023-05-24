@@ -68,7 +68,9 @@ const Detalle = () => {
           <Grid key={prod.productoid} container spacing={4}>
             <Grid
               item
-              xs={3}
+              xs={12}
+              sm={12}
+              md={4}
               m={4}
               p={5}
               sx={{
@@ -91,7 +93,7 @@ const Detalle = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={7} m={0}>
+            <Grid item xs={12} sm={12} md={6} m={0}>
               <List
                 sx={{
                   width: "100%",
