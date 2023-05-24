@@ -113,8 +113,9 @@ const Carrito = () => {
               Finalizar compra
             </CustomButton>
             </ButtonContainer>
-            <Typography variant='h6' mb={3} fontWeight={"bold"}>Total: $ { totalFormato }</Typography>
-
+            </BottomContainer>
+            
+            
           </Box>
         </div>
       </Container>
