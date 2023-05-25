@@ -87,10 +87,6 @@ const NavbarVPrivada = () => {
 
   }
 
-  const verCarrito = () => {
-    navigate('/carrito')
-  }
-
   return (
     <Container>
       <Wrapper>
