@@ -7,12 +7,13 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 0.8em;
     font-weight: bolder;`
 
 const Anuncios = () => {
   return (
     <Container>
+      
       Envíos gratis en pedidos sobre $30.000
     </Container>
   )

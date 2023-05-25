@@ -19,24 +19,24 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-const Left = styled.div`
+/* const Left = styled.div`
   flex: 1;
   display: flex;
   align-item: center;
-`;
+`; */
 const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
 `;
-const SearchContainer = styled.div`
+/* const SearchContainer = styled.div`
   border: 0.5px solid #fff7f7;
   display: flex;
   align-items: center;
   margin-left: 25px;
   padding: 4px;
-`;
+`; */
 const Input = styled.input`
   border: none;
   font-size: 16px;
@@ -45,13 +45,13 @@ const Center = styled.div`
   flex: 1;
   text-align: center;
 `;
-const Logo = styled(Link)`
+/* const Logo = styled(Link)`
   font-weight: bold;
   font-size: 35px;
   text-decoration: none;
   color:black;
 
-`;
+`; */
 const Right = styled.div`
   flex: 1;
   display: flex;
@@ -90,18 +90,18 @@ const NavbarVPrivada = () => {
   return (
     <Container>
       <Wrapper>
-        <Left>
-          <Language>ES</Language>
-          <SearchContainer>
+        <div className="navLeft">
+          {/* <Language>ES</Language> */}
+          <div className="searchBar">
             <Input />
             <SearchIcon style={{color: "gray", fontSize:16}} />
-          </SearchContainer>
-        </Left>
+          </div>
+        </div>
         <Center>
-          <Logo to="/">
-            <DirectionsRunOutlinedIcon style={{color: "black", fontSize:36, transform:'rotate(15deg)'}} />
+          <div to="/" className="logo">
+            <DirectionsRunOutlinedIcon style={{color: "black", /* fontSize:36, */ transform:'rotate(15deg)'}} />
             MarketNow
-            </Logo>
+            </div>
         </Center>
         <Right>
           <MenuItem onClick={irTienda}>TIENDA</MenuItem>

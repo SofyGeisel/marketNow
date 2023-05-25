@@ -23,7 +23,7 @@ const Miperfil = () => {
 
       <NavbarVPrivada/>
 
-      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0}}>
+      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0, gap: 5}}>
         <SideMenu/>
         <Perfil/>
       </Container>

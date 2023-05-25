@@ -23,15 +23,14 @@ const Container = styled.div`
   flex-direction: column;
   height: 70vh;
   flex-wrap: wrap;
-  justify-content: left;
-  width: 100%;
-  position: relative;
+  justify-content: flex-start;
+  width: 80%;
   align-content: flex-start;
   justify-content: flex-start;
-  margin-top: 85px;
+  margin-top: 80px;
 `;
 const Left = styled.div`
-  margin-left: 100px;
+  /* margin-left: 30px; */
   margin-bottom: 32px;
 `;
 const Titulo = styled.h1`
@@ -67,20 +66,19 @@ const Perfil = () => {
           bgcolor: "background.paper",
           boxShadow: 1,
           p: 4,
-          minWidth: 350,
-          width: "60%",
+          minWidth: 300,
+          width: "90%",
           height: "auto",
           borderTopRightRadius: 40,
           borderBottomLeftRadius: 40,
-          marginLeft: 12,
         }}
       >
         {usuario.map((user) => (
           <Grid key={user.usuarioid} container spacing={3}>
             <Grid
               item
-              xs={2}
-              m={3}
+              xs={12}
+              m={2}
               sx={{
                 display: "flex",
                 alignItems: "center",
