@@ -29,7 +29,7 @@ function App() {
   /* const usuarioCompartido = {usuario, setUsuario}*/
 
   const [carrito, setCarrito] = useState([])
-  const [total, setTotal] = useState("")
+  const [total, setTotal] = useState("0")
   /* const carritoCompartido = {carrito, setCarrito} */
 
   const [productos, setProductos] = useState([])

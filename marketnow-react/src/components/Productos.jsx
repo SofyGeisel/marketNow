@@ -2,29 +2,34 @@ import styled from "styled-components";
 import Producto from "./Producto";
 import { useEffect, useContext } from "react";
 import ContextProductos from "../contextProductos";
-import { Pagination } from "@mui/material";
+import { Pagination, Container } from "@mui/material";
 import "../css/estilos.css"
 
 
 
-const Container = styled.div`
+/* const Container = styled.div`
   
   display: flex;
+  flex-direction: column;
   height: 130vh;
   flex-wrap: wrap;
   margin-top: 88px;
   padding-bottom: 80px;
   
-`;
+`; */
 const TopContainer = styled.div`
   display: flex;
-  width: 39%;
+  flex-direction: column;
+  width: 100%;
   align-items: center;
-  margin-left: 95px;
+  /* margin-left: 95px; */
   justify-content: space-between;
   margin-bottom: 16px;
 `;
 const Titulo = styled.h1`
+    text-align: left;
+    align-self: start;
+    /* padding-left: 95px; */
     font-size: 40px;
     font-weight: normal;
     
@@ -60,7 +65,13 @@ const Productos = () => {
 
 
   return (
-    <Container>
+    <Container sx={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginTop: "80px"
+
+    }}>
       <TopContainer>
       <Titulo>
         TIENDA

@@ -5,19 +5,23 @@ import NavbarVPrivada from "../components/NavbarVPrivada";
 import Footer from "../components/Footer";
 import SideMenu from "../components/sidemenu";
 import { Container, Box, Typography, Button } from "@mui/material";
-import ContextCarrito from "../contextCarrito";
-import { useContext } from "react";
+
 import ItemCarro from "../components/item_carro";
 import { useNavigate } from "react-router-dom";
 
-const Left = styled.div`
+import ContextCarrito from "../contextCarrito";
+import { useContext } from "react";
+
+/* const Left = styled.div`
   
   margin-bottom: 32px;
-`;
-const Titulo = styled.h1`
+`; */
+/* const Titulo = styled.h1`
   font-size: 40px;
   font-weight: normal;
-`;
+  margin-bottom: 20px;
+  align-self: flex-start;
+`; */
 const BottomContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -51,6 +55,7 @@ const FooterContainer = styled.div`
 `;
 
 const Carrito = () => {
+  
   const { carrito, total } = useContext(ContextCarrito);
   const navigate = useNavigate();
   const volver = () => navigate(`/tienda`);
@@ -72,19 +77,17 @@ const Carrito = () => {
         sx={{
           display: "flex",
           height: "120vh",
-          flexDirection: "column",
+          flexDirection: "row",
           width: "100%",
-          marginLeft: "380px",
-          marginTop: "88px",
+          /* marginTop: "40px", */
           padding: 0,
+          gap:5
         }}
       >
         <SideMenu />
-        <Left>
-        <Titulo>CARRITO</Titulo>
-      </Left>
+
         <div className="Container_Carrito">
-        
+        <div className="titulo">CARRITO</div>
           <Box
             sx={{
               bgcolor: "#fafafa",
@@ -93,9 +96,12 @@ const Carrito = () => {
               borderBottomLeftRadius: 40,
               p: 1,
               minWidth: 300,
-              width: "60%",
+              width: "90%",
               height: "fit-content",
             }}
+            
+
+
           >
             {carrito.map((item) => {
               return (
@@ -104,28 +110,29 @@ const Carrito = () => {
             })}
 
             <BottomContainer>
-            <Typography variant="h6" fontWeight={"bold"}>
-              Total: {precioTotal == 0 ? `$ 0` : totalFormato}
-            </Typography>
-            <ButtonContainer>
-              <CustomButton
-                variant="contained"
-                color="primary"
-                sx={{ m: 2 }}
-                onClick={volver}
-              >
-                Seguir comprando
-              </CustomButton>
-              <CustomButton
-                variant="contained"
-                color="primary"
-                sx={{ m: 2 }}
-                onClick={volver}
-                disabled={precioTotal == 0 ? true : false}
-              >
-                Finalizar compra
-              </CustomButton>
-            </ButtonContainer>
+              <Typography variant="h6" fontWeight={"bold"}>
+                {console.log(total)}
+                Total: { precioTotal === 0 ? "$ 0" : totalFormato }
+              </Typography>
+              <ButtonContainer>
+                <CustomButton
+                  variant="contained"
+                  color="primary"
+                  sx={{ m: 2 }}
+                  onClick={volver}
+                >
+                  Seguir comprando
+                </CustomButton>
+                <CustomButton
+                  variant="contained"
+                  color="primary"
+                  sx={{ m: 2 }}
+                  onClick={volver}
+                  disabled={precioTotal === 0 ? true : false}
+                >
+                  Finalizar compra
+                </CustomButton>
+              </ButtonContainer>
             
             </BottomContainer>
             
