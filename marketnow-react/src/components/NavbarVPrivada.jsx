@@ -87,7 +87,6 @@ const NavbarVPrivada = () => {
 
   }
 
-
   return (
     <Container>
       <Wrapper>

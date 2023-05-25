@@ -69,6 +69,16 @@ const leerProductos = async () => {
 
 }
 
+//EXTRAE LOS PRODUCTOS FAVORITOS POR USUARIO
+const leerProductosFavoritos = async ( usuarioid ) => {
+
+    const value = [usuarioid]
+    const consulta = "SELECT * FROM productos INNER JOIN favoritos ON productos.productoid = favoritos.productoid WHERE favoritos.usuarioid = $1"
+    const { rows } = await pool.query(consulta, value)
+    return rows
+
+}
+
 //ACTUALIZA INFORMACION DE USUARIO
 const modificarUsuario = async (nombre, direccion, password, id) => {
 
@@ -90,4 +100,11 @@ const modificarUsuario = async (nombre, direccion, password, id) => {
     }
 }
 
-module.exports = { addUser, addProducto, addFavorito, validarCredenciales, extraeUsuario, leerProductos, modificarUsuario }
+//ELIMINA FAVORITO
+const eliminarFavorito = async (id) => {
+    const consulta = "DELETE FROM favoritos WHERE favoritoid = $1"
+    const values = [id]
+    const result = await pool.query(consulta, values)
+}
+
+module.exports = { addUser, addProducto, addFavorito, validarCredenciales, extraeUsuario, leerProductos, leerProductosFavoritos, modificarUsuario, eliminarFavorito }
