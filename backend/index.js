@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
-const { addUser, addProducto, addFavorito, validarCredenciales, leerProductos, modificarUsuario } = require('./consultas')
+const { addUser, addProducto, addFavorito, validarCredenciales, leerProductos, leerProductosFavoritos, modificarUsuario, eliminarFavorito } = require('./consultas')
 const { verificarCredenciales, verificarToken } = require('./middelware')
 const { secretKey } = require("./secretkey")
 
@@ -108,3 +108,29 @@ app.get("/productos", async (req, res) => {
     res.status(error.code || 500).send(error)
  }
 })
+
+//OBTIENE PRODUCTOS FAVORITOS
+app.get("/favoritos/:id", async (req, res) => {
+    try {
+       const { id } = req.params
+       const productos = await leerProductosFavoritos(id)
+       res.json(productos)
+    } catch (error) {
+       console.log(error)
+       res.status(error.code || 500).send(error)
+    }
+   })
+
+
+//--------------METODOS DELETE----------------
+
+//ELIMINA PRODUCTOS FAVORITOS
+app.delete("/favoritos/:id", async (req, res) => {
+    try{
+        const { id } = req.params
+        await eliminarFavorito(id)
+        res.send("Favorito eliminado con éxito")
+    } catch (error) {
+        res.status(500).send(error)
+    }
+  })

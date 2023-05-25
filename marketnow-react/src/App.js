@@ -15,6 +15,7 @@ import Notfound from "./pages/Notfound";
 import Tienda from "./pages/Tienda";
 import Agregarproducto from "./pages/Agregarproducto";
 import Detalleproducto from "./pages/Detalleproducto";
+import Detalleproductofavorito from "./pages/Detalleproductofavorito";
 import Miperfil from "./pages/Miperfil";
 import Editarperfil from "./pages/Editarperfil";
 import Formulario from "./pages/Formulario";
@@ -54,6 +55,7 @@ function App() {
             <Route path="/loginregistro" element={<LoginRegistro/>} />
             <Route path="/tienda" element={<Tienda/>} />
             <Route path="/detalleproducto/:productoId" element={<Detalleproducto/>} />
+            <Route path="/detalleproductofavorito/:productoId" element={<Detalleproductofavorito/>} />
             <Route path="/miperfil" element={<Miperfil/>} />
             <Route path="/editarperfil" element={<Editarperfil/>} />
             <Route path="/agregarproducto" element={<Agregarproducto/>} />

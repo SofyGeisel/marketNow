@@ -1,34 +1,46 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Anuncios from '../components/Anuncios'
 import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
-import ProductosFavoritos from '../components/ProductosFavoritos'
-import { Container } from '@mui/material'
+import ContextProductos from '../contextProductos'
+import DetalleFavorito from '../components/detallefavorito'
 
 
+const Container = styled.div`
+  
+  display: flex;
+  height: 80vh;
+  justify-content: left;
+  width:100%;
+  position: relative;
+`;
 const FooterContainer = styled.div`
   position: relative; 
   z-index: 2; 
 `;
 
 
-const Misfavoritos = () => {
+const Detalleproductofavorito = () => {
+
+
+
   return (
     <div>
       <Anuncios/>
       <NavbarVPrivada/>
       <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0}}>
-        <SideMenu/>
-        <ProductosFavoritos/>
+      <SideMenu/> 
+      <DetalleFavorito />
       </Container>
+      
       <FooterContainer>
-        <Footer/> 
+      <Footer/> 
       </FooterContainer>
       
     </div>
   )
 }
 
-export default Misfavoritos
+export default Detalleproductofavorito
