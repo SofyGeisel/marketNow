@@ -1,7 +1,5 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
-import ContextCarrito from '../contextCarrito'
-import { useContext } from 'react'
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -23,16 +21,19 @@ const CustomButton = styled(Button)`
 
 const ItemMisCompras = ({ item }) => {
 
-    const { carrito, setCarrito, total, setTotal } = useContext(ContextCarrito);
-
-    const precioProducto = parseInt(item.precio)
+    const navigate = useNavigate();
+    const precioProducto = parseInt(item.total)
     const precioFormato = precioProducto.toLocaleString('eng', {
         style: 'currency',
         currency: 'USD',
         maximumFractionDigits: 0
     })
-    const navigate = useNavigate();
-    const verDetalle = () => navigate(`/detallecompra`);
+
+    const verDetalle = (itemid) => {
+      
+      navigate(`/detallecompra`);
+    
+    }
     
 
     return(
@@ -40,8 +41,8 @@ const ItemMisCompras = ({ item }) => {
             <Box sx={{ boxShadow: 1, bgcolor: "white", p: 2, m: 2, borderRadius: 2,display: "flex", flexDirection: "row", alignContent: "space-around"  }}>
                 
                 <div className="detalleCarrito">
-                    <p><span>Fecha de compra: </span> </p>
-                    <p><span>ID de compra: </span>{item.productoid}</p>
+                    <p><span>Fecha de compra: </span>{item.fecha_compra}</p>
+                    <p><span>ID de compra: </span>{item.compraid}</p>
                     <p><span>Total: </span>{precioFormato}</p>
                 </div>
                 <CustomButton variant="contained" sx={{alignSelf:"center"}} onClick={verDetalle}>Ver detalle</CustomButton>
