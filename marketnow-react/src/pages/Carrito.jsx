@@ -12,16 +12,7 @@ import { useNavigate } from "react-router-dom";
 import ContextCarrito from "../contextCarrito";
 import { useContext } from "react";
 
-/* const Left = styled.div`
-  
-  margin-bottom: 32px;
-`; */
-/* const Titulo = styled.h1`
-  font-size: 40px;
-  font-weight: normal;
-  margin-bottom: 20px;
-  align-self: flex-start;
-`; */
+
 const BottomContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -71,22 +62,21 @@ const Carrito = () => {
     <div>
       <Anuncios />
       <NavbarVPrivada />
-      <Container
+      <Container 
         disableGutters
         maxWidth={false}
         sx={{
           display: "flex",
-          height: "120vh",
+          height: "auto",
           flexDirection: "row",
           width: "100%",
-          /* marginTop: "40px", */
           padding: 0,
-          gap:5
+          gap:7
         }}
       >
         <SideMenu />
 
-        <div className="Container_Carrito">
+        <div className="Container_Perfil">
         <div className="titulo">CARRITO</div>
           <Box
             sx={{
@@ -96,12 +86,15 @@ const Carrito = () => {
               borderBottomLeftRadius: 40,
               p: 1,
               minWidth: 300,
+              minHeight: 300,
               width: "90%",
               height: "fit-content",
+              marginBottom: "80px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+
             }}
-            
-
-
           >
             {carrito.map((item) => {
               return (

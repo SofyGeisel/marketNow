@@ -4,16 +4,7 @@ import Anuncios from '../components/Anuncios'
 import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
-
-const Container = styled.div`
-  
-  display: flex;
-  height: 80vh;
-  flex-wrap: wrap;
-  justify-content: left;
-  width:100%;
-  position: relative;
-`;
+import { Container } from '@mui/material'
 
 const FooterContainer = styled.div`
   position: relative; 
@@ -26,7 +17,7 @@ const Editarperfil = () => {
     <div>
       <Anuncios/>
       <NavbarVPrivada/>
-      <Container>
+      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0, gap: 7}}>
       <SideMenu/> 
       </Container>
       <FooterContainer>

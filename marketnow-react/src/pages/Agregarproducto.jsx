@@ -5,22 +5,9 @@ import NavbarVPrivada from "../components/NavbarVPrivada";
 import Footer from "../components/Footer";
 import SideMenu from "../components/sidemenu";
 import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
-const Container = styled.div`
-  display: flex;
-  height: 72vh;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 100%;
-  position: relative;
-  margin-top: 88px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  align-content: center;
-`;
 const Left = styled.div`
   margin-bottom: 32px;
   margin-left: 130px;
@@ -122,7 +109,7 @@ const Agregarproducto = () => {
     <div>
       <Anuncios />
       <NavbarVPrivada />
-      <Container>
+      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0, gap: 7}}>
         <SideMenu />
         <Left>
           <Titulo>AGREGA TUS PRODUCTOS</Titulo>

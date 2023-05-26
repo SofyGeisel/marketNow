@@ -3,88 +3,54 @@ import Producto from "./Producto";
 import { useEffect, useContext } from "react";
 import ContextProductos from "../contextProductos";
 import { Pagination, Container } from "@mui/material";
-import "../css/estilos.css"
+import "../css/estilos.css";
 
-
-
-/* const Container = styled.div`
-  
-  display: flex;
-  flex-direction: column;
-  height: 130vh;
-  flex-wrap: wrap;
-  margin-top: 88px;
-  padding-bottom: 80px;
-  
-`; */
 const TopContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  width: 90%;
   align-items: center;
-  /* margin-left: 95px; */
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 33px;
 `;
 const Titulo = styled.h1`
-    text-align: left;
-    align-self: start;
-    /* padding-left: 95px; */
-    font-size: 40px;
-    font-weight: normal;
-    
-   
-  `;
-
-
+  font-size: 40px;
+  font-weight: normal;
+`;
 
 const Productos = () => {
-
-  const {productos, setProductos} = useContext(ContextProductos);
-
+  const { productos, setProductos } = useContext(ContextProductos);
 
   /* const [productos, setProductos] = useState([]); */
 
   const traerProductos = async () => {
-
     const response = await fetch("http://localhost:3000/productos", {
       method: "GET", // or 'PUT'
       headers: {
-      "Content-Type": "application/json",
+        "Content-Type": "application/json",
       },
-
     });
 
     const resultado = await response.json();
-    setProductos(resultado)
-  }
+    setProductos(resultado);
+  };
 
   useEffect(() => {
     traerProductos();
   });
 
-
   return (
-    <Container sx={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      marginTop: "80px"
-
-    }}>
+    <div className="Container_Perfil"
+    >
       <TopContainer>
-      <Titulo>
-        TIENDA
-      </Titulo>
-      <Pagination count={3} variant="outlined" />
+        <Titulo>TIENDA</Titulo>
+        <Pagination count={3} variant="outlined" />
       </TopContainer>
       <div className="contenedor_prodTienda">
         {productos.map((item) => (
-          <Producto item={item} key={item.productoid}/>
+          <Producto item={item} key={item.productoid} />
         ))}
       </div>
-      
-    </Container>
+    </div>
   );
 };
 

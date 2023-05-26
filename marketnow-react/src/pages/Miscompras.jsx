@@ -7,16 +7,8 @@ import SideMenu from '../components/sidemenu'
 import ContextUser from '../contextUsuario'
 import { useContext } from 'react'
 import MisComprasComponent from '../components/MisComprasComponent'
+import { Container } from '@mui/material'
 
-const Container = styled.div`
-  
-  display: flex;
-  height: 80vh;
-  flex-wrap: wrap;
-  justify-content: left;
-  width:100%;
-  position: relative;
-`;
 const FooterContainer = styled.div`
   position: relative; 
   z-index: 2; 
@@ -30,7 +22,7 @@ const MisCompras = () => {
     <div>
       <Anuncios/>
       <NavbarVPrivada/>
-      <Container>
+      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', height: "auto", margin: 0, padding: 0, gap: 7}}>
       <SideMenu/>
       <MisComprasComponent/> 
       </Container>

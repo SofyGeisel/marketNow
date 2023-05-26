@@ -107,9 +107,8 @@ const RegistroForm = () => {
                 <Box
                 sx={{
                     bgcolor: 'background.paper',
-                    p: 5,
+                    p: 3,
                     boxShadow: 1,
-                    marginTop: 2,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',

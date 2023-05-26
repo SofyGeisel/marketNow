@@ -57,7 +57,7 @@ const Perfil = () => {
   const { usuario } = useContext(ContextUser);
 
   return (
-    <Container>
+    <div className="Container_Perfil">
       <Left>
         <Titulo>MI PERFIL</Titulo>
       </Left>
@@ -147,7 +147,7 @@ const Perfil = () => {
           </Grid>
         ))}
       </Box>
-    </Container>
+    </div>
   );
 };
 

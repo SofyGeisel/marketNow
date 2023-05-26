@@ -1,119 +1,51 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Button } from '@mui/material';
+import { Button, Box } from '@mui/material';
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import ContextCarrito from "../contextCarrito";
+import { useContext } from "react";
+import ItemMisCompras from './ItemMisCompras';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 70vh;
-  flex-wrap: wrap;
-  justify-content: left;
-  width:100%;
-  position: relative;
-  align-content: flex-start;
-  justify-content: flex-start;
-  margin-top: 88px;
-  
-`;
-const Left = styled.div`
-  margin-bottom: 32px;
-  margin-left: 380px;
-`;
-const Titulo = styled.h1`
-    font-size: 40px;
-    font-weight: normal;
-  `;
-const Card = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 50rem;
-    background-color: white;
-    margin-bottom: 20px;
-    padding: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    margin-left: 380px;
-`;
-const MenuItem = styled.h4`
-    `;
-const MenuContainer = styled.div`
-    display:flex;
-    flex-direction: column;
-    justify-content: center;  
-`;
-const ButtonContainer = styled.div`
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    
-`;
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
-const CustomButton = styled(Button)`
-    && {
-        background-color: #77D0CF;
-        color: black;
-        border-radius: 20px;
-        text-transform: capitalize;
-        padding-left: 20px;
-        padding-right: 20px;
-        font-size: 14px;
-        &:hover {
-            background-color: black;  
-            color: white;
-        }
-    }
-`;
 
 const MisComprasComponent = () => {
+
+  const { carrito, total } = useContext(ContextCarrito);
+  const navigate = useNavigate();
+  const volver = () => navigate(`/tienda`);
+
+  const precioTotal = parseInt(total);
+  const totalFormato = precioTotal.toLocaleString("eng", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  });
+
   return (
-    <Container>
-        <Left>
-        <Titulo>MIS COMPRAS</Titulo>
-        </Left>
-      <Card>
-        <MenuContainer>
-        <MenuItem>ID de compra: </MenuItem>
-        <MenuItem>Fecha de compra: </MenuItem>
-        <MenuItem>Total: </MenuItem>
-        </MenuContainer>
-        <ButtonContainer>
-        <StyledLink to="/detallecompra">
-        <CustomButton variant="contained" size="small" color="primary">Ver detalle</CustomButton>
-        </StyledLink>
-        </ButtonContainer>
-      </Card>
-      <Card>
-        <MenuContainer>
-        <MenuItem>ID de compra: </MenuItem>
-        <MenuItem>Fecha de compra: </MenuItem>
-        <MenuItem>Total: </MenuItem>
-        </MenuContainer>
-        <ButtonContainer>
-            <StyledLink to="/detallecompra">
-        <CustomButton variant="contained" size="small" color="primary">Ver detalle</CustomButton>
-            </StyledLink>
-        </ButtonContainer>
-      </Card>
-      <Card>
-        <MenuContainer>
-        <MenuItem>ID de compra: </MenuItem>
-        <MenuItem>Fecha de compra: </MenuItem>
-        <MenuItem>Total: </MenuItem>
-        </MenuContainer>
-        <ButtonContainer>
-        <StyledLink to="/detallecompra">
-        <CustomButton variant="contained" size="small" color="primary">Ver detalle</CustomButton>
-        </StyledLink>
-        </ButtonContainer>
-      </Card>
-    </Container>
+    <div className='Container_Perfil'>
+        <div className='titulo'>MIS COMPRAS</div>
+      <Box
+            sx={{
+              bgcolor: "#fafafa",
+              boxShadow: 1,
+              borderTopRightRadius: 40,
+              borderBottomLeftRadius: 40,
+              p: 1,
+              minWidth: 300,
+              minHeight: 300,
+              width: "90%",
+              height: "fit-content",
+              marginBottom: "80px"
+            }}
+          >
+        
+        {carrito.map((item) => {
+              return (
+                <ItemMisCompras item={item} key={item.productoid + Math.random()} />
+              );
+            })}
+            </Box>
+    </div>
   )
 }
 

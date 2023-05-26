@@ -55,30 +55,39 @@ const Detalle = () => {
             borderBottomLeftRadius: 40,
             p: 6,
             paddingTop: 4,
-            m: 4,
             marginTop: 10,
-            minWidth: 250,
-            width: "60rem",
+            minWidth: 230,
+            width: "80%",
           }}
         >
-          <Typography marginBottom={4} variant="h4">
-            {prod.nombre}
-          </Typography>
-
-          <Grid key={prod.productoid} container spacing={4}>
+          <Grid item>
+            <Typography marginBottom={2} variant="h4">
+              {prod.nombre}
+            </Typography>
+          </Grid>
+          <Grid
+            key={prod.productoid}
+            container
+            spacing={1}
+            sx={{ width: "100%", display: "flex", alignItems: "flex-end" }}
+          >
             <Grid
               item
               xs={12}
               sm={12}
-              md={4}
+              md={3}
               m={4}
-              p={5}
               sx={{
                 borderTopRightRadius: 20,
                 borderBottomLeftRadius: 20,
                 backgroundColor: "black",
+                minHeight: 180,
                 marginBottom: 0,
-                minWidth: 200,
+                minWidth: 180,
+                zIndex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               <Avatar
@@ -88,8 +97,9 @@ const Detalle = () => {
                   height: "100%",
                   borderRadius: 0,
                   overflow: "clip",
-                  minWidth: 200,
-                  maxWidth: 240,
+                  minWidth: 100,
+                  maxWidth: 200,
+                  zIndex: 1,
                 }}
               />
             </Grid>

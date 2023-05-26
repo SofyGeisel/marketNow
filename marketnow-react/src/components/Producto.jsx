@@ -4,7 +4,6 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { Link } from "react-router-dom"
-
 import { useContext } from 'react';
 import ContextCarrito from '../contextCarrito';
 import ContextProductos from '../contextProductos';
@@ -12,7 +11,7 @@ import ContextUser from '../contextUsuario';
 
 const Info = styled.div`
   width: 100%;
-  height: 100%;
+  height: 360px;
   position: absolute;
   top: 0;
   left: 0;
@@ -30,7 +29,7 @@ const Info = styled.div`
   `;
 const Container = styled.div`
   flex:1;
-  margin: 15px;
+  margin-right: 30px;
   margin-bottom: 60px;
   min-width: 15rem;
   max-width: 180px;
