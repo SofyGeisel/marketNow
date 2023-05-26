@@ -3,7 +3,6 @@ import React from 'react'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { Typography } from '@mui/material';
 import { Link } from "react-router-dom"
 import { useContext } from 'react';
 import ContextCarrito from '../contextCarrito';
@@ -118,7 +117,7 @@ const verProducto = `/detalleproducto/${prodId}`
     
     console.log(datos);
     try {
-      const response = await fetch("https://marketnow-backend.onrender.com/favoritos", {
+      const response = await fetch("http://localhost:3000/favoritos", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
@@ -145,9 +144,7 @@ const verProducto = `/detalleproducto/${prodId}`
         <TituloyDescripcion>
         <Titulo>{item.nombre}</Titulo> 
           <Descripcion>{item.descripcion}</Descripcion> 
-          <Titulo >${item.precio}</Titulo>
         </TituloyDescripcion>
-        
         <Info>
           <Icon onClick={() => {
             carrito.push(item)
@@ -157,7 +154,8 @@ const verProducto = `/detalleproducto/${prodId}`
           <ShoppingCartOutlinedIcon color="white"  />
           </Icon>
           <Icon onMouseEnter={() => {
-            setProdId(item.productoid)}} 
+            setProdId(item.productoid)
+            console.log(item.productoid)}} 
             to={verProducto}>
           <SearchIcon/>
           </Icon>

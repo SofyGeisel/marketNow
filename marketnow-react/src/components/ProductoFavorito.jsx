@@ -110,7 +110,7 @@ const verProducto = `/detalleproductofavorito/${prodId}`
 
   const quitarFavoritos = async (favoritoid) => {
     
-    const response = await fetch(`https://marketnow-backend.onrender.com/favoritos/${favoritoid}`, {
+    const response = await fetch(`http://localhost:3000/favoritos/${favoritoid}`, {
     method: "DELETE", // or 'PUT'
     headers: {
         "Content-Type": "application/json",

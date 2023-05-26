@@ -73,7 +73,7 @@ const Carrito = () => {
     };
 
     try {
-      const response = await fetch("https://marketnow-backend.onrender.com/compras", {
+      const response = await fetch("http://localhost:3000/compras", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
