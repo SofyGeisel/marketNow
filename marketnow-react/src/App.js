@@ -63,7 +63,7 @@ function App() {
             <Route path="/formulario" element={<Formulario/>} />
             <Route path="/misfavoritos" element={<Misfavoritos/>} />
             <Route path="/carrito" element={<Carrito/>} />
-            <Route path="/detallecompra" element={<Detallecompra/>} />
+            <Route path="/detallecompra/:compraid" element={<Detallecompra/>} />
             <Route path="/compras" element={<MisCompras/>} />
             <Route path="*" element={<Notfound/>} />
               

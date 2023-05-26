@@ -29,9 +29,9 @@ const ItemMisCompras = ({ item }) => {
         maximumFractionDigits: 0
     })
 
-    const verDetalle = (itemid) => {
+    const verDetalle = () => {
       
-      navigate(`/detallecompra`);
+      navigate(`/detallecompra/${item.compraid}`);
     
     }
     
