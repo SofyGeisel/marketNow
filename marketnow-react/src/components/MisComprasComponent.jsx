@@ -89,30 +89,6 @@ const MisComprasComponent = () => {
         </StyledLink>
         </ButtonContainer>
       </Card>
-      <Card>
-        <MenuContainer>
-        <MenuItem>ID de compra: </MenuItem>
-        <MenuItem>Fecha de compra: </MenuItem>
-        <MenuItem>Total: </MenuItem>
-        </MenuContainer>
-        <ButtonContainer>
-            <StyledLink to="/detallecompra">
-        <CustomButton variant="contained" size="small" color="primary">Ver detalle</CustomButton>
-            </StyledLink>
-        </ButtonContainer>
-      </Card>
-      <Card>
-        <MenuContainer>
-        <MenuItem>ID de compra: </MenuItem>
-        <MenuItem>Fecha de compra: </MenuItem>
-        <MenuItem>Total: </MenuItem>
-        </MenuContainer>
-        <ButtonContainer>
-        <StyledLink to="/detallecompra">
-        <CustomButton variant="contained" size="small" color="primary">Ver detalle</CustomButton>
-        </StyledLink>
-        </ButtonContainer>
-      </Card>
     </Container>
   )
 }

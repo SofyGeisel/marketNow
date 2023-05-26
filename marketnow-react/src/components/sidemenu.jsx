@@ -14,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import ContextUser from '../contextUsuario';
-
+import ContextCarrito from "../contextCarrito";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from '@mui/material';
@@ -56,6 +56,7 @@ const SideMenu = (props) => {
   const misFavoritos = () => navigate(`/misfavoritos`)
   const agregarProducto = () => navigate(`/agregarproducto`)
 
+  const { carrito } = useContext(ContextCarrito)
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const { window } = props;
@@ -75,6 +76,7 @@ const SideMenu = (props) => {
   const cerrarSesion = async () => {
     navigate("/login");
     localStorage.removeItem('token');
+    carrito.length = 0;
   }
   
   const obtenerUsuario = async () => {

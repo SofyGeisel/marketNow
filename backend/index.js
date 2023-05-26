@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
-const { addUser, addProducto, addFavorito, validarCredenciales, leerProductos, leerProductosFavoritos, modificarUsuario, eliminarFavorito } = require('./consultas')
+const { addUser, addProducto, addFavorito, addCompra, validarCredenciales, leerProductos, leerProductosFavoritos, leerCompras, modificarUsuario, eliminarFavorito } = require('./consultas')
 const { verificarCredenciales, verificarToken } = require('./middelware')
 const { secretKey } = require("./secretkey")
 
@@ -70,6 +70,16 @@ app.post("/favoritos", async (req, res) => {
     }
   })
 
+//AGREGA COMPRAS
+app.post("/compras", async (req, res) => {
+    try{
+        const { usuarioid, fecha_compra, total, productos } = req.body
+        await addCompra(usuarioid, fecha_compra, total, productos)
+        res.send("Compra efectuada con éxito")
+    } catch (error) {
+        res.status(500).send(error)
+    }
+  })
 
 //--------------METODOS PUT----------------
 
@@ -121,6 +131,17 @@ app.get("/favoritos/:id", async (req, res) => {
     }
    })
 
+//OBTIENE COMPRAS DE USUARIOS
+app.get("/compras/:id", async (req, res) => {
+    try {
+       const { id } = req.params
+       const compras = await leerCompras(id)
+       res.json(compras)
+    } catch (error) {
+       console.log(error)
+       res.status(error.code || 500).send(error)
+    }
+   })
 
 //--------------METODOS DELETE----------------
 

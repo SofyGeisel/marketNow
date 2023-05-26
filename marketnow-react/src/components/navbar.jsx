@@ -1,13 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
-import Badge from "@mui/material/Badge";
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import DirectionsRunOutlinedIcon from '@mui/icons-material/DirectionsRunOutlined';
 import { Link, useNavigate } from "react-router-dom"
 
-import ContextCarrito from "../contextCarrito";
-import { useContext } from "react";
 
 const Container = styled.div`
   height: 60px;
@@ -70,11 +66,6 @@ const MenuItem = styled(Link)`
 
 const Navbar = () => {
 
-  const { carrito } = useContext(ContextCarrito)
-
-  const navigate = useNavigate();
-  const carro = () => navigate(`/carrito`)
-
   return (
     <Container>
       <Wrapper>
@@ -94,11 +85,6 @@ const Navbar = () => {
         <Right>
           <MenuItem to="/registro">REGISTRARSE</MenuItem>
           <MenuItem to="/login">INICIAR SESION</MenuItem>
-          <MenuItem to="/carrito" onClick={carro}>
-            <Badge badgeContent={carrito.length} color="primary">
-              <ShoppingCartOutlinedIcon to="/carrito"color="black" />
-            </Badge>
-          </MenuItem>
         </Right>
       </Wrapper>
     </Container>

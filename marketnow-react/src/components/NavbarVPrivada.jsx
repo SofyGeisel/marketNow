@@ -80,6 +80,7 @@ const NavbarVPrivada = () => {
   const cerrarSesion = async () => {
     navigate("/login");
     localStorage.removeItem('token');
+    carrito.length = 0;
   }
 
   const irTienda = async () => {

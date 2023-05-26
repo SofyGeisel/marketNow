@@ -10,6 +10,7 @@ import ItemCarro from "../components/item_carro";
 import { useNavigate } from "react-router-dom";
 
 import ContextCarrito from "../contextCarrito";
+import ContextUser from '../contextUsuario';
 import { useContext } from "react";
 
 /* const Left = styled.div`
@@ -57,15 +58,49 @@ const FooterContainer = styled.div`
 const Carrito = () => {
   
   const { carrito, total } = useContext(ContextCarrito);
+  const {usuario, setUsuario} = useContext(ContextUser)
   const navigate = useNavigate();
   const volver = () => navigate(`/tienda`);
-
   const precioTotal = parseInt(total);
   const totalFormato = precioTotal.toLocaleString("eng", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,
   });
+
+  const agregarCompra = async () => {
+
+    const tiempoTranscurrido = Date.now();
+    const hoy = new Date(tiempoTranscurrido);
+    const carritoJson = JSON.stringify(carrito);
+
+    const compraPrevia = {
+      usuarioid: usuario[0].usuarioid,
+      fecha_compra: hoy.toLocaleDateString(),
+      total: total,
+      productos: carritoJson,
+    };
+
+    try {
+      const response = await fetch("http://localhost:3000/compras", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(compraPrevia),
+      });
+
+      const result = await response;
+
+      if (result.ok) {
+        alert("Su compra a sido registrada éxitosamente 😀");
+        navigate(`/compras`)
+        carrito.length = 0;
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div>
@@ -127,7 +162,7 @@ const Carrito = () => {
                   variant="contained"
                   color="primary"
                   sx={{ m: 2 }}
-                  onClick={volver}
+                  onClick={agregarCompra}
                   disabled={precioTotal === 0 ? true : false}
                 >
                   Finalizar compra
