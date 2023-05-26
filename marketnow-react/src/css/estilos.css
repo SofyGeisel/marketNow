@@ -12,6 +12,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
+    min-height: 80vh;
     height: auto;
     margin-top: 86px;
     
@@ -107,6 +108,17 @@
   font-weight: normal;
   margin-bottom: 33px;
   align-self: flex-start;
+}
+
+.formsubirimg {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.formsubirimg h4 {
+  margin-bottom: 10px;
 }
 
 /*@media (max-width: 740px){

@@ -5,59 +5,30 @@ import NavbarVPrivada from "../components/NavbarVPrivada";
 import Footer from "../components/Footer";
 import SideMenu from "../components/sidemenu";
 import TextField from "@mui/material/TextField";
-import { Button, Container } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import { Button, Container} from "@mui/material";
 
-const Left = styled.div`
-  margin-bottom: 32px;
-  margin-left: 130px;
-  display: flex;
-`;
-const Titulo = styled.h1`
-  font-size: 40px;
-  font-weight: normal;
-`;
 const ContainerAddProducto = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
-  height: 70%;
+  width: 90%;
+  height: 65%;
   background-color: white;
   border-top-right-radius: 40px;
   border-bottom-left-radius: 40px;
-  margin-left: 130px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
 `;
-const ContainerTop = styled.div`
-  display: flex;
-  align-items: stretch;
-`;
-const ContainerImage = styled.div`
-  display: flex;
-  width: 250px;
-  height: 250px;
-  background-color: black;
-  z-index: 1;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  margin: 20px;
-  justify-content: center;
-  align-items: center;
-`;
-const PreClick = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  font-size: 20px;
-`;
+
 const ContainerTextField = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  width: 400px;
+  margin-left: 150px;
+  margin-right: 150px;
+  justify-content: center;
+  flex: 1; 
+  align-self: stretch; 
 `;
 const CustomTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -83,7 +54,7 @@ const ButtonContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 `;
 const CustomButton = styled(Button)`
   && {
@@ -109,19 +80,11 @@ const Agregarproducto = () => {
     <div>
       <Anuncios />
       <NavbarVPrivada />
-      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0, gap: 7}}>
+      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', height: 'auto', minHeight: '70vh', margin: 0, padding: 0, gap: 7}}>
         <SideMenu />
-        <Left>
-          <Titulo>AGREGA TUS PRODUCTOS</Titulo>
-        </Left>
+        <div className="Container_Perfil">
+        <div className='titulo'>AGREGAR PRODUCTO</div>
         <ContainerAddProducto>
-          <ContainerTop>
-            <ContainerImage>
-              <PreClick>
-                Añadir imagen
-                <AddIcon/>
-              </PreClick>
-            </ContainerImage>
             <ContainerTextField>
               <CustomTextField
                 autoComplete="given-name"
@@ -155,16 +118,23 @@ const Agregarproducto = () => {
                 autoFocus
                 size="small"
                 sx={{ marginBottom: 3 }}
-              />
+              /> 
+              
+              <form className="formsubirimg" action="/files" method="post">
+              <h4>Agrega la imagen de tu producto</h4>
+              <input type="file"/>
+              </form>
+              
               <ButtonContainer>
                 <CustomButton variant="contained" size="small" color="primary">
                   Agregar producto
                 </CustomButton>
               </ButtonContainer>
             </ContainerTextField>
-          </ContainerTop>
         </ContainerAddProducto>
+        </div>
       </Container>
+      
       <FooterContainer>
         <Footer />
       </FooterContainer>
