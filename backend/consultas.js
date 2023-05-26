@@ -38,6 +38,15 @@ const addFavorito = async (usuarioid, productoid) => {
     console.log("Favorito agregado con exito")
 }
 
+//AGREGAR COMPRA
+const addCompra = async (usuarioid, fecha_compra, total, productos) => {
+
+    const consulta = "INSERT INTO compras (usuarioid, fecha_compra, total, productos) VALUES ($1, $2, $3, $4)"
+    const values = [usuarioid, fecha_compra, total, productos]
+    const result = await pool.query( consulta, values)
+    console.log("Compra agregada con exito")
+}
+
 //VALIDA CREDENCIALES DE USUARIO
 const validarCredenciales = async ( email, password ) => {
     
@@ -79,6 +88,16 @@ const leerProductosFavoritos = async ( usuarioid ) => {
 
 }
 
+//EXTRAE COMPRAS POR USUARIO
+const leerCompras = async ( usuarioid ) => {
+
+    const value = [usuarioid]
+    const consulta = "SELECT * FROM compras WHERE usuarioid = $1"
+    const { rows } = await pool.query(consulta, value)
+    return rows
+
+}
+
 //ACTUALIZA INFORMACION DE USUARIO
 const modificarUsuario = async (nombre, direccion, password, id) => {
 
@@ -107,4 +126,4 @@ const eliminarFavorito = async (id) => {
     const result = await pool.query(consulta, values)
 }
 
-module.exports = { addUser, addProducto, addFavorito, validarCredenciales, extraeUsuario, leerProductos, leerProductosFavoritos, modificarUsuario, eliminarFavorito }
+module.exports = { addUser, addProducto, addFavorito, addCompra, validarCredenciales, extraeUsuario, leerProductos, leerProductosFavoritos, leerCompras, modificarUsuario, eliminarFavorito }
