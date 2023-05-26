@@ -79,7 +79,7 @@ const RegistroForm = () => {
         
         try {
 
-            const response = await fetch("http://localhost:3000/usuarios", {
+            const response = await fetch("https://marketnow-backend.onrender.com/usuarios", {
                 method: "POST", // or 'PUT'
                 headers: {
                 "Content-Type": "application/json",
