@@ -4,14 +4,19 @@ import { Button, Box } from '@mui/material';
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import ContextCarrito from "../contextCarrito";
-import { useContext } from "react";
+import ContextProductos from "../contextProductos";
+import ContextUser from '../contextUsuario';
+import { useContext, useEffect, useState } from "react";
 import ItemMisCompras from './ItemMisCompras';
 
 
 const MisComprasComponent = () => {
 
-  const { carrito, total } = useContext(ContextCarrito);
-  const navigate = useNavigate();
+  const { carrito, total } = useContext(ContextCarrito)
+  const {usuario, setUsuario} = useContext(ContextUser)
+  const { prodIdCompras, setprodIdCompras } = useContext(ContextProductos)
+  const [compras, setCompras] = useState([])
+  const navigate = useNavigate()
   const volver = () => navigate(`/tienda`);
 
   const precioTotal = parseInt(total);
@@ -19,6 +24,25 @@ const MisComprasComponent = () => {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,
+  });
+
+  const datos = usuario[0].usuarioid
+
+  const traerCompras = async () => {
+    const response = await fetch(`http://localhost:3000/compras/${datos}`, {
+      method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const resultado = await response.json();
+    setCompras(resultado);
+    setprodIdCompras(resultado.productos); //
+  };
+
+  useEffect(() => {
+    traerCompras();
   });
 
   return (
@@ -39,9 +63,9 @@ const MisComprasComponent = () => {
             }}
           >
         
-        {carrito.map((item) => {
+        {compras.map((item) => {
               return (
-                <ItemMisCompras item={item} key={item.productoid + Math.random()} />
+                <ItemMisCompras item={item} key={item.compraid + Math.random()} />
               );
             })}
             </Box>
