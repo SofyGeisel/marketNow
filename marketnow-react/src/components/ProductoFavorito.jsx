@@ -29,7 +29,7 @@ const Info = styled.div`
   `;
 const Container = styled.div`
   flex:1;
-  margin: 15px;
+  
   margin-bottom: 60px;
   min-width: 15rem;
   max-width: 180px;
@@ -110,7 +110,7 @@ const verProducto = `/detalleproductofavorito/${prodId}`
 
   const quitarFavoritos = async (favoritoid) => {
     
-    const response = await fetch(`https://marketnow-backend.onrender.com/favoritos/${favoritoid}`, {
+    const response = await fetch(`http://localhost:3000/favoritos/${favoritoid}`, {
     method: "DELETE", // or 'PUT'
     headers: {
         "Content-Type": "application/json",

@@ -18,11 +18,10 @@ const Container = styled.div`
 `;
 const TopContainer = styled.div`
   display: flex;
-  width: 39%;
+  width: 90%;
   align-items: center;
-  margin-left: 95px;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 33px;
 `;
 const Titulo = styled.h1`
     font-size: 40px;
@@ -44,7 +43,7 @@ const ProductosFavoritos = () => {
 
     const datos = usuario[0].usuarioid
 
-    const response = await fetch(`https://marketnow-backend.onrender.com/favoritos/${datos}`, {
+    const response = await fetch(`http://localhost:3000/favoritos/${datos}`, {
       method: "GET", // or 'PUT'
       headers: {
       "Content-Type": "application/json",
@@ -61,7 +60,8 @@ const ProductosFavoritos = () => {
 
 
   return (
-    <Container>
+    <div className="Container_Perfil"
+    >
       <TopContainer>
       <Titulo>
         MIS FAVORITOS
@@ -73,8 +73,7 @@ const ProductosFavoritos = () => {
           <ProductoFavorito item={item} key={item.productoid}/>
         ))}
       </div>
-      
-    </Container>
+    </div>
   );
 };
 

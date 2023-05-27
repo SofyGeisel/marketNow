@@ -79,7 +79,7 @@ const RegistroForm = () => {
         
         try {
 
-            const response = await fetch("https://marketnow-backend.onrender.com/usuarios", {
+            const response = await fetch("http://localhost:3000/usuarios", {
                 method: "POST", // or 'PUT'
                 headers: {
                 "Content-Type": "application/json",
@@ -102,18 +102,23 @@ const RegistroForm = () => {
 
     return(
         <div className="Container_Login">
-            <Container component="main" maxWidth="xs">
+            
                 <CssBaseline />
                 <Box
                 sx={{
                     bgcolor: 'background.paper',
-                    p: 3,
+                    maxWidth: 400,
+                    minWidth: 350,
+                    m: 2,
+                    p: 4,
                     boxShadow: 1,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     borderTopRightRadius: 40,
                     borderBottomLeftRadius: 40,
+                    paddingBottom: '40px',
+                    paddingTop: '30px'
                 }}
                 >
                 <TopContainer>
@@ -124,7 +129,7 @@ const RegistroForm = () => {
                     <LockOutlinedIcon  />
                 </Avatar>
                 </TopContainer>
-                <Box component="form" noValidate sx={{ mt: 3 }} >
+                <Box component="form" noValidate sx={{ mt: 3, display: "flex", flexDirection: "column", alignItems: "center" }} >
                     <Grid container spacing={1.5}  >
                     <Grid item xs={12} sm={6} >
                         <CustomTextField
@@ -190,6 +195,7 @@ const RegistroForm = () => {
                     </Grid>
                     
                     </Grid>
+                    <Grid item xs={12} display="flex" justifyContent="center">
                     <CustomButton
                     fullWidth
                     variant="contained"
@@ -198,6 +204,7 @@ const RegistroForm = () => {
                     >
                     Registrar Usuario
                     </CustomButton>
+                    </Grid>
                     <Grid container justifyContent="center">
                     <Grid item>
                         <Link href="/loginregistro" color="inherit" >
@@ -207,7 +214,7 @@ const RegistroForm = () => {
                     </Grid>
                 </Box>
                 </Box>
-            </Container>
+            
         
         
         </div>

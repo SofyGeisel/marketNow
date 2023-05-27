@@ -28,8 +28,8 @@ const CustomButton = styled(Button)`
     color: black;
     border-radius: 20px;
     text-transform: capitalize;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
     font-size: 14px;
     &:hover {
       background-color: black;
@@ -46,6 +46,7 @@ const Detalle = () => {
 
   return (
     <div className="Container_Perfil">
+      <div className='titulo'>DETALLE DE PRODUCTO</div>
       {producto.map((prod) => (
         <Box
           sx={{
@@ -53,11 +54,13 @@ const Detalle = () => {
             boxShadow: 1,
             borderTopRightRadius: 40,
             borderBottomLeftRadius: 40,
-            p: 6,
-            paddingTop: 4,
-            marginTop: 10,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
             minWidth: 230,
-            width: "80%",
+            minHeight: 370,
+            width: "90%",
           }}
         >
           <Grid item>
@@ -83,7 +86,7 @@ const Detalle = () => {
                 backgroundColor: "black",
                 minHeight: 180,
                 marginBottom: 0,
-                minWidth: 180,
+                minWidth: 160,
                 zIndex: 1,
                 display: "flex",
                 alignItems: "center",
@@ -151,6 +154,7 @@ const Detalle = () => {
               <CustomButton
                 variant="contained"
                 color="primary"
+                position="absolute"
                 sx={{ m: 0 }}
                 onClick={volver}
               >

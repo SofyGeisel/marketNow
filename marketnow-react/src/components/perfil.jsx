@@ -18,33 +18,14 @@ import BadgeIcon from "@mui/icons-material/Badge";
 import HomeIcon from "@mui/icons-material/Home";
 import EmailIcon from "@mui/icons-material/Email";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 70vh;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  width: 80%;
-  align-content: flex-start;
-  justify-content: flex-start;
-  margin-top: 80px;
-`;
-const Left = styled.div`
-  /* margin-left: 30px; */
-  margin-bottom: 32px;
-`;
-const Titulo = styled.h1`
-  font-size: 40px;
-  font-weight: normal;
-`;
 const CustomButton = styled(Button)`
   && {
     background-color: #77d0cf;
     color: black;
     border-radius: 20px;
     text-transform: capitalize;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
     font-size: 14px;
     &:hover {
       background-color: black;
@@ -58,15 +39,14 @@ const Perfil = () => {
 
   return (
     <div className="Container_Perfil">
-      <Left>
-        <Titulo>MI PERFIL</Titulo>
-      </Left>
+      <div className="titulo">MI PERFIL</div>
       <Box
         sx={{
           bgcolor: "background.paper",
           boxShadow: 1,
-          p: 4,
+          p: 1,
           minWidth: 300,
+          minHeight: 350,
           width: "90%",
           height: "auto",
           borderTopRightRadius: 40,
@@ -74,29 +54,43 @@ const Perfil = () => {
         }}
       >
         {usuario.map((user) => (
-          <Grid key={user.usuarioid} container spacing={3}>
+          <Grid
+            key={user.usuarioid}
+            container
+            spacing={2}
+            sx={{
+              display: "flex",
+              flexWrap: "nowrap",
+              alignItems: "center",
+              justifyContent: "center",
+              minWidth: 300,
+              minHeight: 350,
+              width: "100%",
+              height: "auto",
+            }}
+          >
             <Grid
               item
-              xs={12}
+              xs={4}
               m={2}
               sx={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                
               }}
             >
               <Avatar
+
                 src="/broken-image.jpg"
-                sx={{ width: 90, height: 90 }}
+                sx={{ width: 200, height: 200, fontSize: "100px" }}
                 style={{ backgroundColor: "black" }}
               />
             </Grid>
-            <Grid item xs={2} sm={4}>
+            <Grid item xs={4} sm={4}>
               <List
                 sx={{
-                  maxWidth: 200,
-                  paddingTop: 0,
-                  paddingLeft: 6,
+                  maxWidth: 200, 
                 }}
               >
                 <ListItem>
@@ -130,16 +124,11 @@ const Perfil = () => {
                 </ListItem>
               </List>
             </Grid>
-            <Grid
-              className="btnEditarPerfil"
-              item
-              
-              
-            >
+            <Grid item xs={4} sx={{ display: "flex", justifyContent: "center" }} >
               <CustomButton
                 variant="contained"
                 color="primary"
-                sx={{ m: 0, marginRight: 4 }}
+                sx={{ }}
               >
                 Editar
               </CustomButton>

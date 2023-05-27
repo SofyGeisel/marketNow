@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Button, Box } from '@mui/material';
+import { Button, Box, Typography, Grid } from '@mui/material';
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import ContextCarrito from "../contextCarrito";
@@ -9,8 +9,23 @@ import ContextUser from '../contextUsuario';
 import { useContext, useEffect, useState } from "react";
 import ItemMisCompras from './ItemMisCompras';
 
+const CustomButton = styled(Button)`
+    && {
+        background-color: #77D0CF;
+        color: black;
+        border-radius: 20px;
+        text-transform: inherit;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 15px;
+        &:hover {
+            background-color: black;  
+            color: white;
+        }
+    }
+`;
 
-const MisComprasComponent = () => {
+const FormularioExitoComponent = () => {
 
   const { carrito, total } = useContext(ContextCarrito)
   const {usuario, setUsuario} = useContext(ContextUser)
@@ -20,34 +35,10 @@ const MisComprasComponent = () => {
   const volver = () => navigate(`/tienda`);
 
   const precioTotal = parseInt(total);
-  const totalFormato = precioTotal.toLocaleString("eng", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  });
-
-  const datos = usuario[0].usuarioid
-
-  const traerCompras = async () => {
-    const response = await fetch(`http://localhost:3000/compras/${datos}`, {
-      method: "GET", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const resultado = await response.json();
-    setCompras(resultado);
-    setprodIdCompras(resultado.productos); //
-  };
-
-  useEffect(() => {
-    traerCompras();
-  });
-
+  
   return (
     <div className='Container_Perfil'>
-        <div className='titulo'>MIS COMPRAS</div>
+        <div className='titulo'>REGISTRO EXITOSO</div>
       <Box
             sx={{
               bgcolor: "#fafafa",
@@ -59,19 +50,25 @@ const MisComprasComponent = () => {
               minHeight: 350,
               width: "90%",
               height: "fit-content",
-              marginBottom: "80px"
+              marginBottom: "80px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              
             }}
           >
-        
-        {compras.map((item) => {
-              return (
-                <ItemMisCompras item={item} key={item.compraid + Math.random()} />
-              );
-            })}
+            <Grid display="flex" flexDirection="column" justifyContent="center">
+            <Typography marginBottom={5} variant="h5" >
+          Tu perfil ha sido editado con éxito. ¿Seguir vitrineando en <strong>MarketNow</strong>?
+        </Typography>
+            
+            </Grid>
+            <CustomButton variant="contained" color="primary">Ir a la tienda</CustomButton>
             </Box>
+            
     </div>
   )
 }
 
-export default MisComprasComponent
-
+export default FormularioExitoComponent
