@@ -29,7 +29,7 @@ const Info = styled.div`
   `;
 const Container = styled.div`
   flex:1;
-  margin: 15px;
+  
   margin-bottom: 60px;
   min-width: 15rem;
   max-width: 180px;

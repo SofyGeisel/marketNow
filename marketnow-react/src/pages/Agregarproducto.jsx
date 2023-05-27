@@ -13,7 +13,8 @@ const ContainerAddProducto = styled.div`
   justify-content: center;
   align-items: center;
   width: 90%;
-  height: 65%;
+  height: auto;
+  min-height: 300px;
   background-color: white;
   border-top-right-radius: 40px;
   border-bottom-left-radius: 40px;
@@ -24,9 +25,12 @@ const ContainerAddProducto = styled.div`
 const ContainerTextField = styled.div`
   display: flex;
   flex-direction: column;
+  height:auto;
   margin-left: 150px;
   margin-right: 150px;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 40px;
+  margin-bottom: 40px;
   flex: 1; 
   align-self: stretch; 
 `;

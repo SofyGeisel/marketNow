@@ -114,6 +114,8 @@ const RegistroForm = () => {
                     alignItems: 'center',
                     borderTopRightRadius: 40,
                     borderBottomLeftRadius: 40,
+                    paddingBottom: '40px',
+                    paddingTop: '30px'
                 }}
                 >
                 <TopContainer>

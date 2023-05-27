@@ -46,6 +46,7 @@ const DetalleFavorito = () => {
 
   return (
     <div className="Container_Perfil">
+      <div className='titulo'>DETALLE DE PRODUCTO</div>
       {producto.map((prod) => (
         <Box
           sx={{
@@ -53,32 +54,44 @@ const DetalleFavorito = () => {
             boxShadow: 1,
             borderTopRightRadius: 40,
             borderBottomLeftRadius: 40,
-            p: 6,
-            paddingTop: 4,
-            m: 4,
-            marginTop: 10,
-            minWidth: 250,
-            width: "60rem",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            minWidth: 230,
+            minHeight: 370,
+            width: "90%",
           }}
         >
-          <Typography marginBottom={4} variant="h4">
-            {prod.nombre}
-          </Typography>
+          <Grid item>
+            <Typography marginBottom={4} variant="h4">
+              {prod.nombre}
+            </Typography>
+          </Grid>
 
-          <Grid key={prod.productoid} container spacing={4}>
+          <Grid
+            key={prod.productoid}
+            container
+            spacing={1}
+            sx={{ width: "100%", display: "flex", alignItems: "flex-end" }}
+          >
             <Grid
               item
               xs={12}
               sm={12}
-              md={4}
+              md={3}
               m={4}
-              p={5}
               sx={{
                 borderTopRightRadius: 20,
                 borderBottomLeftRadius: 20,
                 backgroundColor: "black",
+                minHeight: 180,
                 marginBottom: 0,
-                minWidth: 200,
+                minWidth: 180,
+                zIndex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               <Avatar
@@ -88,8 +101,9 @@ const DetalleFavorito = () => {
                   height: "100%",
                   borderRadius: 0,
                   overflow: "clip",
-                  minWidth: 200,
-                  maxWidth: 240,
+                  minWidth: 100,
+                  maxWidth: 200,
+                  zIndex: 1,
                 }}
               />
             </Grid>
