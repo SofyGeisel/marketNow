@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
-const { addUser, addProducto, addFavorito, addCompra, validarCredenciales, leerProductos, leerProductosFavoritos, leerCompras, modificarUsuario, eliminarFavorito } = require('./consultas')
+const { addUser, addProducto, addFavorito, addCompra, validarCredenciales, leerProductos, leerProductosFavoritos, leerCompras, leerComprasDetalle, modificarUsuario, eliminarFavorito } = require('./consultas')
 const { verificarCredenciales, verificarToken } = require('./middelware')
 const { secretKey } = require("./secretkey")
 
@@ -142,6 +142,19 @@ app.get("/compras/:id", async (req, res) => {
        res.status(error.code || 500).send(error)
     }
    })
+
+//OBTIENE COMPRAS DE USUARIOS
+app.get("/comprasdetalle/:id", async (req, res) => {
+    try {
+       const { id } = req.params
+       const compras = await leerComprasDetalle(id)
+       res.json(compras)
+    } catch (error) {
+       console.log(error)
+       res.status(error.code || 500).send(error)
+    }
+   })
+
 
 //--------------METODOS DELETE----------------
 

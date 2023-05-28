@@ -1,23 +1,40 @@
 import React from 'react'
 import { Button, Box } from '@mui/material';
-import { useNavigate } from "react-router-dom";
-import ContextCarrito from "../contextCarrito";
-import { useContext } from "react";
+import { useNavigate, useParams} from "react-router-dom";
+import { useEffect, useState } from "react";
 import ItemDetalleCompra from './ItemDetalleCompra';
 
 
 const DetalleCompraComponent = () => {
 
-  const { carrito, total } = useContext(ContextCarrito);
+  const { id } = useParams()
+  const [ productosCompra, setProductosCompra ] = useState([]);
   const navigate = useNavigate();
   const volver = () => navigate(`/tienda`);
 
-  const precioTotal = parseInt(total);
+/*  const precioTotal = parseInt(total);
   const totalFormato = precioTotal.toLocaleString("eng", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,
+  });*/
+
+const traerProductosCompras = async () => {
+  const response = await fetch(`http://localhost:3000/comprasdetalle/8`, {
+    method: "GET", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
+
+  const resultado = await response.json();
+  setProductosCompra(resultado.productos); //
+  console.log(resultado.productos)
+};
+
+useEffect(() => {
+  traerProductosCompras();
+});
 
   return (
     <div className='Container_Perfil'>
@@ -37,9 +54,9 @@ const DetalleCompraComponent = () => {
             }}
           >
         
-        {carrito.map((item) => {
+        {productosCompra.map((item) => {
               return (
-                <ItemDetalleCompra item={item} key={item.productoid + Math.random()} />
+                <ItemDetalleCompra item={item} key={item.productoid} />
               );
             })}
             </Box>

@@ -94,7 +94,6 @@ const SideMenu = (props) => {
   
       let result = await response.json();
       setUsuario(result);
-      console.log(result)
     } catch ({ response: { data: message } }) {
       alert(message + " 🙁");
       console.log(message);
