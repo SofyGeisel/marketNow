@@ -20,7 +20,7 @@ const DetalleCompraComponent = () => {
   });*/
 
 const traerProductosCompras = async () => {
-  const response = await fetch(`http://localhost:3000/comprasdetalle/${id}`, {
+  const response = await fetch(`http://localhost:3000/comprasdetalle/8`, {
     method: "GET", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
