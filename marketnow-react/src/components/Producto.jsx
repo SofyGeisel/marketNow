@@ -138,7 +138,7 @@ const verProducto = `/detalleproducto/${prodId}`
   return (
       <Container>
         <FondoImagen>
-        <Image src={"require( + {item.imagen} + )"}/>
+        <Image src={item.imagen}/>
         </FondoImagen>
         <TituloyDescripcion>
         <Titulo>{item.nombre}</Titulo> 

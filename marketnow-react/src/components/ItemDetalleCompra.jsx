@@ -1,7 +1,5 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
-import ContextCarrito from "../contextCarrito";
-import { useContext } from "react";
 import styled from "styled-components";
 
 const CustomButton = styled(Button)`
@@ -22,8 +20,7 @@ const CustomButton = styled(Button)`
 `;
 
 const ItemDetalleCompra = ({ item }) => {
-  const { carrito, setCarrito, total, setTotal } = useContext(ContextCarrito);
-
+  
   const precioProducto = parseInt(item.precio);
   const precioFormato = precioProducto.toLocaleString("eng", {
     style: "currency",
