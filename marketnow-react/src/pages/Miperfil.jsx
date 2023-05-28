@@ -21,7 +21,7 @@ const Miperfil = () => {
     <div className='contPaginas'>
       <Anuncios/>
       <NavbarVPrivada/>
-      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', margin: 0, padding: 0, gap: 7}}>
+      <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', height: 'auto', minHeight: '80vh', margin: 0, padding: 0, gap: 7}}>
         <SideMenu/>
         <Perfil/>
       </Container>

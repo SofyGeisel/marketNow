@@ -18,7 +18,7 @@ import Detalleproducto from "./pages/Detalleproducto";
 import Detalleproductofavorito from "./pages/Detalleproductofavorito";
 import Miperfil from "./pages/Miperfil";
 import Editarperfil from "./pages/Editarperfil";
-import Formulario from "./pages/Formulario";
+import FormularioExito from "./pages/FormularioExito";
 import Misfavoritos from "./pages/Misfavoritos";
 import Detallecompra from "./pages/Detallecompra";
 import MisCompras from "./pages/Miscompras";
@@ -60,7 +60,7 @@ function App() {
             <Route path="/miperfil" element={<Miperfil/>} />
             <Route path="/editarperfil" element={<Editarperfil/>} />
             <Route path="/agregarproducto" element={<Agregarproducto/>} />
-            <Route path="/formulario" element={<Formulario/>} />
+            <Route path="/formularioexito" element={<FormularioExito/>} />
             <Route path="/misfavoritos" element={<Misfavoritos/>} />
             <Route path="/carrito" element={<Carrito/>} />
             <Route path="/detallecompra/:compraid" element={<Detallecompra/>} />

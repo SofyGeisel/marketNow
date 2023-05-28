@@ -77,7 +77,7 @@ const Login_form = () => {
       const token = await response.text();
 
       if (result.ok) {
-        alert("Usuario identificado con éxito 😀");
+        
         localStorage.setItem("token", token);
         navigate("/tienda");
       }

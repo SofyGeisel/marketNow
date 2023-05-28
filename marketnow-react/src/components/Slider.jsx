@@ -6,7 +6,8 @@ import { sliderItems } from "../data";
 
 const Container = styled.div`
   width: 100%;
-  height: 80vh;
+  min-height: 87vh;
+  height: auto;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -43,6 +44,9 @@ const Slide = styled.div`
 const ImgContainer = styled.div`
   height: 100%;
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-right:6rem;
   padding-left:0;
 `;
@@ -56,6 +60,8 @@ const InfoContainer = styled.div`
   padding:2rem;
   padding-left:12rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const Title = styled.h1`
   font-size: 70px;

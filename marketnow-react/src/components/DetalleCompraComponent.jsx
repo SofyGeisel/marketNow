@@ -48,7 +48,7 @@ useEffect(() => {
               p: 1,
               minWidth: 300,
               width: "90%",
-              minHeight: 300 ,
+              minHeight: 350 ,
               height: "fit-content",
               marginBottom: "80px"
             }}

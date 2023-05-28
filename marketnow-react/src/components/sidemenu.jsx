@@ -106,11 +106,11 @@ const SideMenu = (props) => {
 
   const drawer = (
     
-      <Box sx={{ width: '100%', maxWidth: 360, minWidth: 200, height: '100vh',  bgcolor: 'background.paper', marginLeft: 0,}}>
-      <Box p={5} style={{ color: 'black' }}>  
-        <p>Bienvenid@ </p>
+      <Box sx={{ width: '100%', maxWidth: 360, minWidth: 200, height: '100vh',  bgcolor: 'background.paper', marginLeft: 0, display: 'flex', flexDirection: 'column', }}>
+      <Box p={5} style={{ color: 'black', display: 'flex' }}>  
+        <p style={{ marginRight: '5px' }}>Bienvenid@, </p>
         {usuario.map(user =>
-        <strong key={user.usuarioid}>{user.nombre}</strong>
+        <strong key= { user.usuarioid}>{user.nombre}</strong>
         )}
       </Box>
       <Divider/>
