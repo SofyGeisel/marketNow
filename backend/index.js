@@ -47,14 +47,12 @@ app.post("/login", async (req, res) => {
 
 //AGREGA PRODUCTO
 app.post("/producto", async (req, res) => {
-
     try{
-        const { nombre, descripcion, precio, imagen } =req.body
-        await addProducto(nombre, descripcion, precio, imagen)
-        res.send("Producto ha sido creado con exito")
-    } catch(err){
-        console.log(err)
-        res.status(500).send(err)
+        const { nombre, precio, descripcion, imagen, usuarioid} = req.body
+        await addProducto(nombre, precio, descripcion, imagen, usuarioid)
+        res.send("Producto agregado con éxito")
+    } catch (error) {
+        res.status(500).send(error)
     }
 
 })

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import Anuncios from "../components/Anuncios";
 import NavbarVPrivada from "../components/NavbarVPrivada";
@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import SideMenu from "../components/sidemenu";
 import TextField from "@mui/material/TextField";
 import { Button, Container} from "@mui/material";
+import ContextUser from '../contextUsuario';
+import { useNavigate } from "react-router-dom";
 
 const ContainerAddProducto = styled.div`
   display: flex;
@@ -80,6 +82,71 @@ const FooterContainer = styled.div`
   z-index: 2;
 `;
 const Agregarproducto = () => {
+
+  const navigate = useNavigate()
+  const {usuario, setUsuario} = useContext(ContextUser)
+  const [nombre, setNombre] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [imagen, setImagen] = useState("")
+
+  const cargarImagen = async (e) => {
+    const file = e.target.files[0]
+    const base64 = await convertBase64(file)
+    setImagen(base64)
+    console.log(base64)
+  }
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader()
+      fileReader.readAsDataURL(file)
+
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error)
+      };
+
+    });
+  }
+
+  const registrarProducto = async () => {
+
+    const datos = usuario[0].usuarioid
+
+    const producto = {
+      nombre: nombre,
+      precio: precio,
+      descripcion: descripcion,
+      imagen: imagen,
+      usuarioid: datos,
+    };
+
+    const productotemporal = JSON.stringify(producto);
+    try {
+      const response = await fetch("http://localhost:3000/producto", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(producto),
+      });
+
+      const result = await response;
+      const token = await response.text();
+
+      if (result.ok) {
+
+        navigate("/tienda");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <div>
       <Anuncios />
@@ -99,6 +166,8 @@ const Agregarproducto = () => {
                 label="Nombre del producto"
                 autoFocus
                 size="small"
+                value={nombre}
+                onChange={({ target }) => setNombre(target.value)}
                 sx={{ marginBottom: 2 }}
               />
               <CustomTextField
@@ -109,6 +178,8 @@ const Agregarproducto = () => {
                 label="Precio"
                 autoFocus
                 size="small"
+                value={precio}
+                onChange={({ target }) => setPrecio(target.value)}
                 sx={{ marginBottom: 2 }}
               />
               <CustomTextField
@@ -121,21 +192,19 @@ const Agregarproducto = () => {
                 label="Descripción del producto"
                 autoFocus
                 size="small"
+                value={descripcion}
+                onChange={({ target }) => setDescripcion(target.value)}
                 sx={{ marginBottom: 3 }}
-              /> 
-              
-              <form className="formsubirimg" action="/files" method="post">
+              />   
               <h4>Agrega la imagen de tu producto</h4>
-              <input type="file"/>
-              </form>
-              
+              <input name="archivo" type="file" onChange={(e) => cargarImagen(e)}/>           
               <ButtonContainer>
-                <CustomButton variant="contained" size="small" color="primary">
+                <CustomButton variant="contained" size="small" color="primary" onClick={registrarProducto}>
                   Agregar producto
                 </CustomButton>
               </ButtonContainer>
             </ContainerTextField>
-        </ContainerAddProducto>
+        </ContainerAddProducto> 
         </div>
       </Container>
       
