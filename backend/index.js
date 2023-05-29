@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
-const { addUser, addProducto, addFavorito, addCompra, validarCredenciales, leerProductos, leerProductosFavoritos, leerCompras, leerComprasDetalle, modificarUsuario, eliminarFavorito } = require('./consultas')
+const { addUser, addProducto, addFavorito, addCompra, validarCredenciales, leerProductos, leerProductosFavoritos, leerCompras, leerComprasDetalle, leerProductosUsuarios, modificarUsuario, eliminarFavorito, eliminarMiProducto } = require('./consultas')
 const { verificarCredenciales, verificarToken } = require('./middelware')
 const { secretKey } = require("./secretkey")
 
@@ -117,6 +117,18 @@ app.get("/productos", async (req, res) => {
  }
 })
 
+//OBTIENE PRODUCTOS DE CADA USUARIO
+app.get("/productos/:id", async (req, res) => {
+    try {
+       const { id } = req.params
+       const productos = await leerProductosUsuarios(id)
+       res.json(productos)
+    } catch (error) {
+       console.log(error)
+       res.status(error.code || 500).send(error)
+    }
+   })
+
 //OBTIENE PRODUCTOS FAVORITOS
 app.get("/favoritos/:id", async (req, res) => {
     try {
@@ -162,6 +174,17 @@ app.delete("/favoritos/:id", async (req, res) => {
         const { id } = req.params
         await eliminarFavorito(id)
         res.send("Favorito eliminado con éxito")
+    } catch (error) {
+        res.status(500).send(error)
+    }
+  })
+
+//ELIMINA PRODUCTOS DE MIS PRODUCTOS
+app.delete("/producto/:id", async (req, res) => {
+    try{
+        const { id } = req.params
+        await eliminarMiProducto(id)
+        res.send("Producto eliminado con éxito")
     } catch (error) {
         res.status(500).send(error)
     }
