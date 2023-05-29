@@ -14,6 +14,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import BadgeIcon from "@mui/icons-material/Badge";
 import HomeIcon from "@mui/icons-material/Home";
 import EmailIcon from "@mui/icons-material/Email";
@@ -36,6 +37,8 @@ const CustomButton = styled(Button)`
 
 const Perfil = () => {
   const { usuario } = useContext(ContextUser);
+  const navigate = useNavigate();
+  const editarPerfil = () => navigate(`/editarperfil`);
 
   return (
     <div className="Container_Perfil">
@@ -128,6 +131,7 @@ const Perfil = () => {
               <CustomButton
                 variant="contained"
                 color="primary"
+                onClick={editarPerfil}
                 sx={{ }}
               >
                 Editar
