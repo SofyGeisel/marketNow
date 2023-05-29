@@ -4,6 +4,8 @@ import { Button, Box, Typography, Grid } from '@mui/material';
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import ContextCarrito from "../contextCarrito";
+import ContextProductos from "../contextProductos";
+import ContextUser from '../contextUsuario';
 import { useContext, useEffect, useState } from "react";
 import ItemMisCompras from './ItemMisCompras';
 
@@ -26,6 +28,8 @@ const CustomButton = styled(Button)`
 const FormularioExitoComponent = () => {
 
   const { carrito, total } = useContext(ContextCarrito)
+  const {usuario, setUsuario} = useContext(ContextUser)
+  const { prodIdCompras, setprodIdCompras } = useContext(ContextProductos)
   const [compras, setCompras] = useState([])
   const navigate = useNavigate()
   const volver = () => navigate(`/tienda`);

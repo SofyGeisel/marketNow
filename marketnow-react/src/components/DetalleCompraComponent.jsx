@@ -1,34 +1,40 @@
 import React from 'react'
 import { Button, Box } from '@mui/material';
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import ContextProductos from "../contextProductos";
+import { useNavigate, useParams} from "react-router-dom";
+import { useEffect, useState } from "react";
 import ItemDetalleCompra from './ItemDetalleCompra';
 
 
 const DetalleCompraComponent = () => {
 
-  const { prodIdCompras, setprodIdCompras } = useContext(ContextProductos)
+  const { id } = useParams()
   const [ productosCompra, setProductosCompra ] = useState([]);
   const navigate = useNavigate();
   const volver = () => navigate(`/tienda`);
 
-  const traerDetallesCompra = async () => {
-    const response = await fetch(`http://localhost:3000/comprasdetalle/${prodIdCompras}`, {
-      method: "GET", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+/*  const precioTotal = parseInt(total);
+  const totalFormato = precioTotal.toLocaleString("eng", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  });*/
 
-    const resultado = await response.json();
-    setProductosCompra(resultado);
-    console.log(resultado);
-  };
+const traerProductosCompras = async () => {
+  const response = await fetch(`http://localhost:3000/comprasdetalle/8`, {
+    method: "GET", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-  useEffect(() => {
-    traerDetallesCompra();
-  },[]);
+  const resultado = await response.json();
+  setProductosCompra(resultado.productos); //
+  console.log(resultado.productos)
+};
+
+useEffect(() => {
+  traerProductosCompras();
+});
 
   return (
     <div className='Container_Perfil'>
@@ -47,13 +53,12 @@ const DetalleCompraComponent = () => {
               marginBottom: "80px"
             }}
           >
-            {productosCompra.map((objeto, index) => (
-              <div key={index}>
-              {objeto.productos.map((producto, index) => (
-                <ItemDetalleCompra item={producto} key={producto.productoid} />
-              ))}
-              </div>
-            ))}
+        
+        {productosCompra.map((item) => {
+              return (
+                <ItemDetalleCompra item={item} key={item.productoid} />
+              );
+            })}
             </Box>
     </div>
   )

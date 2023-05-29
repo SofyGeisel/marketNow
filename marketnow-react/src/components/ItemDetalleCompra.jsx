@@ -56,7 +56,9 @@ const ItemDetalleCompra = ({ item }) => {
             {precioFormato}
           </p>
         </div>
-
+        <CustomButton variant="contained" sx={{ alignSelf: "center"}}>
+          Ver producto
+        </CustomButton>
       </Box>
     </>
   );
