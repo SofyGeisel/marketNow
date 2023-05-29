@@ -28,8 +28,6 @@ const DetalleCompraComponent = () => {
     traerDetallesCompra();
   }, []);
 
-
-
   return (
     <div className='Container_Perfil'>
       <div className='titulo'>DETALLE DE COMPRA</div>
