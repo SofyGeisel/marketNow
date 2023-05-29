@@ -21,10 +21,10 @@ const addUser = async (nombre, email, direccion, password) => {
 }
 
 //REGISTRO DE NUEVOS PRODUCTOS
-const addProducto = async (nombre, descripcion, precio, imagen) => {
+const addProducto = async (nombre, precio, descripcion, imagen, usuarioid) => {
 
-    const consulta = "INSERT INTO productos (nombre, descripcion, precio, imagen) VALUES ($1, $2, $3, $4)"
-    const values = [nombre, descripcion, precio, imagen]
+    const consulta = "INSERT INTO productos (nombre, precio, descripcion, imagen, usuarioid) VALUES ($1, $2, $3, $4, $5)"
+    const values = [nombre, precio, descripcion, imagen, usuarioid]
     const result = await pool.query( consulta, values)
     console.log("Producto registrado con exito")
 }
