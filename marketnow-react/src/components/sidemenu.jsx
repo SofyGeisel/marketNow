@@ -26,6 +26,7 @@ const CustomButton = styled(Button)`
         background-color: #77D0CF;
         color: black;
         border-radius: 20px;
+        margin-bottom: 30px;
         text-transform: capitalize;
         padding-left: 20px;
         padding-right: 20px;
