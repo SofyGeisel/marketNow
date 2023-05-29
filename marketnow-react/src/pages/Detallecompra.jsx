@@ -18,7 +18,6 @@ const FooterContainer = styled.div`
 
 const Detallecompra = () => {
 
-const item = listaDeProductos[0];
 
   return (
     <div>
@@ -26,7 +25,7 @@ const item = listaDeProductos[0];
       <NavbarVPrivada/>
       <Container disableGutters maxWidth={false} sx={{display: 'flex', flexDirection: 'row', width: '100%', height: 'auto', margin: 0, padding: 0, gap: 7}}>
       <SideMenu/>
-      <DetalleCompraComponent item={item} /> 
+      <DetalleCompraComponent/> 
       </Container>
       <FooterContainer>
       <Footer/> 

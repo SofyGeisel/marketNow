@@ -4,8 +4,6 @@ import Anuncios from '../components/Anuncios'
 import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
-import ContextUser from '../contextUsuario'
-import { useContext } from 'react'
 import MisComprasComponent from '../components/MisComprasComponent'
 import { Container } from '@mui/material'
 
