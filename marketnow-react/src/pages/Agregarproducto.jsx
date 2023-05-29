@@ -16,7 +16,7 @@ const ContainerAddProducto = styled.div`
   align-items: center;
   width: 90%;
   height: auto;
-  min-height: 300px;
+  min-height: 365px;
   background-color: white;
   border-top-right-radius: 40px;
   border-bottom-left-radius: 40px;
