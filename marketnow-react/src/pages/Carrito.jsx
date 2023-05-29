@@ -84,7 +84,7 @@ const Carrito = () => {
       const result = await response;
 
       if (result.ok) {
-        alert("Su compra a sido registrada éxitosamente 😀");
+        alert("Su compra ha sido registrada éxitosamente 😀");
         navigate(`/compras`)
         carrito.length = 0;
       }
