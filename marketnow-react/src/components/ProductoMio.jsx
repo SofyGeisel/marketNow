@@ -102,7 +102,6 @@ const Icon = styled(Link)`
 const ProductoMio = ({ item }) => {
 
 const navigate = useNavigate();
-const { carrito, total, setTotal } = useContext(ContextCarrito)
 const { prodId, setProdId } = useContext(ContextProductos)
 
 const verProducto = `/detalleproductomio/${prodId}`
