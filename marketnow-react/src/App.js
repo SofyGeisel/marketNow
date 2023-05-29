@@ -16,10 +16,12 @@ import Tienda from "./pages/Tienda";
 import Agregarproducto from "./pages/Agregarproducto";
 import Detalleproducto from "./pages/Detalleproducto";
 import Detalleproductofavorito from "./pages/Detalleproductofavorito";
+import Detallemio from "./pages/Detallemio";
 import Miperfil from "./pages/Miperfil";
 import Editarperfil from "./pages/Editarperfil";
 import FormularioExito from "./pages/FormularioExito";
 import Misfavoritos from "./pages/Misfavoritos";
+import Misproductos from "./pages/Misproductos";
 import Detallecompra from "./pages/Detallecompra";
 import MisCompras from "./pages/Miscompras";
 
@@ -57,6 +59,7 @@ function App() {
             <Route path="/tienda" element={<Tienda/>} />
             <Route path="/detalleproducto/:productoId" element={<Detalleproducto/>} />
             <Route path="/detalleproductofavorito/:productoId" element={<Detalleproductofavorito/>} />
+            <Route path="/detalleproductomio/:productoId" element={<Detallemio/>} />
             <Route path="/miperfil" element={<Miperfil/>} />
             <Route path="/editarperfil" element={<Editarperfil/>} />
             <Route path="/agregarproducto" element={<Agregarproducto/>} />
@@ -65,6 +68,7 @@ function App() {
             <Route path="/carrito" element={<Carrito/>} />
             <Route path="/detallecompra/:compraid" element={<Detallecompra/>} />
             <Route path="/compras" element={<MisCompras/>} />
+            <Route path="/misproductos" element={<Misproductos/>} />
             <Route path="*" element={<Notfound/>} />
               
           </Routes>
