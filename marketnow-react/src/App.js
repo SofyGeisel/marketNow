@@ -35,7 +35,7 @@ function App() {
 
   const [productos, setProductos] = useState([])
   const [prodId, setProdId] = useState("")
-  const [prodIdCompras, setprodIdCompras] = useState([])
+  const [prodIdCompras, setprodIdCompras] = useState("")
   /* const productosCompartido = {productos, setProductos} */
 
 
