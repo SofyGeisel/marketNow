@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Anuncios from '../components/Anuncios'
-import Navbar from '../components/navbar'
+import NavbarVPrivada from '../components/NavbarVPrivada'
 import Footer from '../components/Footer'
 import SideMenu from '../components/sidemenu'
 
@@ -38,7 +38,7 @@ const Notfound = () => {
   return (
     <div>
       <Anuncios/>
-      <Navbar/>
+      <NavbarVPrivada/>
       <Container>
       <SideMenu/> 
       <ContainerTexto>

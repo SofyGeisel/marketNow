@@ -1,67 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react';
 import { Button, Box } from '@mui/material';
-import { useNavigate, useParams} from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ContextProductos from "../contextProductos";
 import ItemDetalleCompra from './ItemDetalleCompra';
 
-
 const DetalleCompraComponent = () => {
-
-  const { id } = useParams()
-  const [ productosCompra, setProductosCompra ] = useState([]);
+  const { prodIdCompras, setprodIdCompras } = useContext(ContextProductos);
+  const [productosCompra, setProductosCompra] = useState([]);
   const navigate = useNavigate();
+  
   const volver = () => navigate(`/tienda`);
 
-/*  const precioTotal = parseInt(total);
-  const totalFormato = precioTotal.toLocaleString("eng", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  });*/
-
-const traerProductosCompras = async () => {
-  const response = await fetch(`http://localhost:3000/comprasdetalle/8`, {
-    method: "GET", // or 'PUT'
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const traerDetallesCompra = async () => {
+    const response = await fetch(`http://localhost:3000/comprasdetalle/${prodIdCompras}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
   const resultado = await response.json();
   setProductosCompra(resultado.productos); //
   console.log(resultado.productos)
 };
 
-useEffect(() => {
-  traerProductosCompras();
-});
+  useEffect(() => {
+    traerDetallesCompra();
+  }, []);
 
   return (
     <div className='Container_Perfil'>
-        <div className='titulo'>DETALLE DE COMPRA</div>
+      <div className='titulo'>DETALLE DE COMPRA</div>
       <Box
-            sx={{
-              bgcolor: "#fafafa",
-              boxShadow: 1,
-              borderTopRightRadius: 40,
-              borderBottomLeftRadius: 40,
-              p: 1,
-              minWidth: 300,
-              width: "90%",
-              minHeight: 350 ,
-              height: "fit-content",
-              marginBottom: "80px"
-            }}
-          >
-        
-        {productosCompra.map((item) => {
-              return (
-                <ItemDetalleCompra item={item} key={item.productoid} />
-              );
-            })}
-            </Box>
+        sx={{
+          bgcolor: "#fafafa",
+          boxShadow: 1,
+          borderTopRightRadius: 40,
+          borderBottomLeftRadius: 40,
+          p: 1,
+          minWidth: 300,
+          width: "90%",
+          minHeight: 350,
+          height: "fit-content",
+          marginBottom: "80px"
+        }}
+      >
+        {productosCompra.map((objeto, index) => (
+          <div key={index}>
+            {objeto.productos.map((producto, index) => (
+              <ItemDetalleCompra item={producto} key={producto.productoid} />
+            ))}
+          </div>
+        ))}
+      </Box>
     </div>
-  )
+  );
 }
 
-export default DetalleCompraComponent
+export default DetalleCompraComponent;

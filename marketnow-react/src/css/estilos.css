@@ -14,7 +14,7 @@
     width: 100%;
     min-height: 80vh;
     height: auto;
-    margin-top: 75px;
+    margin-top: 86px;
     
 }
 
@@ -107,7 +107,7 @@
 .titulo {
   font-size: 40px;
   font-weight: normal;
-  margin-bottom: 26px;
+  margin-bottom: 25px;
   align-self: flex-start;
 }
 
