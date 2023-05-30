@@ -66,9 +66,10 @@ const TituloyDescripcion = styled.div`
   top: 65%;
   bottom: 10%;
   width: 180px;
+  height: 122px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 
 `;
 const Titulo = styled.h3`
@@ -76,12 +77,23 @@ const Titulo = styled.h3`
   margin-top: 2px;
   margin-bottom: 5px;
   text-align: left;
-  `;
+`;
 const Descripcion = styled.h4`
   font-size: 12px;
   font-weight: initial;
-  text-align: left;
+  text-align: center;
 `;
+const Precio = styled.h4`
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+} 
+`;
+const PrecioContainer = styled.div`
+  display:flex;
+  height: 100px;
+  align-items: flex-end;
+  `;
 const Icon = styled(Link)`
   width: 40px;
   height: 40px;
@@ -102,7 +114,6 @@ const Icon = styled(Link)`
 const ProductoMio = ({ item }) => {
 
 const navigate = useNavigate();
-const { carrito, total, setTotal } = useContext(ContextCarrito)
 const { prodId, setProdId } = useContext(ContextProductos)
 
 const verProducto = `/detalleproductomio/${prodId}`
@@ -120,8 +131,13 @@ const verProducto = `/detalleproductomio/${prodId}`
       const result = await response;
       navigate('/misproductos')
   };
-
-
+  const precioTotal = parseInt(item.precio);
+  const totalFormato = precioTotal.toLocaleString("eng", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  });
+  
   return (
       <Container>
         <FondoImagen>
@@ -130,6 +146,9 @@ const verProducto = `/detalleproductomio/${prodId}`
         <TituloyDescripcion>
         <Titulo>{item.nombre}</Titulo> 
           <Descripcion>{item.descripcion}</Descripcion> 
+          <PrecioContainer>
+          <Precio>{totalFormato}</Precio>
+          </PrecioContainer>
         </TituloyDescripcion>
         <Info>
           <Icon onMouseEnter={() => {
@@ -149,5 +168,3 @@ const verProducto = `/detalleproductomio/${prodId}`
 }
 
 export default ProductoMio
-
-
