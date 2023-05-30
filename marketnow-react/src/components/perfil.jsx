@@ -14,6 +14,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import BadgeIcon from "@mui/icons-material/Badge";
 import HomeIcon from "@mui/icons-material/Home";
 import EmailIcon from "@mui/icons-material/Email";
@@ -36,6 +37,8 @@ const CustomButton = styled(Button)`
 
 const Perfil = () => {
   const { usuario } = useContext(ContextUser);
+  const navigate = useNavigate();
+  const editarPerfil = () => navigate(`/editarperfil`);
 
   return (
     <div className="Container_Perfil">
@@ -46,7 +49,7 @@ const Perfil = () => {
           boxShadow: 1,
           p: 1,
           minWidth: 300,
-          minHeight: 350,
+          minHeight: 300,
           width: "90%",
           height: "auto",
           borderTopRightRadius: 40,
@@ -57,14 +60,13 @@ const Perfil = () => {
           <Grid
             key={user.usuarioid}
             container
-            spacing={2}
             sx={{
               display: "flex",
               flexWrap: "nowrap",
               alignItems: "center",
               justifyContent: "center",
               minWidth: 300,
-              minHeight: 350,
+              minHeight: 300,
               width: "100%",
               height: "auto",
             }}
@@ -83,7 +85,7 @@ const Perfil = () => {
               <Avatar
 
                 src="/broken-image.jpg"
-                sx={{ width: 200, height: 200, fontSize: "100px" }}
+                sx={{ width: 180, height: 180, fontSize: "100px" }}
                 style={{ backgroundColor: "black" }}
               />
             </Grid>
@@ -128,6 +130,7 @@ const Perfil = () => {
               <CustomButton
                 variant="contained"
                 color="primary"
+                onClick={editarPerfil}
                 sx={{ }}
               >
                 Editar

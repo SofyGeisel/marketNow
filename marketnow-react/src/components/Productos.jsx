@@ -10,7 +10,7 @@ const TopContainer = styled.div`
   width: 90%;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 33px;
+  margin-bottom: 25px;
 `;
 const Titulo = styled.h1`
   font-size: 40px;

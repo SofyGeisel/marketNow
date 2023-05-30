@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
@@ -11,8 +10,6 @@ const { secretKey } = require("./secretkey")
 app.listen(3000, console.log("Servidor encendido"))
 app.use(express.json())
 app.use(cors())
-// función middleware para servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 //--------------METODOS POST----------------
@@ -84,9 +81,9 @@ app.post("/compras", async (req, res) => {
 //ACTUALIZA DATOS DE USUARIO
 app.put("/usuario/:id", async (req, res) => {
     try{
-        const { id } = req.params
+        const { usuarioid } = req.params
         const { nombre, direccion, password } = req.query
-        await modificarUsuario(nombre, direccion, password, id)
+        await modificarUsuario(nombre, direccion, password, usuarioid)
         res.send("Usuario modificado con éxito")
     } catch (error) {
         res.status(500).send(error)

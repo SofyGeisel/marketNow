@@ -64,6 +64,7 @@ const MenuItem = styled.h3`
   margin-left: 25px;
   text-decoration: none;
   color:black;
+  font-weight: 400;
 `;
 
 
@@ -92,7 +93,7 @@ const NavbarVPrivada = () => {
     <Container>
       <Wrapper>
         <div className="navLeft">
-          {/* <Language>ES</Language> */}
+          {<Language>ES</Language>}
           <div className="searchBar">
             <Input />
             <SearchIcon style={{color: "gray", fontSize:16}} />
@@ -100,7 +101,7 @@ const NavbarVPrivada = () => {
         </div>
         <Center>
           <div to="/" className="logo">
-            <DirectionsRunOutlinedIcon style={{color: "black", /* fontSize:36, */ transform:'rotate(15deg)'}} />
+            <DirectionsRunOutlinedIcon style={{color: "black", fontSize:30, transform:'rotate(15deg)'}} />
             MarketNow
             </div>
         </Center>

@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Button, Box, Typography, Grid } from '@mui/material';
-import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
-import ContextCarrito from "../contextCarrito";
-import { useContext, useEffect, useState } from "react";
-import ItemMisCompras from './ItemMisCompras';
+
 
 const CustomButton = styled(Button)`
     && {
@@ -25,12 +22,10 @@ const CustomButton = styled(Button)`
 
 const FormularioExitoComponent = () => {
 
-  const { carrito, total } = useContext(ContextCarrito)
-  const [compras, setCompras] = useState([])
+
   const navigate = useNavigate()
   const volver = () => navigate(`/tienda`);
 
-  const precioTotal = parseInt(total);
   
   return (
     <div className='Container_Perfil'>
@@ -43,7 +38,7 @@ const FormularioExitoComponent = () => {
               borderBottomLeftRadius: 40,
               p: 1,
               minWidth: 300,
-              minHeight: 350,
+              minHeight: 300,
               width: "90%",
               height: "fit-content",
               marginBottom: "80px",
@@ -60,7 +55,7 @@ const FormularioExitoComponent = () => {
         </Typography>
             
             </Grid>
-            <CustomButton variant="contained" color="primary">Ir a la tienda</CustomButton>
+            <CustomButton variant="contained" color="primary" onClick={volver}>Ir a la tienda</CustomButton>
             </Box>
             
     </div>

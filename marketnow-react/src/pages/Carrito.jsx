@@ -84,7 +84,7 @@ const Carrito = () => {
       const result = await response;
 
       if (result.ok) {
-        alert("Su compra a sido registrada éxitosamente 😀");
+        alert("Su compra ha sido registrada éxitosamente 😀");
         navigate(`/compras`)
         carrito.length = 0;
       }
@@ -121,7 +121,7 @@ const Carrito = () => {
               borderBottomLeftRadius: 40,
               p: 1,
               minWidth: 300,
-              minHeight: 350,
+              minHeight: 300,
               width: "90%",
               height: "fit-content",
               marginBottom: "80px",
