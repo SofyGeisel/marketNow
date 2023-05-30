@@ -40,6 +40,10 @@ const CustomTextField = styled(TextField)({
     },
   },
 });
+const TextoImagen = styled.div`
+  margin-bottom: 10px
+  `;
+
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -140,9 +144,8 @@ const Agregarproducto = () => {
         <Box sx={{
           bgcolor: "background.paper",
           boxShadow: 1,
-          p: 1,
           minWidth: 300,
-          minHeight: 250,
+          minHeight: 300,
           width: "90%",
           height: "auto",
           borderTopRightRadius: 40,
@@ -160,7 +163,7 @@ const Agregarproducto = () => {
                 size="small"
                 value={nombre}
                 onChange={({ target }) => setNombre(target.value)}
-                sx={{ marginBottom: 2 }}
+                sx={{ marginBottom: 1 }}
               />
               <CustomTextField
                 name="Precio"
@@ -172,7 +175,7 @@ const Agregarproducto = () => {
                 size="small"
                 value={precio}
                 onChange={({ target }) => setPrecio(target.value)}
-                sx={{ marginBottom: 2 }}
+                sx={{ marginBottom: 1 }}
               />
               <CustomTextField
                 name="Descripción del producto"
@@ -186,9 +189,9 @@ const Agregarproducto = () => {
                 size="small"
                 value={descripcion}
                 onChange={({ target }) => setDescripcion(target.value)}
-                sx={{ marginBottom: 3 }}
+                sx={{ marginBottom: 1 }}
               />   
-              <h4>Agrega la imagen de tu producto</h4>
+              <TextoImagen>Agrega la imagen de tu producto</TextoImagen>
               <input name="archivo" type="file" onChange={(e) => cargarImagen(e)}/>           
               <ButtonContainer>
                 <CustomButton variant="contained" size="small" color="primary" onClick={registrarProducto}>
