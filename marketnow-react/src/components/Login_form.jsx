@@ -8,6 +8,9 @@ import {
   TextField,
   Link,
   InputAdornment,
+  Alert,
+  AlertTitle,
+  Collapse,
 } from "@mui/material";
 import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -56,6 +59,7 @@ const Login_form = () => {
   const navigate = useNavigate();
   const [email, setEmailLocal] = useState("");
   const [password, setPasswordLocal] = useState("");
+  const [checkLogin, setCheckLogin] = useState(true)
 
   const iniciarSesion = async () => {
     const usuarioprevio = {
@@ -74,13 +78,16 @@ const Login_form = () => {
 
       const result = await response;
       const token = await response.text();
+      response.status === 401 || response.status === 500 ? setCheckLogin(false) : setCheckLogin(true)
 
       if (result.ok) {
         localStorage.setItem("token", token);
         navigate("/tienda");
+        
       }
     } catch (error) {
       console.error("Error:", error);
+
     }
   };
 
@@ -155,6 +162,12 @@ const Login_form = () => {
             </Link>
           </Grid>
         </Grid>
+        <Collapse in={!checkLogin}>
+          <Alert severity="error" >
+          <AlertTitle>Error</AlertTitle>
+          Email o password incorrecto
+        </Alert>
+      </Collapse>
       </Box>
     </div>
   );
