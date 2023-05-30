@@ -65,22 +65,37 @@ const TituloyDescripcion = styled.div`
   top: 65%;
   bottom: 10%;
   width: 180px;
+  height: 122px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 
 `;
 const Titulo = styled.h3`
   font-size: 16px;
   margin-top: 2px;
-  margin-bottom: 5px;
-  text-align: left;
+  margin-bottom: 8px;
+  
   `;
 const Descripcion = styled.h4`
   font-size: 12px;
   font-weight: initial;
-  text-align: left;
+  text-align: center;
+  margin-bottom: 8px;
+  
 `;
+const Precio = styled.h4`
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+} 
+`;
+const PrecioContainer = styled.div`
+  display:flex;
+  height: 100px;
+  align-items: flex-end;
+  `;
+
 const Icon = styled(Link)`
   width: 40px;
   height: 40px;
@@ -143,6 +158,9 @@ const verProducto = `/detalleproducto/${prodId}`
         <TituloyDescripcion>
         <Titulo>{item.nombre}</Titulo> 
           <Descripcion>{item.descripcion}</Descripcion> 
+          <PrecioContainer>
+          <Precio>{"$" + item.precio}</Precio>
+          </PrecioContainer>
         </TituloyDescripcion>
         <Info>
           <Icon onClick={() => {
