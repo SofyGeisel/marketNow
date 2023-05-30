@@ -9,11 +9,6 @@ import "../css/estilos.css";
 import styled from "styled-components";
 import ContextUser from "../contextUsuario";
 
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
 
 const CustomButton = styled(Button)`
   && {
@@ -93,16 +88,14 @@ const EditarPerfilComponent = () => {
       <Box
         sx={{
           bgcolor: "background.paper",
-          width: "90%",
-          p: 3,
           boxShadow: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          p: 1,
+          minWidth: 300,
+          minHeight: 300,
+          width: "90%",
+          height: "auto",
           borderTopRightRadius: 40,
           borderBottomLeftRadius: 40,
-          paddingBottom: "40px",
-          paddingTop: "30px",
           
 
         }}
@@ -159,7 +152,7 @@ const EditarPerfilComponent = () => {
               />
             </Grid>
           </Grid>
-          <ButtonContainer>
+          <Grid item xs={4} sx={{ display: "flex", justifyContent: "center", margin:3 }} >
           <CustomButton
             fullWidth
             variant="contained"
@@ -168,7 +161,7 @@ const EditarPerfilComponent = () => {
           >
             Guardar cambios
           </CustomButton>
-          </ButtonContainer>
+          </Grid>
         </Box>
       </Box>
     </div>

@@ -128,6 +128,12 @@ const ProductoFavorito = ({ item }) => {
     const result = await response;
     navigate("/misfavoritos");
   };
+  const precioTotal = parseInt(item.precio);
+  const totalFormato = precioTotal.toLocaleString("eng", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  });
 
   return (
     <Container>
@@ -138,7 +144,7 @@ const ProductoFavorito = ({ item }) => {
         <Titulo>{item.nombre}</Titulo>
         <Descripcion>{item.descripcion}</Descripcion>
         <PrecioContainer>
-          <Precio>{"$" + item.precio}</Precio>
+          <Precio>{totalFormato}</Precio>
         </PrecioContainer>
       </TituloyDescripcion>
       <Info>
