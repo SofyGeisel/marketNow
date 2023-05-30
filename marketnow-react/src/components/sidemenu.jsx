@@ -25,6 +25,7 @@ const CustomButton = styled(Button)`
         background-color: #77D0CF;
         color: black;
         border-radius: 20px;
+        margin-bottom: 60px;
         text-transform: capitalize;
         padding-left: 20px;
         padding-right: 20px;
@@ -41,6 +42,7 @@ const ButtonContainer = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    margin-bottom: 80px;
     
     
 `;

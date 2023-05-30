@@ -92,7 +92,7 @@ const RegistroForm = () => {
             
             if (result.ok) {
             alert("Usuario registrado con éxito 😀");
-            navigate("/login");
+            navigate("/loginregistro");
             }
 
             } catch (error) {
