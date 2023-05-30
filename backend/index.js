@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 const cors = require('cors');
 const jwt = require("jsonwebtoken")
@@ -11,8 +10,6 @@ const { secretKey } = require("./secretkey")
 app.listen(3000, console.log("Servidor encendido"))
 app.use(express.json())
 app.use(cors())
-// función middleware para servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 //--------------METODOS POST----------------
