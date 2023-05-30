@@ -23,7 +23,7 @@ CREATE TABLE productos(
 productoid serial primary key,
 nombre varchar(30),
 descripcion varchar(120),
-imagen varchar(100),
+imagen varchar,
 usuarioid int,
 precio int,
 foreign key (usuarioid)

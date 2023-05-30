@@ -5,24 +5,9 @@ import NavbarVPrivada from "../components/NavbarVPrivada";
 import Footer from "../components/Footer";
 import SideMenu from "../components/sidemenu";
 import TextField from "@mui/material/TextField";
-import { Button, Container} from "@mui/material";
+import { Button, Container, Box} from "@mui/material";
 import ContextUser from '../contextUsuario';
 import { useNavigate } from "react-router-dom";
-
-const ContainerAddProducto = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  height: auto;
-  min-height: 365px;
-  background-color: white;
-  border-top-right-radius: 40px;
-  border-bottom-left-radius: 40px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-`;
 
 const ContainerTextField = styled.div`
   display: flex;
@@ -55,6 +40,10 @@ const CustomTextField = styled(TextField)({
     },
   },
 });
+const TextoImagen = styled.div`
+  margin-bottom: 10px
+  `;
+
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,7 +83,6 @@ const Agregarproducto = () => {
     const file = e.target.files[0]
     const base64 = await convertBase64(file)
     setImagen(base64)
-    console.log(base64)
   }
 
   const convertBase64 = (file) => {
@@ -125,7 +113,6 @@ const Agregarproducto = () => {
       usuarioid: datos,
     };
 
-    const productotemporal = JSON.stringify(producto);
     try {
       const response = await fetch("http://localhost:3000/producto", {
         method: "POST", // or 'PUT'
@@ -136,7 +123,6 @@ const Agregarproducto = () => {
       });
 
       const result = await response;
-      const token = await response.text();
 
       if (result.ok) {
 
@@ -155,7 +141,16 @@ const Agregarproducto = () => {
         <SideMenu />
         <div className="Container_Perfil">
         <div className='titulo'>AGREGAR PRODUCTO</div>
-        <ContainerAddProducto>
+        <Box sx={{
+          bgcolor: "background.paper",
+          boxShadow: 1,
+          minWidth: 300,
+          minHeight: 300,
+          width: "90%",
+          height: "auto",
+          borderTopRightRadius: 40,
+          borderBottomLeftRadius: 40,
+        }}>
             <ContainerTextField>
               <CustomTextField
                 autoComplete="given-name"
@@ -168,7 +163,7 @@ const Agregarproducto = () => {
                 size="small"
                 value={nombre}
                 onChange={({ target }) => setNombre(target.value)}
-                sx={{ marginBottom: 2 }}
+                sx={{ marginBottom: 1 }}
               />
               <CustomTextField
                 name="Precio"
@@ -180,7 +175,7 @@ const Agregarproducto = () => {
                 size="small"
                 value={precio}
                 onChange={({ target }) => setPrecio(target.value)}
-                sx={{ marginBottom: 2 }}
+                sx={{ marginBottom: 1 }}
               />
               <CustomTextField
                 name="Descripción del producto"
@@ -194,9 +189,9 @@ const Agregarproducto = () => {
                 size="small"
                 value={descripcion}
                 onChange={({ target }) => setDescripcion(target.value)}
-                sx={{ marginBottom: 3 }}
+                sx={{ marginBottom: 1 }}
               />   
-              <h4>Agrega la imagen de tu producto</h4>
+              <TextoImagen>Agrega la imagen de tu producto</TextoImagen>
               <input name="archivo" type="file" onChange={(e) => cargarImagen(e)}/>           
               <ButtonContainer>
                 <CustomButton variant="contained" size="small" color="primary" onClick={registrarProducto}>
@@ -204,7 +199,7 @@ const Agregarproducto = () => {
                 </CustomButton>
               </ButtonContainer>
             </ContainerTextField>
-        </ContainerAddProducto> 
+        </Box> 
         </div>
       </Container>
       

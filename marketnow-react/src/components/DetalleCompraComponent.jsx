@@ -40,7 +40,7 @@ const DetalleCompraComponent = () => {
           p: 1,
           minWidth: 300,
           width: "90%",
-          minHeight: 350,
+          minHeight: 300,
           height: "fit-content",
           marginBottom: "80px"
         }}

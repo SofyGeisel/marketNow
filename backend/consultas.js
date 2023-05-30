@@ -110,24 +110,14 @@ const leerComprasDetalle = async ( compraid ) => {
 
 
 //ACTUALIZA INFORMACION DE USUARIO
-const modificarUsuario = async (nombre, direccion, password, id) => {
+const modificarUsuario = async (nombre, email, direccion, password, usuarioid) => {
 
-    if (!password) {
-
-    const consulta = "UPDATE posts SET nombre = $1, direccion = $2 WHERE id = $3"
-    const values = [nombre, direccion, id]
-    const result = await pool.query(consulta, values)
-    console.log(("El usuario ha sido modificado con éxito"))
-
-    } else {
-
-    const consulta = "UPDATE posts SET nombre = $1, direccion = $2, password = $3 WHERE id = $4"
+    const consulta = "UPDATE usuarios SET nombre = $1, email = $2, direccion = $3, password = $4 WHERE usuarioid = $5"
     const passwordEncriptada = bcrypt.hashSync(password)
-    const values = [nombre, direccion, passwordEncriptada, id]
+    const values = [nombre, email, direccion, passwordEncriptada, usuarioid]
     const result = await pool.query(consulta, values)
-    console.log(("El usuario ha sido modificado con éxito"))
-
-    }
+    console.log(result)
+ 
 }
 
 //ELIMINA FAVORITO

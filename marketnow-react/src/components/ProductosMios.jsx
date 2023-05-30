@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import ProductoFavorito from "./ProductoFavorito";
+import ProductoMio from "./ProductoMio";
 import { useEffect, useContext, useState } from "react";
-import ContextProductos from "../contextProductos";
 import { Pagination } from "@mui/material";
 import "../css/estilos.css"
 import ContextUser from '../contextUsuario';
@@ -23,18 +22,18 @@ const Titulo = styled.h1`
 
 
 
-const ProductosFavoritos = () => {
+const ProductosMios = () => {
 
   /*const {productos, setProductos} = useContext(ContextProductos);*/
-  const [productosfav, setProductosfav] = useState([])
+  const [productosmios, setProductosmios] = useState([])
   const {usuario, setUsuario} = useContext(ContextUser)
   
 
-  const traerProductosfavoritos = async () => {
+  const traerProductosmios = async () => {
 
     const datos = usuario[0].usuarioid
 
-    const response = await fetch(`http://localhost:3000/favoritos/${datos}`, {
+    const response = await fetch(`http://localhost:3000/productos/${datos}`, {
       method: "GET", // or 'PUT'
       headers: {
       "Content-Type": "application/json",
@@ -42,11 +41,11 @@ const ProductosFavoritos = () => {
     });
 
     const resultado = await response.json();
-    setProductosfav(resultado)
+    setProductosmios(resultado)
   }
 
   useEffect(() => {
-    traerProductosfavoritos();
+    traerProductosmios();
   });
 
 
@@ -55,17 +54,17 @@ const ProductosFavoritos = () => {
     >
       <TopContainer>
       <Titulo>
-        MIS FAVORITOS
+        MIS PRODUCTOS SUBIDOS
       </Titulo>
       <Pagination count={3} variant="outlined" />
       </TopContainer>
       <div className="contenedor_prodTienda">
-        {productosfav.map((item) => (
-          <ProductoFavorito item={item} key={item.productoid}/>
+        {productosmios.map((item) => (
+          <ProductoMio item={item} key={item.productoid}/>
         ))}
       </div>
     </div>
   );
 };
 
-export default ProductosFavoritos;
+export default ProductosMios;

@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import React from 'react'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchIcon from "@mui/icons-material/Search";
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { Link } from "react-router-dom"
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { Link, useNavigate } from "react-router-dom"
 import { useContext } from 'react';
 import ContextCarrito from '../contextCarrito';
 import ContextProductos from '../contextProductos';
@@ -11,7 +11,7 @@ import ContextUser from '../contextUsuario';
 
 const Info = styled.div`
   width: 100%;
-  height: 360px;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -29,6 +29,7 @@ const Info = styled.div`
   `;
 const Container = styled.div`
   flex:1;
+  
   margin-bottom: 60px;
   min-width: 15rem;
   max-width: 180px;
@@ -93,7 +94,6 @@ const PrecioContainer = styled.div`
   height: 100px;
   align-items: flex-end;
   `;
-
 const Icon = styled(Link)`
   width: 40px;
   height: 40px;
@@ -111,40 +111,25 @@ const Icon = styled(Link)`
 
 
   `;
-const Producto = ({ item }) => {
+const ProductoMio = ({ item }) => {
 
-const { carrito, total, setTotal } = useContext(ContextCarrito)
+const navigate = useNavigate();
 const { prodId, setProdId } = useContext(ContextProductos)
-const {usuario, setUsuario} = useContext(ContextUser)
 
-const verProducto = `/detalleproducto/${prodId}`
+const verProducto = `/detalleproductomio/${prodId}`
 
 
-  const agregarFavoritos = async (productid) => {
-
-    const datos = {
-      usuarioid: usuario[0].usuarioid,
-      productoid: productid,
-    };
+  const quitarProducto = async (productoid) => {
     
-    console.log(datos);
-    try {
-      const response = await fetch("http://localhost:3000/favoritos", {
-        method: "POST", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(datos),
-      });
+    const response = await fetch(`http://localhost:3000/producto/${productoid}`, {
+    method: "DELETE", // or 'PUT'
+    headers: {
+        "Content-Type": "application/json",
+    },
+    });
 
       const result = await response;
-
-      if (result.ok) {
-        alert("Producto correctamente agregado a favoritos 😀");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+      navigate('/misproductos')
   };
   const precioTotal = parseInt(item.precio);
   const totalFormato = precioTotal.toLocaleString("eng", {
@@ -152,8 +137,7 @@ const verProducto = `/detalleproducto/${prodId}`
     currency: "USD",
     maximumFractionDigits: 0,
   });
-
-
+  
   return (
       <Container>
         <FondoImagen>
@@ -167,13 +151,6 @@ const verProducto = `/detalleproducto/${prodId}`
           </PrecioContainer>
         </TituloyDescripcion>
         <Info>
-          <Icon onClick={() => {
-            carrito.push(item)
-            setTotal(parseInt(total + item.precio))
-            console.log(total)
-            }}>
-          <ShoppingCartOutlinedIcon color="white"  />
-          </Icon>
           <Icon onMouseEnter={() => {
             setProdId(item.productoid)
             console.log(item.productoid)}} 
@@ -181,15 +158,15 @@ const verProducto = `/detalleproducto/${prodId}`
           <SearchIcon/>
           </Icon>
           <Icon onClick={() => {
-            agregarFavoritos(item.productoid)
+            quitarProducto(item.productoid)
             }}>
-          <FavoriteBorderOutlinedIcon color="white"/>
+          <DeleteForeverIcon color="white"/>
           </Icon>
         </Info>
       </Container> 
   )
 }
 
-export default Producto
+export default ProductoMio
 
 
