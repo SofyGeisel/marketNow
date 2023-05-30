@@ -4,7 +4,6 @@ import { Button, Box } from '@mui/material';
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import ContextCarrito from "../contextCarrito";
-import ContextProductos from "../contextProductos";
 import ContextUser from '../contextUsuario';
 import { useContext, useEffect, useState } from "react";
 import ItemMisCompras from './ItemMisCompras';
@@ -14,7 +13,6 @@ const MisComprasComponent = () => {
 
   const { carrito, total } = useContext(ContextCarrito)
   const {usuario, setUsuario} = useContext(ContextUser)
-  const { prodIdCompras, setprodIdCompras } = useContext(ContextProductos)
   const [compras, setCompras] = useState([])
   const navigate = useNavigate()
   const volver = () => navigate(`/tienda`);
@@ -37,8 +35,7 @@ const MisComprasComponent = () => {
     });
 
     const resultado = await response.json();
-    setCompras(resultado);
-    setprodIdCompras(resultado.productos); //
+    setCompras(resultado); //
   };
 
   useEffect(() => {
@@ -65,7 +62,7 @@ const MisComprasComponent = () => {
         
         {compras.map((item) => {
               return (
-                <ItemMisCompras item={item} key={item.compraid + Math.random()} />
+                <ItemMisCompras item={item} key={item.compraid} />
               );
             })}
             </Box>
