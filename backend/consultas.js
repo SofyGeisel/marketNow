@@ -102,7 +102,7 @@ const leerCompras = async ( usuarioid ) => {
 const leerComprasDetalle = async ( compraid ) => {
 
     const value = [compraid]
-    const consulta = "SELECT * FROM compras WHERE compraid = $1"
+    const consulta = "SELECT productos FROM compras WHERE compraid = $1"
     const { rows } = await pool.query(consulta, value)
     return rows
 
