@@ -65,7 +65,7 @@ const EditarPerfilComponent = () => {
     const datos = usuario[0].usuarioid
 
     try {
-      const response = await fetch(`http://localhost:3000/usuario/${datos}?nombre=${editarNombre}&direccion=${editarDireccion}&password=${editarPassword}`, {
+      const response = await fetch(`https://marketnow-backend2.onrender.com/usuario/${datos}?nombre=${editarNombre}&direccion=${editarDireccion}&password=${editarPassword}`, {
         method: "PUT", // or 'PUT'
         headers: {
           "Content-Type": "application/json",

@@ -129,7 +129,7 @@ const verProducto = `/detalleproducto/${prodId}`
     
     console.log(datos);
     try {
-      const response = await fetch("http://localhost:3000/favoritos", {
+      const response = await fetch("https://marketnow-backend2.onrender.com/favoritos", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",

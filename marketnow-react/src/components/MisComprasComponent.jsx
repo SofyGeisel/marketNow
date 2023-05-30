@@ -29,7 +29,7 @@ const MisComprasComponent = () => {
   const datos = usuario[0].usuarioid
 
   const traerCompras = async () => {
-    const response = await fetch(`http://localhost:3000/compras/${datos}`, {
+    const response = await fetch(`https://marketnow-backend2.onrender.com/compras/${datos}`, {
       method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

@@ -34,7 +34,7 @@ const ProductosFavoritos = () => {
 
     const datos = usuario[0].usuarioid
 
-    const response = await fetch(`http://localhost:3000/favoritos/${datos}`, {
+    const response = await fetch(`https://marketnow-backend2.onrender.com/favoritos/${datos}`, {
       method: "GET", // or 'PUT'
       headers: {
       "Content-Type": "application/json",

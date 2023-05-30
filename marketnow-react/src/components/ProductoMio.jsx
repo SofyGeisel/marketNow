@@ -121,7 +121,7 @@ const verProducto = `/detalleproductomio/${prodId}`
 
   const quitarProducto = async (productoid) => {
     
-    const response = await fetch(`http://localhost:3000/producto/${productoid}`, {
+    const response = await fetch(`https://marketnow-backend2.onrender.com/producto/${productoid}`, {
     method: "DELETE", // or 'PUT'
     headers: {
         "Content-Type": "application/json",

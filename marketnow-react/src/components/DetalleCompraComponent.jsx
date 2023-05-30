@@ -13,7 +13,7 @@ const DetalleCompraComponent = () => {
   const volver = () => navigate(`/tienda`);
 
   const traerDetallesCompra = async () => {
-    const response = await fetch(`http://localhost:3000/comprasdetalle/${prodIdCompras}`, {
+    const response = await fetch(`https://marketnow-backend2.onrender.com/comprasdetalle/${prodIdCompras}`, {
       method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

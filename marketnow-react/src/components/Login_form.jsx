@@ -68,7 +68,7 @@ const Login_form = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch("https://marketnow-backend2.onrender.com/login", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",

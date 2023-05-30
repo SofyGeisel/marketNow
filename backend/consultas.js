@@ -1,12 +1,15 @@
 const { Pool } = require('pg')
 const bcrypt = require('bcryptjs')
+const dotenv = require('dotenv');
+dotenv.config();
 
 //CONEXION A BASE DE DATOS
 const pool = new Pool({
-    host: 'localhost',
+    host: 'containers-us-west-64.railway.app',
     user: 'postgres',
-    password: 'postgres',
-    database: 'marketnow',
+    password: 'bARR3Xb70Cmdf9gOUAla',
+    database: 'railway',
+    port: 6547,
     allowExitOnIdle: true
 })
 

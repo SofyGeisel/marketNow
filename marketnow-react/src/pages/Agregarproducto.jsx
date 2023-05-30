@@ -116,7 +116,7 @@ const Agregarproducto = () => {
 
     const productotemporal = JSON.stringify(producto);
     try {
-      const response = await fetch("http://localhost:3000/producto", {
+      const response = await fetch("https://marketnow-backend2.onrender.com/producto", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
