@@ -4,7 +4,8 @@ const cors = require('cors');
 const jwt = require("jsonwebtoken")
 const { addUser, addProducto, addFavorito, addCompra, validarCredenciales, leerProductos, leerProductosFavoritos, leerCompras, leerComprasDetalle, leerProductosUsuarios, modificarUsuario, eliminarFavorito, eliminarMiProducto } = require('./consultas')
 const { verificarCredenciales, verificarToken } = require('./middelware')
-const { secretKey } = require("./secretkey")
+const { secretKey } = require("./secretkey");
+const { ident } = require('pg-format');
 
 
 app.listen(3000, console.log("Servidor encendido"))
@@ -84,9 +85,9 @@ app.post("/compras", async (req, res) => {
 //ACTUALIZA DATOS DE USUARIO
 app.put("/usuario/:id", async (req, res) => {
     try{
-        const { usuarioid } = req.params
+        const { id } = req.params
         const { nombre, direccion, password } = req.query
-        await modificarUsuario(nombre, direccion, password, usuarioid)
+        await modificarUsuario(nombre, direccion, password, id)
         res.send("Usuario modificado con éxito")
     } catch (error) {
         res.status(500).send(error)

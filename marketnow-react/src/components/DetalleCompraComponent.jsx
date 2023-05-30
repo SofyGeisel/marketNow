@@ -1,13 +1,12 @@
+import React, { useEffect, useState, useContext } from 'react';
 import { Button, Box } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
 import ContextProductos from "../contextProductos";
 import ItemDetalleCompra from './ItemDetalleCompra';
 
 const DetalleCompraComponent = () => {
-
-  const { prodIdCompras, setprodIdCompras } = useContext(ContextProductos)
-  const [ productosCompra, setProductosCompra ] = useState([]);
+  const { prodIdCompras, setprodIdCompras } = useContext(ContextProductos);
+  const [productosCompra, setProductosCompra] = useState([]);
   const navigate = useNavigate();
   
   const volver = () => navigate(`/tienda`);
@@ -20,14 +19,14 @@ const DetalleCompraComponent = () => {
       },
     });
 
-  const resultado = await response.json();
-  setProductosCompra(resultado.productos); //
-  console.log(resultado.productos)
-};
+    const resultado = await response.json();
+    setProductosCompra(resultado);
+    console.log(resultado);
+  };
 
   useEffect(() => {
     traerDetallesCompra();
-  },[]);
+  }, []);
 
   return (
     <div className='Container_Perfil'>
