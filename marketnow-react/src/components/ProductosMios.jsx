@@ -6,28 +6,12 @@ import "../css/estilos.css"
 import ContextUser from '../contextUsuario';
 
 
-<<<<<<< HEAD
-=======
-const Container = styled.div`
-  
-  display: flex;
-  height: 130vh;
-  flex-wrap: wrap;
-  margin-top: 88px;
-  padding-bottom: 80px;
-  
-`;
->>>>>>> parent of ca106cc (Revert "Merge branch 'master' into devSG")
 const TopContainer = styled.div`
   display: flex;
   width: 90%;
   align-items: center;
   justify-content: space-between;
-<<<<<<< HEAD
   margin-bottom: 25px;
-=======
-  margin-bottom: 33px;
->>>>>>> parent of ca106cc (Revert "Merge branch 'master' into devSG")
 `;
 const Titulo = styled.h1`
     font-size: 40px;

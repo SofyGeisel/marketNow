@@ -66,16 +66,10 @@ const TituloyDescripcion = styled.div`
   top: 65%;
   bottom: 10%;
   width: 180px;
-<<<<<<< HEAD
   height: 122px;
   display: flex;
   flex-direction: column;
   align-items: center;
-=======
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
->>>>>>> parent of ca106cc (Revert "Merge branch 'master' into devSG")
 
 `;
 const Titulo = styled.h3`
@@ -83,7 +77,6 @@ const Titulo = styled.h3`
   margin-top: 2px;
   margin-bottom: 5px;
   text-align: left;
-<<<<<<< HEAD
 `;
 const Descripcion = styled.h4`
   font-size: 12px;
@@ -101,14 +94,6 @@ const PrecioContainer = styled.div`
   height: 100px;
   align-items: flex-end;
   `;
-=======
-  `;
-const Descripcion = styled.h4`
-  font-size: 12px;
-  font-weight: initial;
-  text-align: left;
-`;
->>>>>>> parent of ca106cc (Revert "Merge branch 'master' into devSG")
 const Icon = styled(Link)`
   width: 40px;
   height: 40px;
@@ -129,10 +114,6 @@ const Icon = styled(Link)`
 const ProductoMio = ({ item }) => {
 
 const navigate = useNavigate();
-<<<<<<< HEAD
-=======
-const { carrito, total, setTotal } = useContext(ContextCarrito)
->>>>>>> parent of ca106cc (Revert "Merge branch 'master' into devSG")
 const { prodId, setProdId } = useContext(ContextProductos)
 
 const verProducto = `/detalleproductomio/${prodId}`
@@ -150,7 +131,6 @@ const verProducto = `/detalleproductomio/${prodId}`
       const result = await response;
       navigate('/misproductos')
   };
-<<<<<<< HEAD
   const precioTotal = parseInt(item.precio);
   const totalFormato = precioTotal.toLocaleString("eng", {
     style: "currency",
@@ -158,10 +138,6 @@ const verProducto = `/detalleproductomio/${prodId}`
     maximumFractionDigits: 0,
   });
   
-=======
-
-
->>>>>>> parent of ca106cc (Revert "Merge branch 'master' into devSG")
   return (
       <Container>
         <FondoImagen>
@@ -170,12 +146,9 @@ const verProducto = `/detalleproductomio/${prodId}`
         <TituloyDescripcion>
         <Titulo>{item.nombre}</Titulo> 
           <Descripcion>{item.descripcion}</Descripcion> 
-<<<<<<< HEAD
           <PrecioContainer>
           <Precio>{totalFormato}</Precio>
           </PrecioContainer>
-=======
->>>>>>> parent of ca106cc (Revert "Merge branch 'master' into devSG")
         </TituloyDescripcion>
         <Info>
           <Icon onMouseEnter={() => {
@@ -195,5 +168,3 @@ const verProducto = `/detalleproductomio/${prodId}`
 }
 
 export default ProductoMio
-
-
