@@ -81,9 +81,9 @@ app.post("/compras", async (req, res) => {
 //ACTUALIZA DATOS DE USUARIO
 app.put("/usuario/:id", async (req, res) => {
     try{
-        const { id } = req.params
+        const { usuarioid } = req.params
         const { nombre, direccion, password } = req.query
-        await modificarUsuario(nombre, direccion, password, id)
+        await modificarUsuario(nombre, direccion, password, usuarioid)
         res.send("Usuario modificado con éxito")
     } catch (error) {
         res.status(500).send(error)

@@ -1,18 +1,13 @@
 import React from "react";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { useState } from "react";
+import { useState, useContext, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/estilos.css";
 import styled from "styled-components";
+import ContextUser from "../contextUsuario";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -58,37 +53,34 @@ const CustomTextField = styled(TextField)({
 
 const EditarPerfilComponent = () => {
   const navigate = useNavigate();
-  const [nuevoNombre, setNuevoNombre] = useState("");
-  const [nuevoApellido, setNuevoApellido] = useState("");
-  const [nuevoEmail, setNuevoEmail] = useState("");
-  const [nuevaDireccion, setNuevaDireccion] = useState("");
-  const [nuevoPassword, setNuevoPassword] = useState("");
 
-  const registroUsuario = async () => {
-    const nombreCompleto = nuevoNombre + " " + nuevoApellido;
+  const { usuario } = useContext(ContextUser);
+  const [editarNombre, setEditarNombre] = useState("");
+  const [editarDireccion, setEditarDireccion] = useState("");
+  const [editarPassword, setEditarPassword] = useState("");
 
-    const usuarioNuevo = {
-      nombre: nombreCompleto,
-      email: nuevoEmail,
-      direccion: nuevaDireccion,
-      password: nuevoPassword,
-    };
+
+  useEffect(() => {
+    setEditarNombre(usuario[0].nombre)
+    setEditarDireccion(usuario[0].direccion)
+  });
+
+  const editarUsuario = async () => {
+
+    const datos = usuario[0].usuarioid
 
     try {
-      const response = await fetch("http://localhost:3000/usuarios", {
-        method: "POST", // or 'PUT'
+      const response = await fetch(`http://localhost:3000/usuario/${datos}?nombre=${editarNombre}&direccion=${editarDireccion}&password=${editarPassword}`, {
+        method: "PUT", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(usuarioNuevo),
       });
 
       const result = await response;
-      console.log(result);
 
       if (result.ok) {
-        alert("Usuario registrado con éxito 😀");
-        navigate("/login");
+        navigate("/formularioexito");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -121,66 +113,48 @@ const EditarPerfilComponent = () => {
               <CustomTextField
                 autoComplete="given-name"
                 name="nombre"
-                required
                 fullWidth
                 id="nombre"
-                label="Nombre"
+                label={usuario[0].nombre}
                 autoFocus
-                value={nuevoNombre}
-                onChange={({ target }) => setNuevoNombre(target.value)}
-                size="small"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <CustomTextField
-                required
-                fullWidth
-                id="apellido"
-                label="Apellido"
-                name="apellido"
-                autoComplete="family-name"
-                value={nuevoApellido}
-                onChange={({ target }) => setNuevoApellido(target.value)}
+                value={editarNombre}
+                onChange={({ target }) => setEditarNombre(target.value)}
                 size="small"
               />
             </Grid>
             <Grid item xs={12}>
               <CustomTextField
-                required
                 fullWidth
                 id="email"
-                label="Email"
+                label="Email al ser tu Usuario no puede ser cambiado"
                 name="email"
                 autoComplete="email"
-                value={nuevoEmail}
-                onChange={({ target }) => setNuevoEmail(target.value)}
+                value={usuario[0].email}
                 size="small"
               />
             </Grid>
             <Grid item xs={12}>
               <CustomTextField
-                required
                 fullWidth
                 id="direccion"
-                label="Dirección"
+                label={usuario[0].direccion}
                 name="direccion"
                 autoComplete="direccion"
-                value={nuevaDireccion}
-                onChange={({ target }) => setNuevaDireccion(target.value)}
+                value={editarDireccion}
+                onChange={({ target }) => setEditarDireccion(target.value)}
                 size="small"
               />
             </Grid>
             <Grid item xs={12}>
               <CustomTextField
-                required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Dejar vacio si no desea cambiar Password"
                 type="password"
                 id="password"
-                autoComplete="new-password"
-                value={nuevoPassword}
-                onChange={({ target }) => setNuevoPassword(target.value)}
+                autoComplete="Dejar vacio si no desea cambiar Password"
+                value={editarPassword}
+                onChange={({ target }) => setEditarPassword(target.value)}
                 size="small"
               />
             </Grid>
@@ -190,7 +164,7 @@ const EditarPerfilComponent = () => {
             fullWidth
             variant="contained"
             sx={{ mt: 4, mb: 2 }}
-            onClick={registroUsuario}
+            onClick={editarUsuario}
           >
             Guardar cambios
           </CustomButton>
