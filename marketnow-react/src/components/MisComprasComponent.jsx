@@ -53,7 +53,7 @@ const MisComprasComponent = () => {
               borderBottomLeftRadius: 40,
               p: 1,
               minWidth: 300,
-              minHeight: 350,
+              minHeight: 250,
               width: "90%",
               height: "fit-content",
               marginBottom: "80px"

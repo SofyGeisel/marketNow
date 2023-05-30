@@ -5,24 +5,9 @@ import NavbarVPrivada from "../components/NavbarVPrivada";
 import Footer from "../components/Footer";
 import SideMenu from "../components/sidemenu";
 import TextField from "@mui/material/TextField";
-import { Button, Container} from "@mui/material";
+import { Button, Container, Box} from "@mui/material";
 import ContextUser from '../contextUsuario';
 import { useNavigate } from "react-router-dom";
-
-const ContainerAddProducto = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  height: auto;
-  min-height: 300px;
-  background-color: white;
-  border-top-right-radius: 40px;
-  border-bottom-left-radius: 40px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-`;
 
 const ContainerTextField = styled.div`
   display: flex;
@@ -152,7 +137,17 @@ const Agregarproducto = () => {
         <SideMenu />
         <div className="Container_Perfil">
         <div className='titulo'>AGREGAR PRODUCTO</div>
-        <ContainerAddProducto>
+        <Box sx={{
+          bgcolor: "background.paper",
+          boxShadow: 1,
+          p: 1,
+          minWidth: 300,
+          minHeight: 250,
+          width: "90%",
+          height: "auto",
+          borderTopRightRadius: 40,
+          borderBottomLeftRadius: 40,
+        }}>
             <ContainerTextField>
               <CustomTextField
                 autoComplete="given-name"
@@ -201,7 +196,7 @@ const Agregarproducto = () => {
                 </CustomButton>
               </ButtonContainer>
             </ContainerTextField>
-        </ContainerAddProducto> 
+        </Box> 
         </div>
       </Container>
       
