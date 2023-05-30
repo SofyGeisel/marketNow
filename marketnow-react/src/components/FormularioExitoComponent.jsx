@@ -2,13 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Button, Box, Typography, Grid } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 
-=======
-import ContextCarrito from "../contextCarrito";
-import { useContext, useEffect, useState } from "react";
-import ItemMisCompras from './ItemMisCompras';
->>>>>>> parent of e6729d7 (Revert "Merge branch 'dev-mg' into devSG")
 
 const CustomButton = styled(Button)`
     && {
@@ -28,12 +22,7 @@ const CustomButton = styled(Button)`
 
 const FormularioExitoComponent = () => {
 
-<<<<<<< HEAD
 
-=======
-  const { carrito, total } = useContext(ContextCarrito)
-  const [compras, setCompras] = useState([])
->>>>>>> parent of e6729d7 (Revert "Merge branch 'dev-mg' into devSG")
   const navigate = useNavigate()
   const volver = () => navigate(`/tienda`);
 
