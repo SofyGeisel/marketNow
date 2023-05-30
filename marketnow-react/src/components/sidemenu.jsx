@@ -9,7 +9,6 @@ import Divider from '@mui/material/Divider';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
@@ -57,7 +56,6 @@ const SideMenu = (props) => {
   const perfil = () => navigate(`/miperfil`)
   const misCompras = () => navigate(`/compras`)
   const misFavoritos = () => navigate(`/misfavoritos`)
-  const misProductos = () => navigate(`/misproductos`)
   const agregarProducto = () => navigate(`/agregarproducto`)
 
   const { carrito } = useContext(ContextCarrito)
@@ -160,22 +158,6 @@ const SideMenu = (props) => {
           <FavoriteIcon style={{ color: 'black' }}/>
         </ListItemIcon>
         <ListItemText primary="Mis Favoritos" primaryTypographyProps={{
-    style: {
-      color: 'black', 
-    },
-  }} />
-      </ListItemButton>
-
-      <ListItemButton
-        selected={selectedIndex === 0}
-        onClick={(event) => {
-          handleListItemClick(event, 1)
-          misProductos()}}
-      >
-        <ListItemIcon>
-          <BusinessCenterIcon style={{ color: 'black' }}/>
-        </ListItemIcon>
-        <ListItemText primary="Mis Productos" primaryTypographyProps={{
     style: {
       color: 'black', 
     },

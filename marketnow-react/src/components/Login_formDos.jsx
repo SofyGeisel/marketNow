@@ -60,7 +60,7 @@ const Login_form = () => {
   const navigate = useNavigate();
   const [email, setEmailLocal] = useState("");
   const [password, setPasswordLocal] = useState("");
-  const [checkLogin, setCheckLogin] = useState(true)
+  const [checkLogin, setCheckLogin] = useState(true);
 
   const iniciarSesion = async () => {
     const usuarioprevio = {

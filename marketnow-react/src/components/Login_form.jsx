@@ -83,9 +83,11 @@ const Login_form = () => {
       if (result.ok) {
         localStorage.setItem("token", token);
         navigate("/tienda");
+        
       }
     } catch (error) {
       console.error("Error:", error);
+
     }
   };
 

@@ -83,6 +83,7 @@ const Agregarproducto = () => {
     const file = e.target.files[0]
     const base64 = await convertBase64(file)
     setImagen(base64)
+    console.log(base64)
   }
 
   const convertBase64 = (file) => {
@@ -113,6 +114,7 @@ const Agregarproducto = () => {
       usuarioid: datos,
     };
 
+    const productotemporal = JSON.stringify(producto);
     try {
       const response = await fetch("http://localhost:3000/producto", {
         method: "POST", // or 'PUT'
@@ -123,6 +125,7 @@ const Agregarproducto = () => {
       });
 
       const result = await response;
+      const token = await response.text();
 
       if (result.ok) {
 
