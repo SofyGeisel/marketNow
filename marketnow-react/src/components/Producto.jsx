@@ -74,15 +74,13 @@ const TituloyDescripcion = styled.div`
 const Titulo = styled.h3`
   font-size: 16px;
   margin-top: 2px;
-  margin-bottom: 8px;
-  
-  `;
+  margin-bottom: 5px;
+  text-align: left;
+`;
 const Descripcion = styled.h4`
   font-size: 12px;
   font-weight: initial;
   text-align: center;
-  margin-bottom: 8px;
-  
 `;
 const Precio = styled.h4`
   font-size: 16px;
