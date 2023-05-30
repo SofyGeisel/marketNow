@@ -40,11 +40,11 @@ foreign key (productoid)
 references productos(productoid)
 );
 
-INSERT INTO usuarios(nombre, mail, direccion, password)
+INSERT INTO usuarios(nombre, email, direccion, password)
 VALUES ('Marco Gallardo', 'mgallardo@linkmg.cl', 'Rio Tolten 2487', '$2a$10$5AGI1DNzexxLWMBK1h5IU.arUwetFuTZTibHL/AlUxy8YG1xaXXZe');
-INSERT INTO usuarios(nombre, mail, direccion, password)
+INSERT INTO usuarios(nombre, email, direccion, password)
 VALUES ('Sofia Figueroa', 'sofiafigueroageisel@gmail.com', 'Viña del mar', '$2a$10$5AGI1DNzexxLWMBK1h5IU.arUwetFuTZTibHL/AlUxy8YG1xaXXZe');
-INSERT INTO usuarios(nombre, mail, direccion, password)
+INSERT INTO usuarios(nombre, email, direccion, password)
 VALUES ('Rodrigo Alarcon', 'rodalarcon@gmail.com', 'Santiago', '$2a$10$5AGI1DNzexxLWMBK1h5IU.arUwetFuTZTibHL/AlUxy8YG1xaXXZe');
 
 
