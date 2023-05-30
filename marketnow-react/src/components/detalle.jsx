@@ -59,7 +59,7 @@ const Detalle = () => {
             justifyContent: "center",
             alignItems: "center",
             minWidth: 230,
-            minHeight: 370,
+            minHeight: 300,
             width: "90%",
           }}
         >
