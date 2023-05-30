@@ -119,7 +119,7 @@ const EditarPerfilComponent = () => {
               <CustomTextField
                 fullWidth
                 id="email"
-                label="Email al ser tu Usuario no puede ser cambiado"
+                label="Email (al ser tu Usuario no puede ser cambiado)"
                 name="email"
                 autoComplete="email"
                 value={usuario[0].email}
@@ -152,11 +152,11 @@ const EditarPerfilComponent = () => {
               />
             </Grid>
           </Grid>
-          <Grid item xs={4} sx={{ display: "flex", justifyContent: "center", margin:3 }} >
+          <Grid item xs={4} sx={{ display: "flex", justifyContent: "center", margin:1 }} >
           <CustomButton
             fullWidth
             variant="contained"
-            sx={{ mt: 4, mb: 2 }}
+            sx={{ mt: 2, mb: 2 }}
             onClick={editarUsuario}
           >
             Guardar cambios
